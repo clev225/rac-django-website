@@ -11,48 +11,6 @@ body.fade-in {
   opacity: 1;
 }
 
-.navbar {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand img {
-  height: 30px;
-}
-
-/* NAVBAR LINKS TEXTS */
-.navbar .navbar-nav .nav-link {
-  color: #515354 ; /* Change this to match the blue from the image */
-  padding: 0 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: #0056b3; /* Darker shade for hover and active state */
-}
-
-/* Underline animation */
-.navbar .navbar-nav .nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #3985c0;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.navbar .navbar-nav .nav-link:hover::after,
-.navbar .navbar-nav .nav-link.active::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
 .hero-section {
   min-height: 100vh;
   background: url('/static/images/landing-bg.png') no-repeat center center;
@@ -101,11 +59,12 @@ body.fade-in {
 
 .cta-button {
   background-color: #356d98;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
   color: #fff;
+  border: none;
+  padding: 15px 30px; /* Increase padding to make the button bigger */
+  border-radius: 5px;
   font-weight: bold;
+  font-size: 18px; /* Increase font size */
   transition: background-color 0.3s ease;
 }
 
@@ -118,15 +77,20 @@ body.fade-in {
   bottom: 20px;
   right: 20px;
   background: #fff;
-  border-radius: 50%;
+  border-radius: 80%;
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
   cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+.faq-icon i {
+  color: #3985c0; /* Set the color of the icon */
+  font-size: 24px; /* Adjust the size of the icon if needed */
 }
 
 .faq-icon:hover {
