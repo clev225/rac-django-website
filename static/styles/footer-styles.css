@@ -1,49 +1,65 @@
 /* FOOTER */
 
 .footer {
-    padding: 20px 40px; 
-  }
-  
-  .footer .container {
-    max-width: 100%; 
-    padding: 0 20px;
-  }
-  
-  /* Left Side: Logo and Tagline */
-  .footer .col-md-4:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  
+  padding: 20px 10px; /* Reduced padding for smaller screens */
+  background-color: #1c1c1c; /* Dark background for footer */
+}
+
+.footer .container {
+  max-width: 100%; /* Ensure full width on all devices */
+  padding: 0 10px; /* Reduced padding for smaller screens */
+}
+
+.footer .row {
+  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+}
+
+/* Left Side: Logo and Tagline */
+.footer .col-md-4:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 200px; /* Default logo size */
+}
+
+.footer p {
+  font-size: 16px; /* Default font size */
+  margin-bottom: 0;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.8); /* Lighter text for better contrast */
+}
+
+@media (max-width: 768px) {
   .footer-logo {
-    width: 250px;
+      width: 150px; /* Smaller logo size for mobile */
   }
-  
+
   .footer p {
-    font-size: 16px;
-    margin-bottom: 0;
-    text-align: left;
+      font-size: 14px; /* Smaller font size for mobile */
   }
-  
+}
+
 /* Center: Company Address with Google Map */
-.footer .col-md-4 {
+.footer .col-md-4:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
   text-align: center;
-  padding: 25px;
+  padding: 15px; /* Reduced padding for smaller screens */
   background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 30px;
+  margin-left: 0; /* Remove left margin for stacking */
 }
 
 .footer h3 {
   color: white;
-  font-size: 22px;
+  font-size: 22px; /* Default heading size */
   font-weight: bold;
   margin-bottom: 14px;
   text-transform: uppercase;
@@ -51,62 +67,102 @@
 
 .footer p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
+  font-size: 16px; /* Default paragraph size */
   margin-bottom: 10px;
 }
 
-.footer iframe {
+
+.footer .map-container {
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  height: 200px;
+  padding-bottom: 56.25%; /* Aspect ratio (16:9) */
+  height: 0;
+  overflow: hidden;
   border-radius: 12px;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.footer .map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer h3 {
+      font-size: 18px; /* Smaller heading size for mobile */
+  }
+
+  .footer iframe {
+      height: 120px; /* Smaller height for mobile */
+  }
 }
 
 /* Contact Box Styling */
 .contact-box {
   background-color: #0b1e3c;
   color: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 14px;
-  text-align: center;
+  text-align: left; /* Align content to the left */
   max-width: 400px;
-  margin-left: 30px;
+  margin-left: 0; /* Remove left margin for stacking */
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .contact-box {
+      max-width: 100%; /* Full width for mobile */
+      padding: 15px; /* Reduced padding for smaller screens */
+  }
 }
 
 /* Header Styling */
 .contact-header {
   background-color: #25377f;
-  padding: 16px;
+  padding: 10px 20px;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
+  justify-content: flex-start; /* Align items to the start (left) */
+  gap: 10px;
+}
+
+.contact-header i {
+  font-size: 24px;
 }
 
 .contact-header h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px; /* Default heading size */
   font-weight: bold;
   text-transform: uppercase;
+  color: white; /* Text color for better contrast */
+}
+
+@media (max-width: 768px) {
+  .contact-header h3 {
+      font-size: 16px; /* Smaller heading size for mobile */
+  }
 }
 
 /* Contact Info Section */
 .contact-content {
-  padding: 20px 0;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 20px;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .info-icon {
@@ -116,14 +172,14 @@
 
 .contact-item p {
   margin: 0;
-  font-size: 16px;
+  font-size: 16px; /* Default font size */
   color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
 
 .contact-item a, .contact-item span {
   color: white;
-  font-size: 16px;
+  font-size: 16px; /* Default font size */
   text-decoration: none;
   display: block;
   transition: color 0.3s ease-in-out;
@@ -131,5 +187,32 @@
 
 .contact-item a:hover {
   text-decoration: underline;
-  color: #fbbf24;
+  color: #fbbf24; /* Highlight color on hover */
+}
+
+@media (max-width: 768px) {
+  .contact-item {
+      gap: 8px; /* Reduced gap for smaller screens */
+  }
+
+  .info-icon {
+      width: 20px;
+      height: 20px;
+  }
+
+  .contact-item p {
+      font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  .contact-item a {
+      font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .footer .col-md-4 {
+      flex: 1 1 100%; /* Each column takes full width */
+      margin-bottom: 20px; /* Add spacing between stacked items */
+  }
 }

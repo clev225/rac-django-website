@@ -72,27 +72,3 @@ body.fade-in {
   background-color: #03458d;
 }
 
-.faq-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #fff;
-  border-radius: 80%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.faq-icon i {
-  color: #3985c0; /* Set the color of the icon */
-  font-size: 24px; /* Adjust the size of the icon if needed */
-}
-
-.faq-icon:hover {
-  transform: scale(1.1);
-}

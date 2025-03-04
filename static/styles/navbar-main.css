@@ -1,0 +1,56 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img.navbar-logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Set the color of the nav-links with increased specificity */
+.navbar .navbar-nav .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.navbar-popover .modal-content ul li a {
+    color: #22282f;
+    position: relative;
+    display: inline-block;
+}
+
+/* Optional: Set hover and active states for nav-links */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #0056b3;
+}
+
+/* Underline animation */
+.navbar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #3985c0;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navbar .navbar-nav .nav-link:hover::after,
+.navbar .navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Show navbar-nav on larger screens */
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        display: flex;
+        align-items: center;
+    }
+}
