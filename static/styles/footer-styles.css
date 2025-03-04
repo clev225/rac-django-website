@@ -1,0 +1,135 @@
+/* FOOTER */
+
+.footer {
+    padding: 20px 40px; 
+  }
+  
+  .footer .container {
+    max-width: 100%; 
+    padding: 0 20px;
+  }
+  
+  /* Left Side: Logo and Tagline */
+  .footer .col-md-4:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .footer-logo {
+    width: 250px;
+  }
+  
+  .footer p {
+    font-size: 16px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  
+/* Center: Company Address with Google Map */
+.footer .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  text-align: center;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 30px;
+}
+
+.footer h3 {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Box Styling */
+.contact-box {
+  background-color: #0b1e3c;
+  color: white;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 400px;
+  margin-left: 30px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+.contact-header {
+  background-color: #25377f;
+  padding: 16px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.contact-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Contact Info Section */
+.contact-content {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+}
+
+.info-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.contact-item a, .contact-item span {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease-in-out;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+  color: #fbbf24;
+}
