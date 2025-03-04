@@ -23,17 +23,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         // Function to show the popover
                         function showPopover() {
-                            navbarPopover.classList.add('show');
+                            navbarPopover.style.display = 'flex';
+                            requestAnimationFrame(() => {
+                                navbarPopover.classList.add('show');
+                            });
                         }
 
                         // Function to hide the popover
                         function hidePopover() {
                             navbarPopover.classList.remove('show');
+                            navbarPopover.addEventListener('transitionend', function handler() {
+                                navbarPopover.style.display = 'none';
+                                navbarPopover.removeEventListener('transitionend', handler);
+                            });
                         }
 
+                        // Initially hide the popover
+                        navbarPopover.style.display = 'none';
+
                         navbarToggler.addEventListener('click', function(event) {
-                            event.stopPropagation(); // Prevent the click from propagating to the window
-                            if (!navbarPopover.classList.contains('show')) {
+                            event.stopPropagation();
+                            if (navbarPopover.style.display === 'none') {
                                 showPopover();
                             } else {
                                 hidePopover();
