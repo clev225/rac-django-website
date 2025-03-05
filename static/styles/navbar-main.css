@@ -1,6 +1,7 @@
 .navbar {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #3985c0;
 }
 
 .navbar-brand img.navbar-logo {
@@ -9,16 +10,24 @@
 }
 
 /* Set the color of the nav-links with increased specificity */
+.navbar .navbar-nav .nav-item {
+    margin: 0 10px;  /* Added new class for spacing */
+}
+
 .navbar .navbar-nav .nav-link {
+    color: #356d98 !important;
     position: relative;
     display: inline-block;
-    padding: 0 15px;
+    padding: 0 25px;
+    font-size: 1.1rem;  /* Added font size */
 }
 
 .navbar-popover .modal-content ul li a {
-    color: #22282f;
+    color: #356d98;
     position: relative;
     display: inline-block;
+    padding: 0 25px;
+    font-size: 1.1rem;  /* Added matching font size */
 }
 
 /* Optional: Set hover and active states for nav-links */
