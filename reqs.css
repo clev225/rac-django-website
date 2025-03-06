@@ -21,9 +21,12 @@ body {
     color: #fff;
     background-color: #2d5f86;
     padding: 15px 25px;
-    margin: 0;
+    margin: 0 auto; /* Center the title */
     font-weight: 600;
     border-radius: 4px;
+    display: inline-block; /* Makes the width fit the content */
+    width: 50%; /* Adjust as needed */
+    max-width: 400px; 
 }
 
 /* Requirements Container */
