@@ -250,3 +250,97 @@ body.fade-in {
         height: 300px;
     }
 }
+
+/* Values, Mission, and Vision Section */
+.values-section {
+    background-color: white;
+}
+
+/* Section Titles */
+.section-title {
+    background-color: #356d98;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+/* Core Values Card */
+.values-card {
+    background-color: #ffffff;
+    padding: 2rem;
+}
+
+/* Individual Value Items */
+.value-item {
+    margin-bottom: 1.5rem;
+}
+
+.value-title {
+    color: #356d98;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.value-text {
+    color: #356d98;
+    line-height: 1.6;
+}
+
+/* Mission and Vision Cards */
+.mission-card, .vision-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Mission and Vision Text */
+.mission-text, .vision-text {
+    color: #356d98;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .value-title {
+        font-size: 1.1rem;
+    }
+
+    .value-text, .mission-text, .vision-text {
+        font-size: 0.95rem;
+    }
+
+    .values-card {
+        padding: 1.5rem;
+    }
+
+    .mission-card, .vision-card {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .values-card {
+        padding: 1.25rem;
+    }
+
+    /* Stack elements vertically for smaller screens */
+    .row {
+        flex-direction: column;
+    }
+
+    .col-lg-7, .col-lg-5 {
+        width: 100%;
+    }
+}
