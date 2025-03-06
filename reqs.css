@@ -76,7 +76,6 @@ body {
     background: #2d5f86;
     border-radius: 4px;
 }
-
 .requirements-container::-webkit-scrollbar-thumb:hover {
     background: #1a4a6e;
 }
@@ -87,7 +86,6 @@ body {
     padding-bottom: 0px;
     margin-bottom: 0; /* Remove space between containers */
 }
-
 .requirement-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -96,7 +94,6 @@ body {
     display: flex;
     align-items: center;
 }
-
 .number {
     background-color: #2d5f86;
     color: #fff;
@@ -109,7 +106,6 @@ body {
     margin-right: 15px;
     font-size: 1rem;
 }
-
 /* List Items */
 .requirements-list ul li {
     margin-bottom: 8px;
@@ -119,7 +115,6 @@ body {
     line-height: 1.5;
     font-size: 18px;
 }
-
 .requirements-list ul li::before {
     content: "•";
     position: absolute;
@@ -171,4 +166,110 @@ body {
     .requirement-item {
         padding: 15px;
     }
+}
+/* Business Cards Container */
+.business-cards-container {
+    display: flex;
+    flex-wrap: nowrap;  /* Prevent wrapping */
+    gap: 20px;
+    justify-content: space-between;  /* Distribute cards evenly */
+    margin: 30px auto;
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+    padding: 10px 0;  /* Add some padding for scrollbar */
+}
+.business-card {
+    background-color: #fff;
+    border: 2px solid #2d5f86;
+    border-radius: 4px;
+    padding: 25px;
+    min-width: 600px;  /* Set minimum width instead of max-width */
+    flex: 0 0 auto;  /* Prevent cards from shrinking */
+}
+.business-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+.business-cards-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+.business-cards-container::-webkit-scrollbar-thumb {
+    background: #2d5f86;
+    border-radius: 4px;
+}
+.business-cards-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.business-card {
+    min-width: 100%;
+    flex: 0 0 auto;
+}
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2d5f86;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+}
+.prev-arrow {
+    left: 0;
+}
+.next-arrow {
+    right: 0;
+}
+.slide-arrow:hover {
+    background: #1a4a6e;
+}
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #2d5f86;
+}
+.profile-info {
+    flex-grow: 1;
+}
+.profile-name {
+    color: #2d5f86;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.profile-title {
+    color: #2d5f86;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #2d5f86;
+}
+.contact-item i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d5f86;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
 }
