@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    position: relative; /* Needed for positioning the icon inside */
+}
+
+.search-input {
+    width: 250px;
+    padding: 10px 40px 10px 15px; /* Extra padding to the right for the icon */
+    border: 2px solid #356d98;
+    border-radius: 0px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Search Button (Icon Inside Input) */
+.search-button {
+    position: absolute;
+    right: 10px; /* Position it inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #356d98;
+    font-size: 18px;
+}
+
+.search-button i {
+    color: #356d98;
+}
+
+/* FAQ Container */
+.faq-container {
+    padding: 10px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* FAQ Title */
+.faq-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #356d98;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* FAQ Item */
+.faq-item {
+    margin-bottom: 15px;
+}
+
+/* FAQ Question */
+.faq-question {
+    font-size: 18px;
+    font-weight: bold;
+    color: #356d98;
+}
+
+/* FAQ Answer */
+.faq-answer {
+    font-size: 16px;
+    color: #356d98;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-container {
+        width: 90%;
+    }
+
+    .faq-title {
+        font-size: 22px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+}

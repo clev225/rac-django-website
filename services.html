@@ -7,17 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="/static/styles/services-style.css">
+    <!-- Added CSS for components -->
+    <link rel="stylesheet" href="/static/styles/faq.css">
+    <link rel="stylesheet" href="static/styles/navbar-main.css">
+    <link rel="stylesheet" href="static/styles/navbar-popover.css">
+
 </head>
 
 <body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Search Bar -->
     <div class="search-container">
         <input type="text" class="search-input" placeholder="Search...">
         <button class="search-button"><i class="fas fa-search"></i></button>
     </div>
-
 
     <div class="services-container">
         <div class="service-row">
@@ -29,14 +36,11 @@
             </div>
         </div>
     
-        <p class="service-text">
-            We offer comprehensive payroll management services 
-            that encompass accurate and timely processing of employee 
-            salaries, benefits administration, tax deductions, and 
-            compliance with relevant labor regulations. Our goal is 
-            to simplify the payroll process, reduce administrative burdens,
-            and ensure error-free operations.
-        </p>
+        <ul class="service-text">
+            <li>Accurate and timely salary processing.</li>
+            <li>Benefits administration.</li>
+            <li>Tax deductions and compliance with labor regulations.</li>
+        </ul>
     
         <div class="service-row">
             <div class="service-box">
@@ -47,18 +51,11 @@
             </div>
         </div>
     
-        <p class="service-text">
-            Starting a business can be a complex process,
-            involving numerous legal requirements and
-            documentation. Our team assists aspiring
-            entrepreneurs in navigating the business
-            registration process, ensuring compliance with
-            governmental regulations. We provide guidance
-            on choosing the appropriate business structure
-            and obtaining the necessary permits and
-            licenses.
-        </p>
-
+        <ul class="service-text">
+            <li>Navigating legal requirements and documentation.</li>
+            <li>Ensuring compliance with government regulations.</li>
+        </ul>
+    
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Tax Compliance</div>
@@ -68,18 +65,12 @@
             </div>
         </div>
     
-        <p class="service-text">
-            Staying up-to-date with ever-changing tax
-            laws and regulations can be a challenge for
-            businesses and individuals. Our team offer
-            specialized services to ensure compliance,
-            minimize tax liabilities, and maximize
-            deductions. We assist in tax planning,
-            preparation, filing, and represent clients in
-            dealings with tax authorities, ensuring
-            adherence to legal obligations.
-        </p>
-
+        <ul class="service-text">
+            <li>Keeping up with changing tax laws and regulations.</li>
+            <li>Tax planning and preparation.</li>
+            <li>Tax filing and compliance.</li>
+        </ul>
+    
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Auditing Services</div>
@@ -89,20 +80,34 @@
             </div>
         </div>
     
-        <p class="service-text">
-            Our proficient auditors conduct comprehensive
-            audits to assess financial statements and
-            internal controls, ensuring accuracy and
-            compliance. We provide valuable insights that
-            help businesses identify areas for
-            improvement, mitigate risks, and enhance
-            financial transparency.
-        </p>
-        
+        <ul class="service-text">
+            <li>Assessment of financial statements and internal controls.</li>
+            <li>Ensuring accuracy and compliance.</li>
+            <li>Identify areas for improvement.</li>
+            <li>Mitigate financial risks.</li>
+            <li>Enhance financial transparency.</li>
+        </ul>
     </div>
 
+    <!-- FAQ Icon -->
+    <div class="faq-icon" id="faqIcon">
+        <i class="fas fa-question-circle"></i>
+    </div>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder" class="w-100"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Component JavaScript files -->
+    <script src="/static/scripts/scripts.js"></script>
+    <script src="/static/scripts/navbar-main.js"></script>
+    <script src="/static/scripts/footer.js"></script>
+    <script src="/static/scripts/popover.js"></script>
+    <script src="/static/scripts/faq-script.js"></script>
 
 </body>
-</html>
-
 </html>

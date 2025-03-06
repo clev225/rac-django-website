@@ -51,12 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
 
                         // Close the modal when clicking outside of it
-                        window.addEventListener('click', function(event) {
-                            if (!navbarPopover.contains(event.target) && event.target !== navbarToggler) {
+                        document.addEventListener('click', function(event) {
+                            if (navbarPopover.style.display !== 'none' && 
+                                !navbarPopover.contains(event.target) && 
+                                !navbarToggler.contains(event.target)) {
                                 hidePopover();
                             }
                         });
-
                         // Close the modal when clicking the close button
                         closeBtn.addEventListener('click', function() {
                             hidePopover();

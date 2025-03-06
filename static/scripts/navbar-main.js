@@ -5,7 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.open('GET', 'components/navbar-main.html', true);
         xhr.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
-                document.getElementById('navbar-placeholder').innerHTML = this.responseText;
+                var navbarPlaceholder = document.getElementById('navbar-placeholder');
+                navbarPlaceholder.innerHTML = this.responseText;
+
+                // Set active class based on current page
+                const currentPage = window.location.pathname.split('/').pop();
+                const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+                navLinks.forEach(link => {
+                    const linkPage = link.getAttribute('href');
+                    if (linkPage === currentPage || 
+                        (currentPage === '' && linkPage === 'index.html') ||
+                        (currentPage === '/' && linkPage === 'index.html')) {
+                        link.classList.add('active');
+                        link.style.fontWeight = 'bold';
+                    }
+                });
 
                 // Load the modal component
                 var xhrModal = new XMLHttpRequest();
@@ -68,4 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         xhr.send();
     })();
+
+    // jQuery alternative method for loading the navbar
+    $(function() {
+        $("#navbar-placeholder").load("navbar-main.html");
+    });
 });

@@ -65,7 +65,7 @@ body {
 /* Service Box */
 .service-box {
     background: #356d98;
-    padding: 15px 30px;
+    padding: 10px 20px;
     color: white;
     border-radius: 0px;
     flex-grow: 1;
@@ -86,7 +86,7 @@ body {
     background: #356d98;
     color: white;
     border: none;
-    padding: 17px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 0px;
@@ -105,4 +105,10 @@ body {
     color: #356d98;
     margin-right: 250px;
     margin-left: 20px;
+    list-style-type: disc; /* Default bullet style */
+    padding-left: 20px; /* Adds spacing */
+}
+
+.service-text li {
+    margin-bottom: 4px; /* Space between bullet points */
 }
