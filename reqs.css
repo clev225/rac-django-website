@@ -3,6 +3,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
     color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Back Button */
@@ -21,6 +24,7 @@ body {
     color: #fff;
     background-color: #2d5f86;
     padding: 15px 25px;
+    text-align: center;
     margin: 0 auto; /* Center the title */
     font-weight: 600;
     border-radius: 4px;
@@ -38,7 +42,8 @@ body {
 
 /* Requirement Items */
 .requirement-item {
-    padding: 20px;
+    padding: 30px;
+    margin-bottom: 0; /* Remove space between containers */
 }
 
 .requirement-title {
@@ -65,11 +70,24 @@ body {
 
 /* List Items */
 .requirements-list ul li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    margin-top: 8px;
     position: relative;
-    padding-left: 20px;
+    padding-left: 20px;  /* Add padding for bullet points */
+    line-height: 1.5;
 }
 
+.requirements-list ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d5f86;
+    margin-right: 10px;  /* Add space between bullet and text */
+}
+.requirements-list ul {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .requirements-list ul li::before {
     content: "•";
     position: absolute;
