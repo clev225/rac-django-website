@@ -1,16 +1,17 @@
 /* FOOTER */
 
 .footer {
-  padding: 15px 10px; /* Reduced from 20px to 15px */
+  padding: 15px 10px;
+  background-color: white;
 }
 
 .footer .container {
-  max-width: 100%; /* Ensure full width on all devices */
-  padding: 0 10px; /* Reduced padding for smaller screens */
+  max-width: 100%;
+  padding: 0 10px;
 }
 
 .footer .row {
-  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+  flex-wrap: wrap;
 }
 
 /* Left Side: Logo and Tagline */
@@ -22,23 +23,23 @@
 }
 
 .footer-logo {
-  width: 200px; /* Default logo size */
+  width: 200px;
 }
 
 .footer p {
-  font-size: 16px; /* Default font size */
+  font-size: 16px;
   margin-bottom: 0;
   text-align: left;
-  color: rgba(255, 255, 255, 0.8); /* Lighter text for better contrast */
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
   .footer-logo {
-      width: 150px; /* Smaller logo size for mobile */
+      width: 150px;
   }
 
   .footer p {
-      font-size: 14px; /* Smaller font size for mobile */
+      font-size: 14px;
   }
 }
 
@@ -49,16 +50,16 @@
   justify-content: center;
   align-items: stretch;
   text-align: center;
-  padding: 15px; /* Reduced padding for smaller screens */
+  padding: 15px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 0; /* Remove left margin for stacking */
+  margin-left: 0;
 }
 
 .footer h3 {
   color: white;
-  font-size: 22px; /* Default heading size */
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 14px;
   text-transform: uppercase;
@@ -66,7 +67,7 @@
 
 .footer p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px; /* Default paragraph size */
+  font-size: 16px;
   margin-bottom: 10px;
 }
 
@@ -74,7 +75,7 @@
 .footer .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 40%; /* Reduced from 56.25% to 40% for a shorter height */
+  padding-bottom: 40%;
   height: 0;
   overflow: hidden;
   border-radius: 12px;
@@ -93,18 +94,18 @@
 
 @media (max-width: 768px) {
   .footer h3 {
-      font-size: 18px; /* Smaller heading size for mobile */
+      font-size: 18px;
   }
   .footer iframe {
-      height: 100px; /* Reduced from 120px */
+      height: 100px;
   }
   
   .contact-box {
-      padding: 12px; /* Reduced from 15px */
+      padding: 12px;
   }
   
   .footer .col-md-4 {
-      margin-bottom: 15px; /* Reduced from 20px */
+      margin-bottom: 15px;
   }
 }
 .footer .col-md-4:nth-child(2) {
@@ -113,28 +114,28 @@
   justify-content: center;
   align-items: stretch;
   text-align: center;
-  padding: 15px; /* Reduced padding for smaller screens */
+  padding: 15px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 0; /* Remove left margin for stacking */
+  margin-left: 0;
 }
 .footer h3 {
   color: white;
-  font-size: 22px; /* Default heading size */
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 14px;
   text-transform: uppercase;
 }
 .footer p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 16px; /* Default paragraph size */
+  font-size: 16px;
   margin-bottom: 10px;
 }
 .footer .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 40%; /* Reduced from 56.25% to 40% for a shorter height */
+  padding-bottom: 40%;
   height: 0;
   overflow: hidden;
   border-radius: 12px;
@@ -151,24 +152,24 @@
 }
 @media (max-width: 768px) {
   .footer h3 {
-      font-size: 18px; /* Smaller heading size for mobile */
+      font-size: 18px;
   }
   .footer iframe {
-      height: 100px; /* Reduced from 120px */
+      height: 100px;
   }
   
   .contact-box {
-      padding: 12px; /* Reduced from 15px */
+      padding: 12px;
   }
   
   .footer .col-md-4 {
-      margin-bottom: 15px; /* Reduced from 20px */
+      margin-bottom: 15px;
   }
 }
 .contact-box {
   background-color: #0b1e3c;
   color: white;
-  padding: 15px; /* Reduced from 20px to 15px */
+  padding: 15px;
   border-radius: 14px;
   text-align: left;
   max-width: 400px;
@@ -176,11 +177,11 @@
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
 .contact-header {
-  padding: 8px 15px; /* Reduced from 10px 20px */
+  padding: 8px 15px;
 }
 .contact-content {
-  padding: 8px 0; /* Reduced from 10px */
-  gap: 15px; /* Reduced from 20px */
+  padding: 8px 0;
+  gap: 15px;
 }
 .contact-header {
   background-color: #25377f;
@@ -189,7 +190,7 @@
   border-top-right-radius: 14px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align items to the start (left) */
+  justify-content: flex-start;
   gap: 10px;
 }
 .contact-header i {
@@ -197,14 +198,14 @@
 }
 .contact-header h3 {
   margin: 0;
-  font-size: 18px; /* Default heading size */
+  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: white; /* Text color for better contrast */
+  color: white;
 }
 @media (max-width: 768px) {
   .contact-header h3 {
-      font-size: 16px; /* Smaller heading size for mobile */
+      font-size: 16px;
   }
 }
 /* Contact Info Section */
@@ -225,40 +226,40 @@
 }
 .contact-item p {
   margin: 0;
-  font-size: 16px; /* Default font size */
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
 .contact-item a, .contact-item span {
   color: white;
-  font-size: 16px; /* Default font size */
+  font-size: 16px;
   text-decoration: none;
   display: block;
   transition: color 0.3s ease-in-out;
 }
 .contact-item a:hover {
   text-decoration: underline;
-  color: #fbbf24; /* Highlight color on hover */
+  color: #fbbf24;
 }
 @media (max-width: 768px) {
   .contact-item {
-      gap: 8px; /* Reduced gap for smaller screens */
+      gap: 8px;
   }
   .info-icon {
       width: 20px;
       height: 20px;
   }
   .contact-item p {
-      font-size: 14px; /* Smaller font size for mobile */
+      font-size: 14px;
   }
   .contact-item a {
-      font-size: 14px; /* Smaller font size for mobile */
+      font-size: 14px;
   }
 }
 /* Media Queries for Small Screens */
 @media (max-width: 768px) {
   .footer .col-md-4 {
-      flex: 1 1 100%; /* Each column takes full width */
-      margin-bottom: 20px; /* Add spacing between stacked items */
+      flex: 1 1 100%;
+      margin-bottom: 20px;
   }
 }
