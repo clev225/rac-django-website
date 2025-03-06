@@ -169,21 +169,33 @@ body {
 }
 /* Business Cards Container */
 .business-cards-container {
-    display: flex;
-    flex-wrap: nowrap;  /* Prevent wrapping */
-    gap: 20px;
-    justify-content: space-between;  /* Distribute cards evenly */
+    position: relative;
+    max-width: fit-content;
     margin: 30px auto;
-    overflow-x: auto;  /* Allow horizontal scrolling if needed */
-    padding: 10px 0;  /* Add some padding for scrollbar */
+    overflow: hidden;
 }
+
 .business-card {
     background-color: #fff;
     border: 2px solid #2d5f86;
     border-radius: 4px;
-    padding: 25px;
-    min-width: 600px;  /* Set minimum width instead of max-width */
-    flex: 0 0 auto;  /* Prevent cards from shrinking */
+    padding: 20px;
+    width: auto;  /* Let content determine width */
+    min-width: auto;  /* Remove fixed width */
+    flex: 0 0 auto;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;  /* Slightly reduced for better fit */
+}
+
+/* Remove any fixed widths from profile-info */
+.profile-info {
+    flex-grow: 0;  /* Don't grow beyond content */
+    flex-shrink: 0;  /* Don't shrink */
+    width: auto;
 }
 .business-cards-container::-webkit-scrollbar {
     height: 8px;
