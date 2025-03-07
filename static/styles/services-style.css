@@ -17,6 +17,7 @@ body {
     max-width: 1500px;
     margin-bottom: 20px;
     position: relative;
+    margin-top: 80px;
 }
 
 .search-input {
