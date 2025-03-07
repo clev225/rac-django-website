@@ -37,6 +37,33 @@ body.fade-in {
     width: 100%;
     overflow: hidden;
     height: 500px;
+    position: relative;
+}
+
+.banner-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .banner-image-container {
+        height: auto;
+    }
+    
+    .banner-image-container img {
+        height: auto;
+        object-fit: contain;
+        max-width: 100%;
+    }
+}
+
+.banner-image-container {
+    width: 100%;
+    overflow: hidden;
+    height: 500px;
 }
 
 .banner-image-container img {
@@ -234,7 +261,6 @@ body.fade-in {
     line-height: 1.6;
     font-weight: 400;
 }
-
 .banner-image-container {
     width: 100%;
     overflow: hidden;
@@ -405,7 +431,7 @@ body.fade-in {
 }
 
 .founder-info {
-    padding-top: 25px;
+    padding-top: 20px;
     flex: 1;
 }
 
@@ -426,8 +452,7 @@ body.fade-in {
         width: 100px;  /* Smaller size for mobile */
         height: 100px;
     }
-}
-.founder-card:hover {
+}.founder-card:hover {
     transform: translateY(-5px);
 }
 
