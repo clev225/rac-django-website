@@ -16,18 +16,21 @@
     position: relative;
     display: inline-block;
     padding: 0 15px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+/* Optional: Set hover and active states for nav-links */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #002d5e;
+    transform: scale(1.05);
 }
 
 .navbar-popover .modal-content ul li a {
     color: #356d98;
     position: relative;
     display: inline-block;
-}
-
-/* Optional: Set hover and active states for nav-links */
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: #0056b3;
 }
 
 /* Underline animation */

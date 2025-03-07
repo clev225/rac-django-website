@@ -19,7 +19,9 @@
     position: relative;
     display: inline-block;
     padding: 0 25px;
-    font-size: 1.1rem;  /* Added font size */
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 .navbar-popover .modal-content ul li a {
@@ -27,13 +29,20 @@
     position: relative;
     display: inline-block;
     padding: 0 25px;
-    font-size: 1.1rem;  /* Added matching font size */
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 /* Optional: Set hover and active states for nav-links */
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
     color: #0056b3;
+    transform: scale(1.05);
+}
+
+.navbar-popover .modal-content ul li a:hover {
+    transform: scale(1.05);
 }
 
 /* Underline animation */
