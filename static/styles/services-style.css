@@ -5,7 +5,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     padding: 20px;
 }
@@ -17,22 +16,22 @@ body {
     width: 70%;
     max-width: 1500px;
     margin-bottom: 20px;
-    position: relative; /* Needed for positioning the icon inside */
+    position: relative;
 }
 
 .search-input {
-    width: 250px;
-    padding: 10px 40px 10px 15px; /* Extra padding to the right for the icon */
+    width: 100%;
+    max-width: 250px;
+    padding: 10px 40px 10px 15px;
     border: 2px solid #356d98;
     border-radius: 0px;
     outline: none;
     font-size: 16px;
 }
 
-/* Search Button (Icon Inside Input) */
 .search-button {
     position: absolute;
-    right: 10px; /* Position it inside the input */
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -60,6 +59,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 /* Service Box */
@@ -69,12 +69,15 @@ body {
     color: white;
     border-radius: 0px;
     flex-grow: 1;
+    text-align: center;
+    border-radius: 5px;
 }
 
 /* Service Title */
 .service-title {
     font-size: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 /* Service Button */
@@ -88,8 +91,10 @@ body {
     border: none;
     padding: 12px 20px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     border-radius: 0px;
+    border-radius: 5px;
 }
 
 .get-started:hover {
@@ -100,15 +105,152 @@ body {
 .service-text {
     text-align: left;
     font-size: 15px;
-    color: #333;
-    padding: 10px 0;
     color: #356d98;
     margin-right: 250px;
     margin-left: 20px;
-    list-style-type: disc; /* Default bullet style */
-    padding-left: 20px; /* Adds spacing */
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .service-text li {
-    margin-bottom: 4px; /* Space between bullet points */
+    margin-bottom: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .search-container {
+        justify-content: flex-end;
+        width: 100%;
+    }
+    .services-container {
+        width: 100%;
+    }
+    .service-text {
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .service-row {
+        flex-direction: row;
+        margin-bottom: 5px;
+        align-items: center;
+
+    }
+    
+    /* Service Box */
+    .service-box {
+        padding: 5px 10px;
+        color: white;
+        border-radius: 0px;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    /* Service Title */
+    .service-title {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    /* Service Button */
+    .service-button {
+        margin-left: 20px;
+    }
+    
+    .get-started {
+        background: #356d98;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 0px;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 644px) and (max-height: 611px) {
+    .search-container {
+        max-width: 644px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        transform: none;
+        z-index: 1000;
+    }
+    .search-input {
+        max-width: 300px;
+    }
+    .services-container {
+        width: 100%;
+        max-width: 644px;
+    }
+    .service-text {
+        margin: 0;
+    }
+}
+
+@media (max-width: 433px) {
+    .search-container {
+        padding-right: 10px;
+        top: 10px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+
+    .search-input {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .services-container {
+        width: 100%;
+        padding: 10px;
+        margin-top:10px;
+    }
+
+    .service-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+        gap: 2px;
+    }
+
+    .service-box {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .service-title{
+        font-size: 14px;
+    }
+
+    .service-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .get-started {
+        padding: 8px 12px;
+        font-size: 8px;
+        width: auto;
+    }
+
+    .service-text {
+        font-size: 14px;
+        text-align: left;
+        padding: 5px 15px;
+        width: 100%;
+    }
 }
