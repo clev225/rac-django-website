@@ -167,43 +167,89 @@ body {
         padding: 15px;
     }
 }
+
 /* Business Cards Container */
 .business-cards-container {
-    display: flex;
-    flex-wrap: nowrap;  /* Prevent wrapping */
-    gap: 20px;
-    justify-content: space-between;  /* Distribute cards evenly */
+    position: relative;
+    max-width: 800px; /* Reduced overall width */
     margin: 30px auto;
-    overflow-x: auto;  /* Allow horizontal scrolling if needed */
-    padding: 10px 0;  /* Add some padding for scrollbar */
+    overflow: hidden;
 }
-.business-card {
-    background-color: #fff;
-    border: 2px solid #2d5f86;
-    border-radius: 4px;
-    padding: 25px;
-    min-width: 600px;  /* Set minimum width instead of max-width */
-    flex: 0 0 auto;  /* Prevent cards from shrinking */
-}
-.business-cards-container::-webkit-scrollbar {
-    height: 8px;
-}
-.business-cards-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-.business-cards-container::-webkit-scrollbar-thumb {
-    background: #2d5f86;
-    border-radius: 4px;
-}
+
 .business-cards-wrapper {
     display: flex;
     transition: transform 0.3s ease-in-out;
 }
+
 .business-card {
     min-width: 100%;
     flex: 0 0 auto;
+    background-color: #fff;
+    border: 2px solid #2d5f86;
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%; /* Ensure the card takes full width of its container */
 }
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Reduced gap between image and text */
+}
+
+.profile-img {
+    width: 180px; /* Keep original image size */
+    height: 180px; /* Keep original image size */
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #2d5f86;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-name {
+    color: #2d5f86;
+    font-size: 24px; /* Keep original text size */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-title {
+    color: #2d5f86;
+    font-size: 16px; /* Keep original text size */
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Keep original gap */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Keep original gap */
+    color: #2d5f86;
+}
+
+.contact-item i {
+    width: 20px; /* Keep original icon size */
+    height: 20px; /* Keep original icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d5f86;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px; /* Keep original icon size */
+}
+
+/* Slide Arrows */
 .slide-arrow {
     position: absolute;
     top: 50%;
@@ -216,60 +262,15 @@ body {
     z-index: 10;
     border-radius: 4px;
 }
+
 .prev-arrow {
-    left: 0;
+    left: 10px;
 }
+
 .next-arrow {
-    right: 0;
+    right: 10px;
 }
+
 .slide-arrow:hover {
     background: #1a4a6e;
-}
-.profile-section {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-.profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: #2d5f86;
-}
-.profile-info {
-    flex-grow: 1;
-}
-.profile-name {
-    color: #2d5f86;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-.profile-title {
-    color: #2d5f86;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #2d5f86;
-}
-.contact-item i {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2d5f86;
-    color: white;
-    border-radius: 50%;
-    font-size: 12px;
 }
