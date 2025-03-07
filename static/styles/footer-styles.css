@@ -19,11 +19,19 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
+
+.footer .contact-item:hover {
+    transform: scale(1.05);
+}
+
 .footer .contact-item i {
     font-size: 18px;
     color: white;
 }
+
 .footer .contact-item a,
 .footer .contact-item span {
     color: white;
@@ -31,8 +39,32 @@
     font-size: 18px;
     margin: 0;
 }
-.footer .contact-item a:hover {
-    text-decoration: underline;
+.footer .branch-info .branch-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.footer .branch-info .branch-item:hover {
+    transform: scale(1.05);
+}
+
+.footer .branch-info .branch-item i {
+    font-size: 18px;
+}
+
+.footer .branch-info p {
+    margin-left: 28px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.footer .branch-info p:hover {
+    transform: scale(1.05);
 }
 .footer .branch-info {
     text-align: left;
