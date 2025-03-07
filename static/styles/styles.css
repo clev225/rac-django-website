@@ -61,14 +61,17 @@ body.fade-in {
   background-color: #356d98;
   color: #fff;
   border: none;
-  padding: 15px 30px; /* Increase padding to make the button bigger */
+  padding: 15px 30px;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 18px; /* Increase font size */
-  transition: background-color 0.3s ease;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  transform: scale(1);
 }
 
 .cta-button:hover {
   background-color: #03458d;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(3, 69, 141, 0.3);
 }
 
