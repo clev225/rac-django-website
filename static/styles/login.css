@@ -1,0 +1,150 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;  /* Updated this line */
+    background-image: url('../images/bggg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.form-label {
+    color: #fff;  /* Makes form labels white */
+}
+.left-side {
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+.right-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.left-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.welcome-content {
+    position: relative;
+    z-index: 1;
+    margin-left: 100px;  /* Added this line to move content right */
+    padding-right: 20px; /* Added padding to ensure text doesn't get too close to the edge */
+}
+.welcome-content h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 0.9;  /* Added this line to reduce spacing */
+}
+.welcome-content p {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    max-width: 80%;
+}
+.right-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+.logo-container {
+    text-align: center;
+}
+.logo {
+    max-width: 50px;
+    height: auto;
+}
+.form-control {
+    padding: 0.45rem 1rem;
+    border-radius: 0px;  /* Changed from 8px to 0px */
+    border: 1px solid #ced4da;
+}
+.btn-outline-light {
+    border: none;
+    background: white;
+   
+}
+
+.btn-outline-light:hover {
+    background: white;
+}
+
+.btn-outline-light i {
+    font-size: 14px;
+    color: #2d5a8a;
+}
+.input-group .btn-outline-light {
+    margin-left: -35px;
+    z-index: 10;
+}
+.btn-primary {
+    padding: 0.75rem;
+    border-radius: 0px;  /* Changed from 8px to 0px */
+    background-color: #2d5a8a;
+    border: none;
+    font-weight: 300;
+}
+.btn-primary:hover {
+    background-color: #1e4571;
+}
+.forgot-password {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    float: left;  /* Added this line to align left */
+    margin-bottom: 15px;  /* Added margin for better spacing */
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .left-side {
+        min-height: 300px;
+    }
+    .welcome-content h1 {
+        font-size: 2.5rem;
+    }
+    .welcome-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    .login-container {
+        padding: 1rem;
+    }
+}
+@media (max-width: 575.98px) {
+    .left-side {
+        min-height: 250px;
+    }
+    .welcome-content h1 {
+        font-size: 2rem;
+    }
+    .welcome-content p {
+        font-size: 0.9rem;
+    }
+    .login-container {
+        padding: 0.5rem;
+    }
+}
