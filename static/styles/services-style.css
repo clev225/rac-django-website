@@ -196,10 +196,6 @@ body {
 @media (max-width: 433px) {
     .search-container {
         padding-right: 10px;
-        top: 10px;
-        left: 0;
-        right: 0;
-        z-index: 100;
     }
 
     .search-input {
