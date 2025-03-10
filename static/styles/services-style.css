@@ -122,6 +122,7 @@ body {
     .search-container {
         justify-content: flex-end;
         width: 100%;
+        margin-right: 20px;
     }
     .services-container {
         width: 100%;
@@ -194,7 +195,7 @@ body {
     }
 }
 
-@media (max-width: 433px) {
+@media (max-width: 434px) {
     .search-container {
         padding-right: 10px;
     }
@@ -211,20 +212,16 @@ body {
     }
 
     .service-row {
-        display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        align-items: center;
         justify-content: space-between;
-        align-items: stretch;
-        width: 100%;
-        gap: 2px;
+        flex-wrap: nowrap;
     }
 
     .service-box {
-        width: 100%;
+        flex-grow: 1;
+        text-align: left;
         padding: 10px;
-        text-align: center;
-        border-radius: 5px;
     }
 
     .service-title{
@@ -239,9 +236,13 @@ body {
     }
 
     .get-started {
-        padding: 8px 12px;
-        font-size: 8px;
-        width: auto;
+        font-size: 10px;
+        padding: 13px 10px;
+        white-space: nowrap;
+        margin-left: auto; /* Pushes the button to the right */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .service-text {
@@ -250,6 +251,7 @@ body {
         padding: 5px 15px;
         width: 100%;
     }
+
 }
 
 /* Add these styles at the beginning of the file */
