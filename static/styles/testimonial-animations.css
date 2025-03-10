@@ -1,0 +1,14 @@
+.testimonial-item {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.testimonial-item.flex-row-reverse {
+    transform: translateX(100px);
+}
+
+.testimonial-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
