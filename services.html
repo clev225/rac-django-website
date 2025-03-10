@@ -21,12 +21,15 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="search-button"><i class="fas fa-search"></i></button>
+    <div class="search-container" style="padding-top: 15px;">
+        <input type="text" class="search-input" id="serviceSearch" placeholder="Search...">
+        <button class="search-button" onclick="searchServices()"><i class="fas fa-search" style="padding-top: 15px;"></i></button>
+    </div>
+    <div id="noResults" style="display: none; text-align: center; padding: 20px; color: #666;">
+        No services found matching your search.
     </div>
 
-    <div class="services-container">
+    <div class="services-container" id="servicesContainer">
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Payroll Management</div>
@@ -87,7 +90,26 @@
             <li>Mitigate financial risks.</li>
             <li>Enhance financial transparency.</li>
         </ul>
+
+        <div class="service-row">
+            <div class="service-box">
+                <div class="service-title">Legal Services</div>
+            </div>
+            <div class="service-button">
+                <a href="auditing_services.html" class="get-started">Get Started</a>
+            </div>
+        </div>
+    
+        <ul class="service-text">
+            <li>Assessment of financial statements and internal controls.</li>
+            <li>Ensuring accuracy and compliance.</li>
+            <li>Identify areas for improvement.</li>
+            <li>Mitigate financial risks.</li>
+            <li>Enhance financial transparency.</li>
+        </ul>
     </div>
+
+    
 
     <!-- FAQ Icon -->
     <div class="faq-icon" id="faqIcon">
@@ -108,6 +130,6 @@
     <script src="/static/scripts/footer.js"></script>
     <script src="/static/scripts/popover.js"></script>
     <script src="/static/scripts/faq-script.js"></script>
-
+    <script src="/static/scripts/search.js"></script>
 </body>
 </html>
