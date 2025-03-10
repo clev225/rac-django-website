@@ -251,3 +251,65 @@ body {
         width: 100%;
     }
 }
+
+/* Add these styles at the beginning of the file */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.services-container {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+#footer-placeholder {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+/* Add these animation styles */
+.search-container {
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input {
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-row, .service-text {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-row.hidden, .service-text.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    display: none;
+}
+
+#noResults {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#noResults.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
