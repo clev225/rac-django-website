@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     background: #f8f9fa;
     display: flex;
     flex-direction: column;
@@ -112,8 +112,8 @@ body {
 /* Text */
 .service-text {
     text-align: left;
-    font-size: 15px;
-    color: #356d98;
+    font-size: 18px;
+    color: black;
     margin-right: 250px;
     margin-left: 20px;
     list-style-type: disc;
