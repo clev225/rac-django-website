@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles/testimonials-style.css">
+    <link rel="stylesheet" href="/static/styles/testimonial-animations.css">
     <!-- Added CSS for components -->
     <link rel="stylesheet" href="/static/styles/faq.css">
     <link rel="stylesheet" href="static/styles/navbar-main.css">
@@ -24,7 +25,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- First Testimonial -->
-                <div class="col-md-10 mb-5 d-flex align-items-center">
+                <div class="col-md-10 mb-5 d-flex align-items-center testimonial-item">
                     <div class="testimonial-image-container mr-4">
                         <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
                     </div>
@@ -37,7 +38,7 @@
                 </div>
 
                 <!-- Second Testimonial -->
-                <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse" style="padding-top: 45px;">
+                <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item">
                     <div class="testimonial-image-container ml-4" style="padding-top: 5px;">
                         <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
                     </div>
@@ -72,7 +73,8 @@
     <script src="/static/scripts/popover.js"></script>
     <script src="/static/scripts/faq-script.js"></script>
     <script src="/static/scripts/search.js"></script>
-    <!-- Add this before the closing body tag, after other scripts -->
-    <script src="/static/scripts/testimonial-animation.js"></script>
+    
+    <!-- Add before closing body tag -->
+    <script src="/static/scripts/testimonial-animations.js"></script>
 </body>
 </html>
