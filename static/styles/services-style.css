@@ -86,6 +86,7 @@ body {
     margin-left: 20px;
 }
 
+/* Service Button */
 .get-started {
     background: #356d98;
     color: white;
@@ -94,12 +95,18 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 0px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .get-started:hover {
     background: #28587b;
+    color: white;
+    transform: scale(1.05);
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(40, 88, 123, 0.2);
 }
 
 /* Text */
