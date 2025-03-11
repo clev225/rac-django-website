@@ -29,7 +29,7 @@
 
 blockquote {
     font-size: 1.1rem;
-    color: #34495e;
+    color: #356d98;  /* Changed from #34495e to #356d98 */
     line-height: 1.6;
     margin: 0;
     font-style: normal;
@@ -39,7 +39,7 @@ blockquote {
 cite {
     display: block;
     font-weight: bold;
-    color: #34495e;
+    color: #356d98;  /* Changed from #34495e to #356d98 */
     font-size: 1rem;
     margin-top: 10px;
 }
@@ -135,4 +135,44 @@ cite {
 .current {
     position: relative;
     z-index: 2;
+}
+
+.testimonial-header {
+    color: #356d98;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.testimonial-subheader {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

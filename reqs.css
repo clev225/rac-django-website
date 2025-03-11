@@ -187,6 +187,17 @@ body {
     border-radius: 4px;
     padding: 25px;
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Add smooth transition */
+    position: relative;
+    top: 0;
+}
+
+/* Add hover effect */
+.business-card:hover {
+    top: -10px; /* Move card up slightly */
+    box-shadow: 0 15px 30px rgba(45, 95, 134, 0.31); /* Add shadow */
+    transform: scale(1.02); /* Slightly increase size */
+    border-color: #1a4a6e; /* Darken border color */
 }
 
 /* Profile Section adjustments */
