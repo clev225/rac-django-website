@@ -200,6 +200,16 @@ body {
         padding: 10px;
         margin-bottom: 50px;
     }
+
+    .company-details h1 {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .company-details h5 {
+        font-size: 20px;
+        margin: 0;
+    }
 }
 
 
