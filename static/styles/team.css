@@ -47,6 +47,9 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.text-overlay:first-of-type {
+    padding-bottom: 80px;
+}
 .right-section {
     display: flex;
     flex-direction: row;
@@ -196,6 +199,16 @@ body {
         font-size: 15px;
         padding: 10px;
         margin-bottom: 50px;
+    }
+
+    .company-details h1 {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .company-details h5 {
+        font-size: 20px;
+        margin: 0;
     }
 }
 
