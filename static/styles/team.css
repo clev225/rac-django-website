@@ -13,11 +13,10 @@ body {
     max-width: 100%;
     background: white;
     flex: 1;
-    margin-top: 76px;
+    margin-top: 70px;
 }
 
 .left-section {
-    margin-top: 50px;
     width: 50%;
     position: relative;
 }
@@ -54,11 +53,12 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-left: 70px;
+    margin-bottom: 50px;
 }
 
 .right-section img {
     margin-top: 50px;
-    margin-left: 60px;
     width: 200px;
     margin-bottom: 20px;
 }
@@ -104,80 +104,74 @@ body {
 
 @media (max-width: 1024px) {
     .text-overlay {
-        font-size: 70px; /* Adjust for medium screens */
-        left: 8%;
+        font-size: 60px;
+        left: 5%;
         bottom: 5%;
+        text-align: center;
+    }
+
+    .right-section {
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .right-section img {
-        width: 180px; /* Reduce logo size */
-        margin-top: 40px;
-    }
-
-    .company-details {
-        font-size: 17px;
+        width: 160px;
     }
 }
 
 @media (max-width: 768px) {
     .team-container {
-        flex-direction: column; /* Stack sections */
+        flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
     .left-section {
         width: 100%;
-        margin-top: 30px;
-    }
-
-    .left-section img {
-        height: auto; /* Maintain aspect ratio */
     }
 
     .text-overlay {
-        font-size: 50px;
-        bottom: 10%;
+        font-size: 45px;
         left: 5%;
+        bottom: 10%;
     }
 
     .right-section {
-        width: 100%;
-        padding: 20px;
+        width: 90%;
+        padding: 15px;
+        margin: 0 auto;
     }
 
     .right-section img {
-        width: 150px;
-        margin: 20px 0;
+        width: 130px;
+        margin: 15px 0;
     }
 
     .company-details {
-        font-size: 16px;
-        padding: 0 15px;
+        font-size: 15px;
+        padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
     .text-overlay {
-        font-size: 40px;
-        left: 3%;
-        bottom: 8%;
-        text-align: left;
+        font-size: 30px;
+        left: 5%;
+        bottom: 5%;
     }
 
     .right-section img {
-        width: 120px;
+        width: 100px;
     }
 
     .company-details {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 13px;
+        padding: 8px;
     }
 
     .company-details h1,
     .company-details h5 {
-        font-size: 18px;
+        font-size: 16px;
         text-align: center;
-        margin-right: 0;
     }
 }
