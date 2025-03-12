@@ -8,11 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
             navbarPlaceholder.innerHTML = this.responseText;
 
             // Set active class based on current page
-            const currentPage = window.location.pathname.split('/').pop();
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
             navLinks.forEach(link => {
                 const linkPage = link.getAttribute('href');
+                // Remove any existing active class and bold style
+                link.classList.remove('active');
+                link.style.fontWeight = 'normal';
+                
+                // Check if this link matches the current page
                 if (linkPage === currentPage || 
                     (currentPage === '' && linkPage === 'index.html') ||
                     (currentPage === '/' && linkPage === 'index.html')) {
