@@ -219,6 +219,12 @@
         gap: 5px;
     }
 
+    .footer .contact-item i {
+        font-size: 18px;
+        color: white;
+        margin-bottom: 8px;
+    }
+
     .footer .qr-code {
         width: 100px;
         height: 100px;
