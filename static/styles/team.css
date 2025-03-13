@@ -103,8 +103,6 @@ body {
     font-size: 1.2rem;
 }
 
-
-
 @media (max-width: 1024px) {
     .team-container {
         flex-direction: column;
@@ -278,9 +276,9 @@ body {
 .text-blk {
     line-height: 25px;
     margin: 0;
-  }
-  
-  .responsive-container-block {
+}
+
+.responsive-container-block {
     min-height: 75px;
     height: fit-content;
     width: 100%;
@@ -288,33 +286,33 @@ body {
     flex-wrap: wrap;
     margin: auto;
     justify-content: flex-start;
-  }
-  
-  .inner-container {
+}
+
+.inner-container {
     max-width: 1320px;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
     margin: 80px auto 100px;
-  }
-  
-  .section-head-text {
+}
+
+.section-head-text {
     font-size: 50px;
     line-height: 60px;
     font-weight: 700;
     margin-bottom: 18px;
-  }
-  
-  .section-subhead-text {
+}
+
+.section-subhead-text {
     color: #484848;
     font-size: 20px;
     line-height: 27px;
     max-width: 670px;
     margin-bottom: 80px;
-  }
-  
-  .card {
+}
+
+.card {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -324,126 +322,176 @@ body {
     background-color: white;
     max-width: 750px;
     padding: 40px 30px;
-  }
-  
-  .img-wrapper {
+}
+
+.img-wrapper {
     width: 175px;
     height: 175px;
     clip-path: circle(50% at 50% 50%);
-    overflow: hidden; /* Add this to ensure the image stays within bounds */
-  }
-  
-  .img-wrapper img {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the container without distortion */
-  }
-  
-  .name {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.name {
     font-size: 20px;
     font-weight: 700;
     margin-top: 28px;
     margin-bottom: 5px;
     line-height: 27px;
-  }
-  
-  .position {
+}
+
+.position {
     line-height: 26px;
-    color:rgb(44, 81, 162);
+    color: rgb(44, 81, 162);
     font-weight: 700;
     margin-bottom: 20px;
-  }
-  
-  .testimonial {
+}
+
+.testimonial {
     color: #7a7a7a;
     font-size: 18px;
     line-height: 27px;
-  }
-  
-  .outer-container {
+}
+
+.outer-container {
     background-color: #fafafa;
     padding: 0 50px;
-  }
-  
-  .container-block {
+}
+
+.container-block {
     min-height: 75px;
     height: fit-content;
     width: 100%;
     padding: 10px;
     display: block;
-  }
-  
-  .swiper.team-swiper {
+}
+
+.swiper.team-swiper {
     max-width: 100%;
     width: 100%;
-  }
-  
-  .swiper-slide {
+}
+
+.swiper-slide {
     position: static;
     display: flex;
     justify-content: flex-start;
-  }
-  
-  .swiper-wrapper {
+}
+
+.swiper-wrapper {
     position: static;
     height: fit-content;
-  }
-  
-  .swiper-pagination.container-block {
+}
+
+.swiper-pagination.container-block {
     top: auto;
     position: relative;
     bottom: auto;
     right: auto;
     left: auto;
     margin: 36px 0 0 0;
-  }
-  
-  .swiper-pagination-bullet {
+}
+
+.swiper-pagination-bullet {
     margin: 0 4px;
     height: 12px;
     width: 12px;
     background-color: #356d98;
-  }
-  
-  .card-content {
+}
+
+.card-content {
     text-align: left;
     margin-left: 30px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 1024px) {
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
     .swiper-slide {
-      justify-content: center;
+        justify-content: center;
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .card {
-      flex-direction: column;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px; /* Adjust padding for better spacing */
     }
-  
+
     .card-content {
-      text-align: center;
-      margin-left: 0;
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
     }
-  
+
+    .img-wrapper {
+        margin-bottom: 20px; /* Add margin below the image */
+    }
+
+    .testimonial {
+        margin-bottom: 10px;
+    }
+
+    .name {
+        margin: 10px 0;
+    }
+
+    .position {
+        margin: 5px 0 15px;
+    }
+
+    .text-blk {
+        margin-top: 15px;
+    }
+
     .section-head-text {
-      font-size: 40px;
+        font-size: 40px;
     }
-  }
-  
-  @media (max-width: 500px) {
+}
+
+@media (max-width: 500px) {
     .outer-container {
-      padding: 0 20px;
+        padding: 0 20px;
     }
-  
+
     .section-head-text {
-      font-size: 35px;
+        font-size: 35px;
     }
-  
+
     .section-subhead-text {
-      font-size: 18px;
-      line-height: 25px;
-      margin-bottom: 50px;
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 50px;
     }
-  }
+
+    .card {
+        padding: 20px 15px;
+    }
+
+    .img-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .position {
+        font-size: 16px;
+    }
+
+    .testimonial {
+        font-size: 16px;
+    }
+}
