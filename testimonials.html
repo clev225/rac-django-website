@@ -4,137 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAC Landing Page</title>
+    
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Add footer styles before other styles to ensure proper cascading -->
     <link rel="stylesheet" href="static/styles/footer-styles.css">
-    <link rel="stylesheet" href="/static/styles/testimonials-style.css">
-    <link rel="stylesheet" href="/static/styles/testimonial-animations.css">
-    <!-- Added CSS for components -->
+    <link rel="stylesheet" href="/static/styles/navbar-main.css">
     <link rel="stylesheet" href="/static/styles/faq.css">
-    <link rel="stylesheet" href="static/styles/navbar-main.css">
+    <link rel="stylesheet" href="/static/styles/testimonials-style.css">
     <link rel="stylesheet" href="static/styles/navbar-popover.css">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-    <!-- Include Navbar -->
+<body class="fade-in loaded">
     <div id="navbar-placeholder"></div>
-
-    <!-- Main Content -->
+    
     <main class="flex-grow-1">
-        <!-- Testimonials Section -->
-        <section class="testimonials-section">
+        <section class="testimonials-section text-center">
             <div class="testimonials-container">
-                <div class="text-center mb-5">
-                    <h1 class="testimonial-header">What Our Clients Say</h1>
-                    <p class="testimonial-subheader">Discover how RAC Business Consultancy has helped businesses achieve their goals</p>
-                </div>
+                <h1 class="testimonial-header">What Our Clients Say</h1>
+                <p class="testimonial-subheader">Discover how RAC Business Consultancy has helped businesses achieve their goals</p>
                 <div class="row justify-content-center">
-                    <!-- First Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center testimonial-item">
+                    <!-- First testimonial -->
+                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container mr-4">
                             <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
                         </div>
-                        <div class="testimonial-content">
-                            <blockquote>
-                                "RAC Business Consultancy transformed our business! Their strategic planning and market research helped us identify new opportunities and streamline our operations. Thanks to their expert guidance, our revenue has significantly increased!"
-                            </blockquote>
+                        <div class="testimonial-content text-left">
+                            <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
                             <cite>- Vice Ganda, CEO, ShowTech</cite>
                         </div>
                     </div>
-
-                    <!-- Second Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item">
-                        <div class="testimonial-image-container ml-4" style="padding-top: 5px;">
+                    
+                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
+                        <div class="testimonial-image-container ml-4">
                             <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-right">
-                            <blockquote>
-                                "Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup. Their financial planning was a game-changer!"
-                            </blockquote>
+                            <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
                             <cite>- Tony Stark, CEO, Avengers</cite>
                         </div>
                     </div>
-                    <!-- First Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center testimonial-item">
+
+                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container mr-4">
                             <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
                         </div>
-                        <div class="testimonial-content">
-                            <blockquote>
-                                "RAC Business Consultancy transformed our business! Their strategic planning and market research helped us identify new opportunities and streamline our operations. Thanks to their expert guidance, our revenue has significantly increased!"
-                            </blockquote>
+                        <div class="testimonial-content text-left">
+                            <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
                             <cite>- Vice Ganda, CEO, ShowTech</cite>
                         </div>
                     </div>
-
-                    <!-- Second Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item">
-                        <div class="testimonial-image-container ml-4" style="padding-top: 5px;">
+                    
+                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
+                        <div class="testimonial-image-container ml-4">
                             <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-right">
-                            <blockquote>
-                                "Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup. Their financial planning was a game-changer!"
-                            </blockquote>
-                            <cite>- Tony Stark, CEO, Avengers</cite>
-                        </div>
-                    </div>
-                    <!-- First Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center testimonial-item">
-                        <div class="testimonial-image-container mr-4">
-                            <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
-                        </div>
-                        <div class="testimonial-content">
-                            <blockquote>
-                                "RAC Business Consultancy transformed our business! Their strategic planning and market research helped us identify new opportunities and streamline our operations. Thanks to their expert guidance, our revenue has significantly increased!"
-                            </blockquote>
-                            <cite>- Vice Ganda, CEO, ShowTech</cite>
-                        </div>
-                    </div>
-
-                    <!-- Second Testimonial -->
-                    <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item">
-                        <div class="testimonial-image-container ml-4" style="padding-top: 5px;">
-                            <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
-                        </div>
-                        <div class="testimonial-content text-right">
-                            <blockquote>
-                                "Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup. Their financial planning was a game-changer!"
-                            </blockquote>
+                            <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
                             <cite>- Tony Stark, CEO, Avengers</cite>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
-
-        <!-- FAQ Icon -->
+        
         <div class="faq-icon" id="faqIcon">
             <i class="fas fa-question-circle"></i>
         </div>
     </main>
-
-    <!-- Include Footer -->
-    <div id="footer-placeholder"></div>
-
-    <!-- JavaScript Libraries -->
+    
+    <div id="footer-placeholder" class="footer-container"></div>
+    
+    <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <!-- Component JavaScript files -->
     <script src="/static/scripts/scripts.js"></script>
     <script src="/static/scripts/navbar-main.js"></script>
-    <script src="/static/scripts/footer.js"></script>
     <script src="/static/scripts/popover.js"></script>
+    <script src="/static/scripts/footer.js"></script>
     <script src="/static/scripts/faq-script.js"></script>
-    <script src="/static/scripts/search.js"></script>
-    
-    <!-- Add before closing body tag -->
-    <script src="/static/scripts/testimonial-animations.js"></script>
-</body>
-</html>
+    </body>
+    </html>
