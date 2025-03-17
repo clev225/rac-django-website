@@ -1,0 +1,68 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #3985c0;
+
+}
+
+.navbar-brand img.navbar-logo {
+    height: 50px;
+    width: auto;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.navbar-brand:hover img.navbar-logo {
+    transform: scale(1.1);
+}
+
+/* Set the color of the nav-links with increased specificity */
+.navbar .navbar-nav .nav-link {
+    color: #356d98 !important;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+/* Optional: Set hover and active states for nav-links */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #002d5e;
+    transform: scale(1.05);
+}
+
+.navbar-popover .modal-content ul li a {
+    color: #356d98;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline animation */
+.navbar .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #3985c0;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navbar .navbar-nav .nav-link:hover::after,
+.navbar .navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Show navbar-nav on larger screens */
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        display: flex;
+        align-items: center;
+    }
+}

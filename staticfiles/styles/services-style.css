@@ -1,0 +1,387 @@
+/* General Styles */
+body {
+    font-family: 'Poppins';
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    max-width: 1500px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 80px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid #356d98;
+    border-radius: 0px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #356d98;
+    font-size: 18px;
+}
+
+.search-button i {
+    color: #356d98;
+}
+
+/* Services Container */
+.services-container {
+    padding: 10px;
+    border-radius: 0px;
+    width: 70%;
+    max-width: 900px;
+}
+
+/* Service Row */
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+/* Service Box */
+.service-box {
+    background: #356d98;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 0px;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Service Title */
+.service-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Service Button */
+.service-button {
+    margin-left: 20px;
+}
+
+/* Service Button */
+.get-started {
+    background: #356d98;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.get-started:hover {
+    background: #28587b;
+    color: white;
+    transform: scale(1.05);
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(40, 88, 123, 0.2);
+}
+
+/* Text */
+.service-text {
+    text-align: left;
+    font-size: 18px;
+    color: black;
+    margin-right: 250px;
+    margin-left: 20px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.service-text li {
+    margin-bottom: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .search-container {
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: 20px;
+    }
+    .services-container {
+        width: 100%;
+    }
+    .service-text {
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .service-row {
+        flex-direction: row;
+        margin-bottom: 5px;
+        align-items: center;
+
+    }
+    
+    /* Service Box */
+    .service-box {
+        padding: 5px 10px;
+        color: white;
+        border-radius: 0px;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    /* Service Title */
+    .service-title {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    /* Service Button */
+    .service-button {
+        margin-left: 20px;
+    }
+    
+    .get-started {
+        background: #356d98;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 0px;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 644px) and (max-height: 611px) {
+    .search-container {
+        max-width: 644px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        transform: none;
+        z-index: 1000;
+    }
+    .search-input {
+        max-width: 300px;
+    }
+    .services-container {
+        width: 100%;
+        max-width: 644px;
+    }
+    .service-text {
+        margin: 0;
+    }
+}
+
+@media (max-width: 434px) {
+    .search-container {
+        padding-right: 10px;
+    }
+
+    .search-input {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .services-container {
+        width: 100%;
+        padding: 10px;
+        margin-top:10px;
+    }
+
+    .service-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .service-box {
+        flex-grow: 1;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .service-title{
+        font-size: 14px;
+    }
+
+    .service-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .get-started {
+        font-size: 10px;
+        padding: 13px 10px;
+        white-space: nowrap;
+        margin-left: auto; /* Pushes the button to the right */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-text {
+        font-size: 14px;
+        text-align: left;
+        padding: 5px 15px;
+        width: 100%;
+    }
+
+}
+
+/* Add these styles at the beginning of the file */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.service-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.service-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.get-started {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.services-container {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+#footer-placeholder {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+/* Add these animation styles */
+.search-container {
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input {
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-row, .service-text {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-row.hidden, .service-text.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    display: none;
+}
+
+#noResults {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#noResults.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.services-container {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.service-row {
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Add staggered animation delay for each service row */
+.service-row:nth-child(1) { animation-delay: 0.1s; }
+.service-row:nth-child(3) { animation-delay: 0.2s; }
+.service-row:nth-child(5) { animation-delay: 0.3s; }
+.service-row:nth-child(7) { animation-delay: 0.4s; }
+.service-row:nth-child(9) { animation-delay: 0.5s; }
+.service-row:nth-child(11) { animation-delay: 0.6s; }
+.service-row:nth-child(13) { animation-delay: 0.7s; }
+.service-row:nth-child(15) { animation-delay: 0.8s; }
+.service-row:nth-child(17) { animation-delay: 0.9s; }
+.service-row:nth-child(19) { animation-delay: 1s; }
+
+.service-text {
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Add staggered animation delay for each service text */
+.service-text:nth-child(2) { animation-delay: 0.15s; }
+.service-text:nth-child(4) { animation-delay: 0.25s; }
+.service-text:nth-child(6) { animation-delay: 0.35s; }
+.service-text:nth-child(8) { animation-delay: 0.45s; }
+.service-text:nth-child(10) { animation-delay: 0.55s; }
+.service-text:nth-child(12) { animation-delay: 0.65s; }
+.service-text:nth-child(14) { animation-delay: 0.75s; }
+.service-text:nth-child(16) { animation-delay: 0.85s; }
+.service-text:nth-child(18) { animation-delay: 0.95s; }
+.service-text:nth-child(20) { animation-delay: 1.05s; }
