@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>About Us - RAC Consultancy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="stylesheet" href="/static/styles/about-us.css">
     <link rel="stylesheet" href="/static/styles/faq.css">
@@ -18,7 +20,8 @@
 <body>
 
     <!-- Navbar will be loaded here -->
-    <div id="navbar-placeholder"></div>
+    {% include 'navbar-main.html' %}
+    {% include 'modal.html' %}
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -135,7 +138,7 @@
                     <div class="founder-card d-flex flex-column">
                         <div class="d-flex align-items-start">
                             <div class="founder-image">
-                                <img src="static/images/ryan1.png" alt="Mr. Ryan B. Endrinal" style="margin-top: 8px;">
+                                <img src="{% static '/images/ryan1.png' %}" alt="Mr. Ryan B. Endrinal" style="margin-top: 8px;">
                             </div>
                             <div class="founder-info ms-4">
                                 <h3 class="founder-name">Mr. Ryan B. Endrinal</h3>
@@ -151,7 +154,7 @@
                     <div class="founder-card d-flex flex-column">
                         <div class="d-flex align-items-start">
                             <div class="founder-image">
-                                <img src="static/images/alexis1.png" alt="Mr. Alexis A. Velasco">
+                                <img src="{% static 'images/alexis1.png' %}" alt="Mr. Alexis A. Velasco">
                             </div>
                             <div class="founder-info ms-4">
                                 <h3 class="founder-name">Mr. Alexis A. Velasco</h3>
@@ -173,16 +176,14 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+    {% include 'footer.html' %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/static/scripts/scripts.js"></script>
-    <script src="/static/scripts/navbar-main.js"></script>
-    <script src="/static/scripts/footer.js"></script>
-    <script src="/static/scripts/popover.js"></script>
-    <script src="/static/scripts/faq-script.js"></script>
+    <script src="{% static '/scripts/scripts.js' %}"></script>
+    <script src="{% static '/scripts/popover.js' %}"></script>
+    <script src="{% static '/scripts/faq-script.js' %}"></script>
     
     <script>
         // Fade in animation

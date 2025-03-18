@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +10,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    {% include 'modal.html' %}
     <link rel="stylesheet" href="/static/styles/services-style.css">
     <!-- Added CSS for components -->
     <link rel="stylesheet" href="/static/styles/faq.css">
-    <link rel="stylesheet" href="static/styles/navbar-main.css">
-    <link rel="stylesheet" href="static/styles/navbar-popover.css">
+    <link rel="stylesheet" href="/static/styles/navbar-main.css">
+    <link rel="stylesheet" href="/static/styles/navbar-popover.css">
     <style>
         body {
             opacity: 0;
@@ -26,7 +29,7 @@
 
 <body>
     <!-- Include Navbar -->
-    <div id="navbar-placeholder"></div>
+     {% include 'navbar-main.html' %}
 
     <!-- Search Bar -->
     <div class="search-container" style="padding-top: 15px;">
@@ -198,7 +201,7 @@
     </div>
 
     <!-- Include Footer -->
-    <div id="footer-placeholder" class="w-100"></div>
+    {% include 'footer.html' %}
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -209,7 +212,7 @@
     <script src="/static/scripts/scripts.js"></script>
     <script src="/static/scripts/navbar-main.js"></script>
     <script src="/static/scripts/footer.js"></script>
-    <script src="/static/scripts/popover.js"></script>
+    <script src="{% static '/scripts/popover.js' %}"></script>
     <script src="/static/scripts/faq-script.js"></script>
     <script src="/static/scripts/search.js"></script>
 

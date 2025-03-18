@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
 
 <body>
     <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
+    {% include 'navbar.html' %}
 
     <div class="team-container">
         <!-- Left Section (Image & Text Overlay) -->
@@ -175,7 +177,7 @@
       </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+    {% include 'footer.html' %}
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -186,7 +188,7 @@
 
     <!-- Component JavaScript files -->
     <script src="/static/scripts/scripts.js"></script>
-    <script src="/static/scripts/navbar-main.js"></script>
+    <script src="{% static '/scripts/navbar-main.js' %}"></script>
     <script src="/static/scripts/footer.js"></script>
     <script src="/static/scripts/popover.js"></script>
     <script src="/static/scripts/faq-script.js"></script>

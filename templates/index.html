@@ -8,7 +8,7 @@
     <title>RAC Landing Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/styles/styles.css">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
     <link rel="stylesheet" href="/static/styles/navbar-css.css">
     <link rel="stylesheet" href="/static/styles/navbar-popover.css">
     <link rel="stylesheet" href="/static/styles/faq.css">
@@ -27,7 +27,7 @@
             <img src="{% static 'images/rac-landing-new.png' %}" alt="Logo" class="img-fluid logo-image">
         </div>
         <p class="lead">Your business partner for growth and innovation.</p>
-        <a href="about-us.html">
+        <a href="{% url 'about_us' %}">
             <button class="cta-button mt-4">Get Started</button>
         </a>
     </div>

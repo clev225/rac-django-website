@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blog-form.css">
+</head>
+<body>
+    
+
+    <div class="blog-form-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <label for="blogTitle">Your blog title:</label>
+                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter blog title here...">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="author">Author:</label>
+                            <input type="text" class="form-control" id="author">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="datePublished">Date published:</label>
+                            <input type="date" class="form-control" id="datePublished">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label for="blogDescription">Blog description:</label>
+                            <textarea class="form-control" id="blogDescription" rows="6" placeholder="Enter blog description here..."></textarea>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="blogIllustration">Upload you blog illustration:</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="blogIllustration" accept="image/png, image/jpeg, image/jpg">
+                                
+                                    
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="blog-content-wrapper">
+                            <label for="blogContent">Blog content:</label>
+                            <textarea class="form-control" id="blogContent" placeholder="Enter you full blog content here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4 d-flex justify-content-between align-items-center">
+                        <div class="back-button">
+                            <a href="{% url 'rac_blog_login' %}" class="btn btn-link text-decoration-none">
+                                <i class="fas fa-arrow-left"></i> Logout
+                            </a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary me-2">Preview</button>
+                            <button type="submit" class="btn btn-submit">Upload blog</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+</body>
+</html>

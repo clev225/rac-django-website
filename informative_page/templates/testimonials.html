@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
 </head>
 
 <body class="fade-in loaded">
-    <div id="navbar-placeholder"></div>
+    {% include 'navbar-main.html' %}
     
     <main class="flex-grow-1">
         <section class="testimonials-section text-center">
@@ -28,7 +30,7 @@
                     <!-- First testimonial -->
                     <div class="col-md-10 mb-5 d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container mr-4">
-                            <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
+                            <img src="{% static '/images/testimonials/ryan2.png'%}" alt="Vice Ganda" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-left">
                             <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
@@ -38,7 +40,7 @@
                     
                     <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container ml-4">
-                            <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
+                            <img src="{% static 'images/testimonials/alexis1.png' %}" alt="Tony Stark" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-right">
                             <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
@@ -48,7 +50,7 @@
 
                     <div class="col-md-10 mb-5 d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container mr-4">
-                            <img src="static/images/testimonials/ryan2.png" alt="Vice Ganda" class="testimonial-image">
+                            <img src="{% static '/images/testimonials/ryan2.png' %}" alt="Vice Ganda" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-left">
                             <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
@@ -58,7 +60,7 @@
                     
                     <div class="col-md-10 mb-5 d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
                         <div class="testimonial-image-container ml-4">
-                            <img src="static/images/testimonials/alexis1.png" alt="Tony Stark" class="testimonial-image">
+                            <img src="{% static 'images/testimonials/alexis1.png' %}" alt="Tony Stark" class="testimonial-image">
                         </div>
                         <div class="testimonial-content text-right">
                             <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
@@ -74,7 +76,7 @@
         </div>
     </main>
     
-    <div id="footer-placeholder" class="footer-container"></div>
+    <div {% include 'footer.html' %}></div>
     
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

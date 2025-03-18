@@ -17,8 +17,20 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import re_path
+from django.shortcuts import redirect
+from rac_blog import views  # Import your blog app views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("", include("informative_page.urls")),  # Make informative_page the default app
+
+     # Redirect ANY URL that contains `/admin` to your custom login page
+    re_path(r'.*/admin$', lambda request: redirect('/rac_blog/login/'), name='custom_admin_redirect'),
+
+    # Custom login page
+    path('rac_blog/login/', views.custom_login, name='custom_login'),
+
+    # (Optional) Keep the original Django admin panel, but at a different URL
+    path('secure-admin/', admin.site.urls),  
+
 ]

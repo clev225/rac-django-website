@@ -4,5 +4,8 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),  # Homepage
     path("about-us/", views.about_us, name="about_us"),
-    # Add more paths for your other HTML files
+    path("services/", views.services, name="services"),
+    path("testimonials/", views.testimonials, name="testimonials"),
+    path("team/", views.team, name="team"),
+    path("blogs/", views.blogs, name="blogs"),
 ]

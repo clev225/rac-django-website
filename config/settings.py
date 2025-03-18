@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'informative_page',  # Adding your new app here
+    'informative_page',
+    'rac_blog',
+    'django_extensions',  # Adding your new app here
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,11 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates", BASE_DIR / "informative_page/templates"],  # Updated path
+        'DIRS': [
+        BASE_DIR / "templates",
+        BASE_DIR / "informative_page/templates",  
+        BASE_DIR / "components",
+        ], # Updated path
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
