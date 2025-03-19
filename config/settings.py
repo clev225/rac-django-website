@@ -63,6 +63,7 @@ TEMPLATES = [
         BASE_DIR / "templates",
         BASE_DIR / "informative_page/templates",  
         BASE_DIR / "components",
+        BASE_DIR / "rac_blog/templates",
         ], # Updated path
         'APP_DIRS': True,
         'OPTIONS': {

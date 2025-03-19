@@ -21,8 +21,10 @@ from django.urls import re_path
 from django.shortcuts import redirect
 from rac_blog import views  # Import your blog app views
 
+
 urlpatterns = [
     path("", include("informative_page.urls")),  # Make informative_page the default app
+    path("", include("rac_blog.urls")),  # ✅ Ensure rac_blog URLs are loaded
 
     # Redirect ANY URL that ends with `/admin` to your custom login page
     re_path(r'^.*admin$', lambda request: redirect('/rac_blog/login/'), name='custom_admin_redirect'),

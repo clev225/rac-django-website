@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('static/images/bggg.png') no-repeat center center;
+    background-size: cover;
+}
+.back-button .btn-link {
+    color: #2d5f86;
+    font-weight: 500;
+    padding-left: 0;
+}
+
+.back-button .btn-link:hover {
+    color: #1a4a6e;
+}
+
+.blog-form-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.695);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.284);
+    margin: 2rem;
+    margin-top: 4rem;  /* Add this line to create more space from the top */
+}
+
+label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.input-group-text {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.upload-icon {
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-submit {
+    background-color: #5c9ce5;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: #5c9ce5;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #4785d1;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4785d1;
+    color: white;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+.blog-content-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.blog-content-wrapper textarea {
+    width: 100%;
+    min-height: 200px;
+}
+
+@media (max-width: 768px) {
+    .blog-form-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .blog-content-wrapper {
+        margin-top: 1rem;
+    }
+
+    .col-md-6:first-child {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-form-container {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-control {
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,53 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.blog-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.back-button {
+    color: #2d5a8b;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.blog-title {
+    color: #2d5a8b;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-meta {
+    color: #2d5a8b;
+    margin-bottom: 2rem;
+}
+
+.blog-content {
+    color: #222;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.blog-paragraph {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .blog-title {
+        font-size: 2rem;
+    }
+
+    .blog-content {
+        font-size: 1rem;
+    }
+}
