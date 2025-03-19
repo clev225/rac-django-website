@@ -13,7 +13,7 @@ body.fade-in {
 
 .hero-section {
   min-height: 100vh;
-  background-size: cover;
+  /* Remove the background property from here */
   color: #fff;
   position: relative;
   display: flex;

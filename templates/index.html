@@ -8,7 +8,15 @@
 {% block styles %}
 <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 <link rel="stylesheet" href="{% static 'styles/navbar-css.css' %}">
+<style>
+    .hero-section {
+        background: url("{% static 'images/landing-bg.png' %}") no-repeat center center;
+        background-size: cover;
+    }
+</style>
 {% endblock styles %}
+
+{% block navbar_img %}<img src="/static/images/rac-logo.png" alt="Logo" class="navbar-logo">{% endblock navbar_img %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -30,3 +38,7 @@
     <i class="fas fa-question-circle"></i>
 </div>
 {% endblock content %}
+
+{% block footer %}
+<!-- Empty block to override the footer from base.html -->
+{% endblock footer %}

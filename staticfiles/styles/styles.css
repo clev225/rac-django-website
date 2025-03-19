@@ -13,6 +13,7 @@ body.fade-in {
 
 .hero-section {
   min-height: 100vh;
+  background: url('/static/images/landing-bg.png') no-repeat center center;
   background-size: cover;
   color: #fff;
   position: relative;
