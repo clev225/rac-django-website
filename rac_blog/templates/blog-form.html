@@ -9,49 +9,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/styles/blog-form.css">
+    <link rel="stylesheet" href="{% static 'styles/blog-form.css' %}">
 </head>
 <body style="background: url('{% static 'images/bggg.png' %}') no-repeat center center; background-size: cover;">
     
-
     <div class="blog-form-container">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'create_blog' %}">
                         {% csrf_token %}
                         <div class="form-group mb-4">
                             <label for="blogTitle">Your blog title:</label>
-                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter blog title here...">
+                            <input type="text" class="form-control" id="blogTitle" name="title" placeholder="Enter blog title here..." required>
                         </div>
                         <div class="form-group mb-4">
                             <label for="author">Author:</label>
-                            <input type="text" class="form-control" id="author">
+                            <input type="text" class="form-control" id="author" name="author" required>
                         </div>
                         <div class="form-group mb-4">
                             <label for="datePublished">Date published:</label>
-                            <input type="date" class="form-control" id="datePublished">
+                            <input type="date" class="form-control" id="datePublished" name="date_published" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <label for="blogDescription">Blog description:</label>
-                            <textarea class="form-control" id="blogDescription" rows="6" placeholder="Enter blog description here..."></textarea>
+                            <textarea class="form-control" id="blogDescription" name="description" rows="6" placeholder="Enter blog description here..." required></textarea>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="blogIllustration">Upload you blog illustration:</label>
+                            <label for="blogIllustration">Upload your blog illustration:</label>
                             <div class="input-group">
-                                <input type="file" class="form-control" id="blogIllustration" accept="image/png, image/jpeg, image/jpg">
-                                
-                                    
-                                </label>
+                                <input type="file" class="form-control" id="blogIllustration" name="image" accept="image/png, image/jpeg, image/jpg" required>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="blog-content-wrapper">
                             <label for="blogContent">Blog content:</label>
-                            <textarea class="form-control" id="blogContent" placeholder="Enter you full blog content here..."></textarea>
+                            <textarea class="form-control" id="blogContent" name="content" placeholder="Enter your full blog content here..." required></textarea>
                         </div>
                     </div>
                     <div class="col-12 mt-4 d-flex justify-content-between align-items-center">

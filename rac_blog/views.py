@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib import messages
+from .models import BlogPost
 
 def is_superadmin(user):
     return user.is_superuser
@@ -20,7 +22,7 @@ def rac_blog_login(request):
             if user.is_superuser:
                 login(request, user)
                 print(f"DEBUG: Redirecting to blog-form")
-                return redirect('/blog-form/')  # ✅ Redirect after login
+                return redirect('blog_form')  # Use the named URL pattern instead of hardcoded path
             else:
                 print("DEBUG: User is not a superadmin!")
                 return render(request, 'login.html', {'error': 'You must be a superadmin to log in.'})
@@ -35,6 +37,35 @@ def rac_blog_login(request):
 @user_passes_test(is_superadmin)
 def blog_form(request):
     return render(request, 'blog-form.html')
+
+def create_blog(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        author = request.POST.get('author')
+        date_published = request.POST.get('date_published')
+        description = request.POST.get('description')
+        content = request.POST.get('content')
+        image = request.FILES.get('image')
+        
+        # Create new blog post
+        blog = BlogPost(  # Changed from Blog to BlogPost
+            title=title,
+            author=author,
+            date_published=date_published,
+            description=description,
+            content=content,
+            image=image
+        )
+        blog.save()
+        
+        messages.success(request, 'Blog post created successfully!')
+        return redirect('blog_list')
+    
+    return redirect('blog_form')
+
+def blog_list(request):
+    blogs = BlogPost.objects.all().order_by('-created_at')  # Changed from Blog to BlogPost
+    return render(request, 'blog-list.html', {'blogs': blogs})
 
 def custom_login(request):
     return render(request, 'login.html')  # Ensure the correct template path

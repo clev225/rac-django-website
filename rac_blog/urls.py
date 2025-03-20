@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import rac_blog_login, blog_form
+from . import views
 
 urlpatterns = [
-    path('admin/', rac_blog_login, name='rac_blog_login'),
-    path('blog-form/', blog_form, name='blog_form'),  # ✅ Correct existing URL
-    path('blog_form/', blog_form, name='blog_form_alt'),  # ✅ Optional alternative
+    # Existing URLs
+    path('login/', views.rac_blog_login, name='rac_blog_login'),
+    
+    # Blog form URLs
+    path('blog-form/', views.blog_form, name='blog_form'),
+    path('create-blog/', views.create_blog, name='create_blog'),
+    path('blog-list/', views.blog_list, name='blog_list'),
 ]
