@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('static/images/bggg.png') no-repeat center center;
+    background: url('../images/bggg.png') no-repeat center center;
     background-size: cover;
 }
 .back-button .btn-link {
