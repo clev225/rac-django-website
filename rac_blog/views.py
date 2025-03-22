@@ -21,8 +21,8 @@ def rac_blog_login(request):
 
             if user.is_superuser:
                 login(request, user)
-                print(f"DEBUG: Redirecting to blog-form")
-                return redirect('blog_form')  # Use the named URL pattern instead of hardcoded path
+                print(f"DEBUG: Redirecting to blog_list")
+                return redirect('blog_list')  # Changed from blog_form to blog_list
             else:
                 print("DEBUG: User is not a superadmin!")
                 return render(request, 'login.html', {'error': 'You must be a superadmin to log in.'})
@@ -31,6 +31,20 @@ def rac_blog_login(request):
             return render(request, 'login.html', {'error': 'Invalid username or password'})
 
     print("DEBUG: Rendering login page")
+    return render(request, 'login.html')
+
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None and user.is_superuser:
+            login(request, user)
+            return redirect('blog_list')  # Changed from blog_form to blog_list
+        else:
+            return render(request, 'login.html', {'error': 'Invalid credentials or not a superadmin'})
+            
     return render(request, 'login.html')
 
 @login_required
@@ -66,6 +80,3 @@ def create_blog(request):
 def blog_list(request):
     blogs = BlogPost.objects.all().order_by('-created_at')  # Changed from Blog to BlogPost
     return render(request, 'blog-list.html', {'blogs': blogs})
-
-def custom_login(request):
-    return render(request, 'login.html')  # Ensure the correct template path
