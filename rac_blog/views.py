@@ -44,7 +44,7 @@ def custom_login(request):
             login(request, user)
             return redirect('blog_list')  # Changed from blog_form to blog_list
         else:
-            return render(request, 'login.html', {'error': 'Invalid credentials or not a superadmin'})
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
             
     return render(request, 'login.html')
 

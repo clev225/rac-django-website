@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=100)
     date_published = models.DateField()
     description = models.TextField()
-    content = models.TextField()
+    content = models.TextField(max_length=10000)
     image = models.ImageField(upload_to='blog_images/')
     created_at = models.DateTimeField(auto_now_add=True)
     

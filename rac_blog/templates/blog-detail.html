@@ -19,10 +19,14 @@
         }
         .blog-image {
             max-height: 400px;
-            object-fit: cover;
             width: 100%;
+            max-width: 800px; /* Fixed maximum width */
+            object-fit: contain; /* Changed from cover to contain to show full image */
             border-radius: 10px;
             margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem; /* Center the image horizontally */
+            display: block; /* Required for margin auto to work */
+            background-color: #f8f9fa; /* Light background for images with transparency */
         }
         .blog-metadata {
             margin-bottom: 1.5rem;
@@ -38,7 +42,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col d-flex justify-content-between align-items-center">
-                <h1 class="text-white">Blog Detail</h1>
+                <h1 class="text-white" style="font-weight: bold;">RAC Blogs</h1>
                 <a href="{% url 'blog_list' %}" class="btn btn-outline-primary">
                     <i class="fas fa-arrow-left"></i> Back to Blog List
                 </a>
@@ -60,10 +64,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="blog-content">
-                    <h2 class="blog-title mb-3">{{ blog.title }}</h2>
+                    <h1 class="blog-title mb-3">{{ blog.title }}</h1>
                     
                     <div class="blog-metadata">
-                        <span><strong>Author:</strong> {{ blog.author }}</span> | 
+                        <span><strong>Author:</strong> {{ blog.author }}</span> <br> 
                         <span><strong>Published:</strong> {{ blog.date_published }}</span>
                     </div>
                     
@@ -78,7 +82,9 @@
                     
                     <div class="blog-full-content">
                         <h5>Content</h5>
-                        {{ blog.content|linebreaks }}
+                        <div style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+                            {{ blog.content|linebreaks }}
+                        </div>
                     </div>
                     
                     <div class="mt-4 d-flex justify-content-end">
