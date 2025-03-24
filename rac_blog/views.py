@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import BlogPost
+from django.shortcuts import get_object_or_404, redirect
 
 def is_superadmin(user):
     return user.is_superuser
@@ -80,3 +81,12 @@ def create_blog(request):
 def blog_list(request):
     blogs = BlogPost.objects.all().order_by('-created_at')  # Changed from Blog to BlogPost
     return render(request, 'blog-list.html', {'blogs': blogs})
+
+
+@login_required
+@user_passes_test(is_superadmin)
+def delete_blog(request, blog_id):
+    blog = get_object_or_404(BlogPost, id=blog_id)
+    blog.delete()
+    messages.success(request, f'Blog "{blog.title}" has been deleted successfully.')
+    return redirect('blog_list')

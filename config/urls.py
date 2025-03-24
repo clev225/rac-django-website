@@ -35,6 +35,8 @@ urlpatterns = [
 
     # (Optional) Keep the original Django admin panel, but at a different URL
     path('secure-admin/', admin.site.urls),  
+
+    path('rac_blog/', include('rac_blog.urls')),
 ]
 
 # Add this to serve media files during development
