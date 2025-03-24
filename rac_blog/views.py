@@ -90,3 +90,7 @@ def delete_blog(request, blog_id):
     blog.delete()
     messages.success(request, f'Blog "{blog.title}" has been deleted successfully.')
     return redirect('blog_list')
+
+def blog_detail(request, blog_id):
+    blog = get_object_or_404(BlogPost, id=blog_id)
+    return render(request, 'blog-detail.html', {'blog': blog})
