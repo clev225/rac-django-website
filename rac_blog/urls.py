@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from . import views
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('blog-list/', views.blog_list, name='blog_list'),
     path('delete_blog/<int:blog_id>/', views.delete_blog, name='delete_blog'),
     path('blog/<int:blog_id>/', views.blog_detail, name='blog_detail'),
+    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
 ]

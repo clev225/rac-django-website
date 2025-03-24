@@ -53,6 +53,8 @@ def custom_login(request):
 def blog_form(request):
     return render(request, 'blog-form.html')
 
+@login_required
+@user_passes_test(is_superadmin)
 def create_blog(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -78,6 +80,9 @@ def create_blog(request):
     
     return redirect('blog_form')
 
+
+@login_required
+@user_passes_test(is_superadmin)
 def blog_list(request):
     blogs = BlogPost.objects.all().order_by('-created_at')  # Changed from Blog to BlogPost
     return render(request, 'blog-list.html', {'blogs': blogs})
@@ -91,6 +96,10 @@ def delete_blog(request, blog_id):
     messages.success(request, f'Blog "{blog.title}" has been deleted successfully.')
     return redirect('blog_list')
 
+
+@login_required
+@user_passes_test(is_superadmin)
 def blog_detail(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id)
     return render(request, 'blog-detail.html', {'blog': blog})
+
