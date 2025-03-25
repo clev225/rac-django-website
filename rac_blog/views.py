@@ -79,6 +79,59 @@ def create_blog(request):
         return redirect('blog_list')
     
     return redirect('blog_form')
+    
+def edit_blog(request, blog_id):
+    """
+    View to display the blog edit form with pre-filled data
+    """
+    try:
+        blog = BlogPost.objects.get(id=blog_id)
+        return render(request, 'blog-form.html', {'blog': blog})
+    except BlogPost.DoesNotExist:
+        messages.error(request, "Blog not found.")
+        return redirect('blog_list')
+
+def update_blog(request, blog_id):
+    """
+    View to handle the blog update form submission
+    """
+    try:
+        blog = BlogPost.objects.get(id=blog_id)
+        
+        if request.method == 'POST':
+            # Get form data
+            title = request.POST.get('title')
+            author = request.POST.get('author')
+            date_published = request.POST.get('date_published')
+            description = request.POST.get('description')
+            content = request.POST.get('content')
+            
+            # Update blog fields
+            blog.title = title
+            blog.author = author
+            blog.date_published = date_published
+            blog.description = description
+            blog.content = content
+            
+            # Handle image upload
+            if 'image' in request.FILES:
+                # If a new image is uploaded, replace the old one
+                blog.image = request.FILES['image']
+            elif 'keep_image' not in request.POST:
+                # If the checkbox is unchecked and no new image, remove the current image
+                blog.image = None
+            
+            # Save the updated blog
+            blog.save()
+            
+            messages.success(request, "Blog updated successfully!")
+            return redirect('blog_detail', blog_id=blog.id)
+        
+        return render(request, 'blog-form.html', {'blog': blog})
+    
+    except BlogPost.DoesNotExist:
+        messages.error(request, "Blog not found.")
+        return redirect('blog_list')
 
 
 @login_required

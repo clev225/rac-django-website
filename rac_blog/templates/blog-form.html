@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Form</title>
+    <title>{% if blog %}Edit Blog{% else %}Create Blog{% endif %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,35 +13,65 @@
 </head>
 <body style="background: url('{% static 'images/bggg.png' %}') no-repeat center center; background-size: cover;">
     
+    {% include 'blog-navbar.html' %}
+
+    <!-- Toast container for messages -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header {% if message.tags %}bg-{{ message.tags }}{% endif %} {% if message.tags == 'success' %}text-white{% endif %}">
+                        <strong class="me-auto">
+                            {% if message.tags == 'success' %}Success{% elif message.tags == 'error' %}Error{% elif message.tags == 'warning' %}Warning{% elif message.tags == 'info' %}Information{% else %}Message{% endif %}
+                        </strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
     <div class="blog-form-container">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form method="POST" enctype="multipart/form-data" action="{% url 'create_blog' %}">
+                    <form method="POST" enctype="multipart/form-data" action="{% if blog %}{% url 'update_blog' blog.id %}{% else %}{% url 'create_blog' %}{% endif %}">
                         {% csrf_token %}
                         <div class="form-group mb-4">
                             <label for="blogTitle">Your blog title:</label>
-                            <input type="text" class="form-control" id="blogTitle" name="title" placeholder="Enter blog title here..." required>
+                            <input type="text" class="form-control" id="blogTitle" name="title" placeholder="Enter blog title here..." value="{% if blog %}{{ blog.title }}{% endif %}" required>
                         </div>
                         <div class="form-group mb-4">
                             <label for="author">Author:</label>
-                            <input type="text" class="form-control" id="author" name="author" required>
+                            <input type="text" class="form-control" id="author" name="author" value="{% if blog %}{{ blog.author }}{% endif %}" required>
                         </div>
                         <div class="form-group mb-4">
                             <label for="datePublished">Date published:</label>
-                            <input type="date" class="form-control" id="datePublished" name="date_published" required>
+                            <input type="date" class="form-control" id="datePublished" name="date_published" value="{% if blog %}{{ blog.date_published|date:'Y-m-d' }}{% endif %}" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <label for="blogDescription">Blog description:</label>
-                            <textarea class="form-control" id="blogDescription" name="description" rows="6" placeholder="Enter blog description here..." required></textarea>
+                            <textarea class="form-control" id="blogDescription" name="description" rows="6" placeholder="Enter blog description here..." required>{% if blog %}{{ blog.description }}{% endif %}</textarea>
                         </div>
                         <div class="form-group mb-4">
                             <label for="blogIllustration">Upload your blog illustration:</label>
                             <div class="input-group">
-                                <input type="file" class="form-control" id="blogIllustration" name="image" accept="image/png, image/jpeg, image/jpg" required>
+                                <input type="file" class="form-control" id="blogIllustration" name="image" accept="image/png, image/jpeg, image/jpg" {% if not blog %}required{% endif %}>
                             </div>
+                            {% if blog and blog.image %}
+                            <div class="mt-2">
+                                <p class="text-muted">Current image: <a href="{{ blog.image.url }}" target="_blank">View</a></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="keepImage" name="keep_image" value="yes" checked>
+                                    <label class="form-check-label" for="keepImage">Keep current image if no new image is uploaded</label>
+                                </div>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-12">
@@ -51,26 +81,164 @@
                                 placeholder="Enter your full blog content here..." 
                                 required
                                 maxlength="10000"
-                                oninput="this.nextElementSibling.value = (10000 - this.value.length) + ' characters remaining'"></textarea>
-                            <output class="form-text text-muted d-block mt-1">10000 characters remaining</output>
+                                oninput="this.nextElementSibling.value = (10000 - this.value.length) + ' characters remaining'">{% if blog %}{{ blog.content }}{% endif %}</textarea>
+                            <output class="form-text text-muted d-block mt-1">{% if blog %}{{ 10000|add:"-"|add:blog.content|length }} characters remaining{% else %}10000 characters remaining{% endif %}</output>
                         </div>
                     </div>
                     <div class="col-12 mt-4 d-flex justify-content-between align-items-center">
-                        <div class="back-button">
-                            <a href="{% url 'rac_blog_login' %}" class="btn btn-link text-decoration-none">
-                                <i class="fas fa-arrow-left"></i> Logout
-                            </a>
-                        </div>
                         <div>
-                            <button type="button" class="btn btn-secondary me-2">Preview</button>
-                            <button type="submit" class="btn btn-submit">Upload blog</button>
+                            <button type="button" class="btn btn-secondary me-2" id="previewButton">Preview</button>
+                            <button type="submit" class="btn btn-submit">{% if blog %}Update Blog{% else %}Upload Blog{% endif %}</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewModalLabel">Blog Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="preview-container">
+                        <h2 id="previewTitle" class="mb-3"></h2>
+                        <div class="d-flex justify-content-between mb-3">
+                            <p class="text-muted">By: <span id="previewAuthor"></span></p>
+                            <p class="text-muted">Published: <span id="previewDate"></span></p>
+                        </div>
+                        <div class="text-center mb-4">
+                            <img id="previewImage" src="" alt="Blog illustration" class="img-fluid rounded mx-auto d-block" style="max-height: 300px; display: none;">
+                            <div id="noImagePlaceholder" class="bg-light rounded p-5 text-center text-muted" style="display: none;">
+                                <i class="fas fa-image fa-3x mb-3"></i>
+                                <p>No image selected</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <h5>Description</h5>
+                            <p id="previewDescription" class="border-start border-primary ps-3"></p>
+                        </div>
+                        <div>
+                            <h5>Content</h5>
+                            <div id="previewContent" class="border-start border-primary ps-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate remaining characters on page load
+            const contentTextarea = document.getElementById('blogContent');
+            if (contentTextarea) {
+                const output = contentTextarea.nextElementSibling;
+                output.value = (10000 - contentTextarea.value.length) + ' characters remaining';
+            }
+        });
+
+        // Toast auto-hide after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const toasts = document.querySelectorAll('.toast');
+            toasts.forEach(toast => {
+                // Initialize Bootstrap toast
+                const bsToast = new bootstrap.Toast(toast, {
+                    autohide: true,
+                    delay: 5000
+                });
+                
+                // Close button functionality
+                const closeBtn = toast.querySelector('.btn-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        bsToast.hide();
+                    });
+                }
+            });
+        });
+
+        // Preview button functionality
+        const previewButton = document.getElementById('previewButton');
+        const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+        
+        previewButton.addEventListener('click', function() {
+            // Get current form values
+            const title = document.getElementById('blogTitle').value || 'Untitled Blog';
+            const author = document.getElementById('author').value || 'Anonymous';
+            const datePublished = document.getElementById('datePublished').value || 'Not specified';
+            const description = document.getElementById('blogDescription').value || 'No description provided.';
+            const content = document.getElementById('blogContent').value || 'No content provided.';
+            
+            // Format date if available
+            let formattedDate = datePublished;
+            if (datePublished && datePublished !== 'Not specified') {
+                const date = new Date(datePublished);
+                formattedDate = date.toLocaleDateString('en-US', {
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric'
+                });
+            }
+            
+            // Update modal with current values
+            document.getElementById('previewTitle').textContent = title;
+            document.getElementById('previewAuthor').textContent = author;
+            document.getElementById('previewDate').textContent = formattedDate;
+            document.getElementById('previewDescription').textContent = description;
+            
+            // Handle content with paragraphs
+            const contentDiv = document.getElementById('previewContent');
+            contentDiv.innerHTML = '';
+            const paragraphs = content.split('\n');
+            paragraphs.forEach(paragraph => {
+                if (paragraph.trim()) {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    contentDiv.appendChild(p);
+                }
+            });
+            
+            // Handle image preview
+            const imageInput = document.getElementById('blogIllustration');
+            const previewImage = document.getElementById('previewImage');
+            const noImagePlaceholder = document.getElementById('noImagePlaceholder');
+            
+            // Check if there's a new image selected
+            if (imageInput.files && imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                    noImagePlaceholder.style.display = 'none';
+                }
+                reader.readAsDataURL(imageInput.files[0]);
+            } 
+            // Check if there's an existing image (for edit mode)
+            else if (document.querySelector('a[href*="image.url"]')) {
+                const currentImageUrl = document.querySelector('a[href*="image.url"]').getAttribute('href');
+                previewImage.src = currentImageUrl;
+                previewImage.style.display = 'block';
+                noImagePlaceholder.style.display = 'none';
+            }
+            // No image case
+            else {
+                previewImage.style.display = 'none';
+                noImagePlaceholder.style.display = 'block';
+            }
+            
+            // Show the modal
+            previewModal.show();
+        });
+    </script>
 </body>
 </html>
