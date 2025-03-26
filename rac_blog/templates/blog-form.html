@@ -8,100 +8,154 @@
     <title>{% if blog %}Edit Blog{% else %}Create Blog{% endif %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/blog-form.css' %}">
-</head>
-<body style="background: url('{% static 'images/bggg.png' %}') no-repeat center center; background-size: cover;">
+    <link rel="stylesheet" href="{% static 'styles/blog-list.css' %}">
     
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+        .form-title {
+            color: #276695;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #555;
+        }
+        .btn-primary {
+            background-color: #276695;
+            border-color: #276695;
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            background-color: rgb(25, 73, 110);
+            border-color: rgb(25, 73, 110);
+        }
+        .image-preview {
+            max-width: 300px;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .note-editor {
+            border-radius: 0.25rem;
+        }
+
+        /* Responsive button styles */
+        @media (max-width: 576px) {
+            .btn {
+                padding: 0.375rem 0.5rem;
+                font-size: 0.875rem;
+            }
+            .form-action-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                width: 100%;
+            }
+            .form-action-buttons .btn {
+                flex: 1;
+                min-width: 120px;
+                margin: 0 !important;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .btn {
+                padding: 0.25rem 0.4rem;
+                font-size: 0.75rem;
+            }
+            .btn i {
+                margin-right: 0.2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
     {% include 'blog-navbar.html' %}
 
-    <!-- Toast container for messages -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header {% if message.tags %}bg-{{ message.tags }}{% endif %} {% if message.tags == 'success' %}text-white{% endif %}">
-                        <strong class="me-auto">
-                            {% if message.tags == 'success' %}Success{% elif message.tags == 'error' %}Error{% elif message.tags == 'warning' %}Warning{% elif message.tags == 'info' %}Information{% else %}Message{% endif %}
-                        </strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        {{ message }}
-                    </div>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
-
     <div class="container py-5">
-        <div class="row mb-4">
-            <div class="col d-flex justify-content-between align-items-center">
-                <h1 class="text-white" style="font-weight: bold;">RAC Blogs</h1>
-                <a href="{% url 'blog_list' %}" class="btn btn-outline-primary">
-                    <i class="fas fa-arrow-left"></i> Back to Blog List
-                </a>
-            </div>
-        </div>
-
-        <div class="blog-form-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form method="POST" enctype="multipart/form-data" action="{% if blog %}{% url 'update_blog' blog.id %}{% else %}{% url 'create_blog' %}{% endif %}">
-                            {% csrf_token %}
-                            <div class="form-group mb-4">
-                                <label for="blogTitle">Your blog title:</label>
-                                <input type="text" class="form-control" id="blogTitle" name="title" placeholder="Enter blog title here..." value="{% if blog %}{{ blog.title }}{% endif %}" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="author">Author:</label>
-                                <input type="text" class="form-control" id="author" name="author" value="{% if blog %}{{ blog.author }}{% endif %}" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="datePublished">Date published:</label>
-                                <input type="date" class="form-control" id="datePublished" name="date_published" value="{% if blog %}{{ blog.date_published|date:'Y-m-d' }}{% endif %}" required>
-                            </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="form-container">
+                    <h2 class="form-title">{% if blog %}Edit Blog{% else %}Create New Blog{% endif %}</h2>
+                    
+                    <form method="POST" enctype="multipart/form-data" action="{% if blog %}{% url 'update_blog' blog.id %}{% else %}{% url 'create_blog' %}{% endif %}">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="blogTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="blogTitle" name="title" placeholder="Enter blog title here..." value="{% if blog %}{{ blog.title }}{% endif %}" required>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-4">
-                                <label for="blogDescription">Blog description:</label>
-                                <textarea class="form-control" id="blogDescription" name="description" rows="6" placeholder="Enter blog description here..." required>{% if blog %}{{ blog.description }}{% endif %}</textarea>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="blogIllustration">Upload your blog illustration:</label>
-                                <div class="input-group">
-                                    <input type="file" class="form-control" id="blogIllustration" name="image" accept="image/png, image/jpeg, image/jpg" {% if not blog %}required{% endif %}>
-                                </div>
-                                {% if blog and blog.image %}
+                        
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" class="form-control" id="author" name="author" value="{% if blog %}{{ blog.author }}{% endif %}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="datePublished" class="form-label">Date Published</label>
+                            <input type="date" class="form-control" id="datePublished" name="date_published" value="{% if blog %}{{ blog.date_published|date:'Y-m-d' }}{% endif %}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="blogDescription" class="form-label">Short Description</label>
+                            <textarea class="form-control" id="blogDescription" name="description" rows="3" placeholder="Enter blog description here..." required>{% if blog %}{{ blog.description }}{% endif %}</textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="blogContent" class="form-label">Content <span class="text-muted">(Maximum 10,000 characters)</span></label>
+                            <textarea class="form-control" id="blogContent" name="content" rows="10" 
+                                placeholder="Enter your full blog content here..." 
+                                required
+                                maxlength="10000"
+                                oninput="this.nextElementSibling.value = (10000 - this.value.length) + ' characters remaining'">{% if blog %}{{ blog.content }}{% endif %}</textarea>
+                            <output class="form-text text-muted d-block mt-1">{% if blog %}{{ 10000|add:"-"|add:blog.content|length }} characters remaining{% else %}10000 characters remaining{% endif %}</output>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="blogIllustration" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="blogIllustration" name="image" accept="image/png, image/jpeg, image/jpg" {% if not blog %}required{% endif %}>
+                            
+                            {% if blog and blog.image %}
                                 <div class="mt-2">
-                                    <p class="text-muted">Current image: <a href="{{ blog.image.url }}" target="_blank">View</a></p>
-                                    <div class="form-check">
+                                    <img src="{{ blog.image.url }}" class="image-preview" alt="{{ blog.title }}">
+                                    <div class="form-check mt-2">
                                         <input class="form-check-input" type="checkbox" id="keepImage" name="keep_image" value="yes" checked>
-                                        <label class="form-check-label" for="keepImage">Keep current image if no new image is uploaded</label>
+                                        <label class="form-check-label" for="keepImage">
+                                            Keep current image if no new image is uploaded
+                                        </label>
                                     </div>
                                 </div>
-                                {% endif %}
-                            </div>
+                            {% endif %}
                         </div>
-                        <div class="col-12">
-                            <div class="blog-content-wrapper">
-                                <label for="blogContent">Blog content: <span class="text-muted">(Maximum 10,000 characters)</span></label>
-                                <textarea class="form-control" id="blogContent" name="content" 
-                                    placeholder="Enter your full blog content here..." 
-                                    required
-                                    maxlength="10000"
-                                    oninput="this.nextElementSibling.value = (10000 - this.value.length) + ' characters remaining'">{% if blog %}{{ blog.content }}{% endif %}</textarea>
-                                <output class="form-text text-muted d-block mt-1">{% if blog %}{{ 10000|add:"-"|add:blog.content|length }} characters remaining{% else %}10000 characters remaining{% endif %}</output>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-4 d-flex justify-content-between align-items-center">
+                        
+                        <div class="d-flex justify-content-between mt-4 form-action-buttons">
+                            <a href="{% url 'blog_list' %}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> <span class="d-none d-sm-inline">Back to Blogs</span><span class="d-inline d-sm-none">Back</span>
+                            </a>
                             <div>
-                                <button type="button" class="btn btn-secondary me-2" id="previewButton">Preview</button>
-                                <button type="submit" class="btn btn-submit">{% if blog %}Update Blog{% else %}Upload Blog{% endif %}</button>
+                                <button type="button" class="btn btn-outline-secondary me-2" id="previewButton">
+                                    <i class="fas fa-eye me-1"></i> <span class="d-none d-sm-inline">Preview</span><span class="d-inline d-sm-none">Preview</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> <span class="d-none d-sm-inline">{% if blog %}Update{% else %}Create{% endif %} Blog</span><span class="d-inline d-sm-none">{% if blog %}Update{% else %}Create{% endif %}</span>
+                                </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -142,11 +196,11 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -156,26 +210,6 @@
                 const output = contentTextarea.nextElementSibling;
                 output.value = (10000 - contentTextarea.value.length) + ' characters remaining';
             }
-        });
-
-        // Toast auto-hide after 5 seconds
-        document.addEventListener('DOMContentLoaded', function() {
-            const toasts = document.querySelectorAll('.toast');
-            toasts.forEach(toast => {
-                // Initialize Bootstrap toast
-                const bsToast = new bootstrap.Toast(toast, {
-                    autohide: true,
-                    delay: 5000
-                });
-                
-                // Close button functionality
-                const closeBtn = toast.querySelector('.btn-close');
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', function() {
-                        bsToast.hide();
-                    });
-                }
-            });
         });
 
         // Preview button functionality
@@ -235,8 +269,8 @@
                 reader.readAsDataURL(imageInput.files[0]);
             } 
             // Check if there's an existing image (for edit mode)
-            else if (document.querySelector('a[href*="image.url"]')) {
-                const currentImageUrl = document.querySelector('a[href*="image.url"]').getAttribute('href');
+            else if (document.querySelector('.image-preview')) {
+                const currentImageUrl = document.querySelector('.image-preview').getAttribute('src');
                 previewImage.src = currentImageUrl;
                 previewImage.style.display = 'block';
                 noImagePlaceholder.style.display = 'none';
