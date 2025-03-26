@@ -2,9 +2,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">
-        </a>
+        <a class="navbar-brand" href="{% url 'index' %}" title="Go back to informative page">
+            <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo" title="Go back to informative page">
+        </a>        
         <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{% url 'blog_list' %}">Blog List</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog_list' %}">Announcements</a>
+                    <a class="nav-link" href="{% url 'announcement_list' %}">Announcements</a>
                 </li>
                 {% if user.is_superuser %}
                 <li class="nav-item">
