@@ -286,7 +286,7 @@ def delete_announcement(request, announcement_id):
 @superadmin_required
 def announcement_detail(request, announcement_id):
     announcement = get_object_or_404(Announcement, id=announcement_id)
-    return render(request, 'announcement-detail.html', {'blog': announcement})
+    return render(request, 'announcement-detail.html', {'announcement': announcement})
 
 # Public view for announcements (no login required)
 def public_announcements(request):
