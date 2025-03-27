@@ -7,7 +7,12 @@ urlpatterns = [
     path("services/", views.services, name="services"),
     path("testimonials/", views.testimonials, name="testimonials"),
     path("team/", views.team, name="team"),
-    path("blogs/", views.blogs, name="blogs"),
-    path('blog/', views.blog_post_view, name='blog_post'),
     path('blog/<int:blog_id>/', views.blog_detail_view, name='blog_detail'),
+    # Add this URL pattern to the urlpatterns list
+    path('announcements/', views.info_announcements, name='info_announcements'),
+    # Add this URL pattern to the urlpatterns list
+    path('announcements/<int:announcement_id>/', views.announcement_read_more, name='announcement_read_more'),
+    # Add these URL patterns to the urlpatterns list
+    path('blogs/', views.blog_post, name='blog_post'),
+    path('blogs/<int:blog_id>/', views.blog_read_more, name='blog_read_more'),
 ]
