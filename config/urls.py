@@ -20,7 +20,8 @@ from django.urls import path, include
 from django.urls import re_path
 from django.shortcuts import redirect
 from rac_blog import views  # Import your blog app views
-
+from django.conf import settings  # Add this import
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", include("informative_page.urls")),  # Make informative_page the default app
@@ -34,4 +35,10 @@ urlpatterns = [
 
     # (Optional) Keep the original Django admin panel, but at a different URL
     path('secure-admin/', admin.site.urls),  
+
+    path('rac_blog/', include('rac_blog.urls')),
 ]
+
+# Add this to serve media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

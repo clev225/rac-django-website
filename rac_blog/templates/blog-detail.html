@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }} - Blog Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/blog-list.css' %}">
+    <style>
+        .blog-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .blog-image {
+            max-height: 400px;
+            width: 100%;
+            max-width: 800px; /* Fixed maximum width */
+            object-fit: contain; /* Changed from cover to contain to show full image */
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem; /* Center the image horizontally */
+            display: block; /* Required for margin auto to work */
+            background-color: #f8f9fa; /* Light background for images with transparency */
+        }
+        .blog-metadata {
+            margin-bottom: 1.5rem;
+            color: #6c757d;
+        }
+        .back-button {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body style="background: url('{% static 'images/bggg.png' %}') no-repeat center center; background-size: cover;">
+    
+    {% include 'blog-navbar.html' %}
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header {% if message.tags %}bg-{{ message.tags }}{% endif %} {% if message.tags == 'success' %}text-white{% endif %}">
+                        <strong class="me-auto">
+                            {% if message.tags == 'success' %}Success{% elif message.tags == 'error' %}Error{% elif message.tags == 'warning' %}Warning{% elif message.tags == 'info' %}Information{% else %}Message{% endif %}
+                        </strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-between align-items-center">
+                <h1 class="text-white" style="font-weight: bold;">RAC Blogs</h1>
+                <a href="{% url 'blog_list' %}" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Blog List
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="blog-content">
+                    <h1 class="blog-title mb-3">{{ blog.title }}</h1>
+                    
+                    <div class="blog-metadata">
+                        <span><strong>Author:</strong> {{ blog.author }}</span> <br> 
+                        <span><strong>Published:</strong> {{ blog.date_published }}</span>
+                    </div>
+                    
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-image">
+                    {% endif %}
+                    
+                    <div class="blog-description mb-4">
+                        <h5>Description</h5>
+                        <p>{{ blog.description }}</p>
+                    </div>
+                    
+                    <div class="blog-full-content">
+                        <h5>Content</h5>
+                        <div style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+                            {{ blog.content|linebreaks }}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 d-flex justify-content-end">
+                        {% if user.is_superuser %}
+                        <div>
+                            <a href="{% url 'edit_blog' blog.id %}" class="btn btn-outline-secondary me-2">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <button class="btn btn-outline-danger delete-blog" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#deleteConfirmModal">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Deletion</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the blog "<strong>{{ blog.title }}</strong>"?</p>
+                    <p class="text-danger"><i class="fas fa-exclamation-triangle"></i> This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="{% url 'delete_blog' blog.id %}" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Delete Permanently
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        // Toast auto-hide after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const toasts = document.querySelectorAll('.toast');
+            toasts.forEach(toast => {
+                // Initialize Bootstrap toast
+                const bsToast = new bootstrap.Toast(toast, {
+                    autohide: true,
+                    delay: 5000
+                });
+                
+                // Close button functionality
+                const closeBtn = toast.querySelector('.btn-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        bsToast.hide();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

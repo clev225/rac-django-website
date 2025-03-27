@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
+RUN pip install Pillow==10.2.0
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy static files into the image
