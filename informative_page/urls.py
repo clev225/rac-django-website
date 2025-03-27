@@ -5,6 +5,10 @@ urlpatterns = [
     path("", views.index, name="index"),  # Homepage
     path("about-us/", views.about_us, name="about_us"),
     path("services/", views.services, name="services"),
+
+    #services requirements
+    path("services/payroll-management/", views.payroll_management, name="payroll_management"),
+
     path("testimonials/", views.testimonials, name="testimonials"),
     path("team/", views.team, name="team"),
     path('blog/<int:blog_id>/', views.blog_detail_view, name='blog_detail'),
