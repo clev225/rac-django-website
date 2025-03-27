@@ -17,3 +17,8 @@ def team(request):
 
 def blogs(request):
     return render(request, "blog-post.html")
+
+#SERVICES 
+
+def payroll_management(request):
+    return render(request, "payroll_management.html")
