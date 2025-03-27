@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     {% include 'modal.html' %}
+
     <link rel="stylesheet" href="/static/styles/services-style.css">
     <!-- Added CSS for components -->
     <link rel="stylesheet" href="/static/styles/faq.css">
@@ -24,6 +25,7 @@
         body.loaded {
             opacity: 1;
         }
+
     </style>
 </head>
 
@@ -46,7 +48,7 @@
                 <div class="service-title">Payroll Management</div>
             </div>
             <div class="service-button">
-                <a href="payroll_management.html" class="get-started">Get Started</a>
+                <a href="{% url 'payroll_management' %}" class="get-started">Get Started</a>
             </div>
         </div>
     
@@ -201,7 +203,9 @@
     </div>
 
     <!-- Include Footer -->
-    {% include 'footer.html' %}
+    <div class="w-100">
+        {% include 'footer.html' %}
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

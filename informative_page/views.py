@@ -20,15 +20,9 @@ def team(request):
 def blogs(request):
     return render(request, "blog-post.html")
 
-def blog_post_view(request):
-    # Get all published blog posts
-    blogs = BlogPost.objects.filter(is_published=True).order_by('-created_at')
-    
-    # For debugging
-    print(f"Number of blogs found: {blogs.count()}")
-    
-    return render(request, 'blog-post.html', {'blogs': blogs})
+#SERVICES 
 
+<<<<<<< HEAD
 def info_announcements(request):
     announcements = Announcement.objects.all().order_by('-date_published')
     return render(request, 'info-announcements.html', {'announcements': announcements})
@@ -52,3 +46,7 @@ def blog_detail_view(request, blog_id):
     # This function should redirect to the blog_read_more view
     # or you can implement the detail view logic here
     return blog_read_more(request, blog_id)
+=======
+def payroll_management(request):
+    return render(request, "payroll_management.html")
+>>>>>>> 7bf3dad088d394a6ffd278c23687dd90b3d64688
