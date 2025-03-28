@@ -24,6 +24,7 @@
 </head>
 <body>
 
+{% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <a class="navbar-brand" href="{% url 'index'%}">
         {% block navbar_img %}<img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">{% endblock navbar_img %}
@@ -46,11 +47,12 @@
                 <a class="nav-link" href="{% url 'team' %}">Team RAC</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog_post' %}">Blogs</a>
+                <a class="nav-link" href="{% url 'blog_post' %}">Announcements</a>
             </li>
         </ul>
     </div>
 </nav>
+{% endblock navbar %}
 
 <div class="main-content">
     {% block content %}
