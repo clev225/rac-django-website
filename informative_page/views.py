@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rac_blog.models import BlogPost  # Import the BlogPost model from rac_blog app
+from rac_blog.models import Announcement
 
 def index(request):
     return render(request, "index.html")
@@ -10,6 +11,37 @@ def about_us(request):
 def services(request):
     return render(request, "services.html")
 
+#services get started button
+def payroll_management(request):
+    return render(request, 'payroll_management.html')
+
+def business_registration(request):
+    return render(request, 'business_registration.html')
+
+def auditing_services(request):
+    return render(request, 'auditing_services.html')
+
+def tax_compliance(request):
+    return render(request, 'tax_compliance.html')
+
+def business_formation_registration(request):
+    return render(request, 'business_formation_registration.html')
+
+def contract_review_preparation(request):
+    return render(request, 'contract_review_preparation.html')
+
+def corporate_governance_compliance(request):
+    return render(request, 'corporate_governance_compliance.html')
+
+def employment_labor_law_support(request):
+    return render(request, 'employment_labor_law_support.html')
+
+def mergers_acquisition_restructuring(request):
+    return render(request, 'mergers_acquisition_restructuring.html')
+
+def ip_assistance(request):
+    return render(request, 'ip_assistance.html'
+    )
 def testimonials(request):
     return render(request, "testimonials.html")
 
@@ -19,7 +51,27 @@ def team(request):
 def blogs(request):
     return render(request, "blog-post.html")
 
-#SERVICES 
 
-def payroll_management(request):
-    return render(request, "payroll_management.html")
+def info_announcements(request):
+    announcements = Announcement.objects.all().order_by('-date_published')
+    return render(request, 'info-announcements.html', {'announcements': announcements})
+
+# Add this view function for the announcement detail page
+def announcement_read_more(request, announcement_id):
+    announcement = get_object_or_404(Announcement, id=announcement_id)
+    return render(request, 'announcement-read-more.html', {'announcement': announcement})
+
+# Add these view functions
+def blog_post(request):
+    blogs = BlogPost.objects.all().order_by('-date_published')
+    return render(request, 'blog-post.html', {'blogs': blogs})
+
+def blog_read_more(request, blog_id):
+    blog = get_object_or_404(BlogPost, id=blog_id)
+    return render(request, 'blog-read-more.html', {'blog': blog})
+
+# Add this view function to handle the blog_detail URL
+def blog_detail_view(request, blog_id):
+    # This function should redirect to the blog_read_more view
+    # or you can implement the detail view logic here
+    return blog_read_more(request, blog_id)

@@ -142,11 +142,54 @@
                             <a href="{% url 'announcement_list' %}" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left me-1"></i> <span class="d-none d-sm-inline">Back to Announcements</span><span class="d-inline d-sm-none">Back</span>
                             </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i> <span class="d-none d-sm-inline">{% if announcement %}Update{% else %}Create{% endif %} Announcement</span><span class="d-inline d-sm-none">{% if announcement %}Update{% else %}Create{% endif %}</span>
-                            </button>
+                            <div>
+                                <button type="button" class="btn btn-outline-secondary me-2" id="previewButton">
+                                    <i class="fas fa-eye me-1"></i> <span class="d-none d-sm-inline">Preview</span><span class="d-inline d-sm-none">Preview</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i> <span class="d-none d-sm-inline">{% if announcement %}Update{% else %}Create{% endif %} Announcement</span><span class="d-inline d-sm-none">{% if announcement %}Update{% else %}Create{% endif %}</span>
+                                </button>
+                            </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewModalLabel">Announcement Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="previewTitle" class="mb-3"></h2>
+                    <div class="d-flex align-items-center text-muted mb-3">
+                        <span id="previewAuthor"></span>
+                        <span class="mx-2">|</span>
+                        <span id="previewDate"></span>
+                    </div>
+                    <div class="mb-4">
+                        <h5>Description</h5>
+                        <p id="previewDescription" class="border-start border-primary ps-3"></p>
+                    </div>
+                    <div class="text-center mb-4">
+                        <img id="previewImage" class="img-fluid rounded" style="max-height: 300px; display: none;">
+                        <div id="noImagePlaceholder" class="border rounded p-5 text-center text-muted">
+                            <i class="fas fa-image fa-3x mb-3"></i>
+                            <p>No image selected</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Content</h5>
+                        <div id="previewContent" class="border-start border-primary ps-3"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -162,13 +205,10 @@
                 tabsize: 2,
                 height: 300,
                 toolbar: [
-                    ['style', ['style']],
                     ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
+                    ['para', ['ul', 'ol']],
                     ['insert', ['link', 'picture']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
+                    ['view', ['fullscreen', 'help']]
                 ]
             });
             
@@ -186,6 +226,71 @@
                     reader.readAsDataURL(this.files[0]);
                 }
             });
+            // Preview button functionality
+            const previewButton = document.getElementById('previewButton');
+            if (previewButton) {
+                previewButton.addEventListener('click', function() {
+                    // Get current form values
+                    const title = document.getElementById('title').value || 'Untitled Announcement';
+                    const author = document.getElementById('author').value || 'Anonymous';
+                    const datePublished = document.getElementById('date_published').value || 'Not specified';
+                    const description = document.getElementById('description').value || 'No description provided.';
+                    const content = $('#content').summernote('code') || 'No content provided.';
+                    
+                    // Format date if available
+                    let formattedDate = datePublished;
+                    if (datePublished && datePublished !== 'Not specified') {
+                        const date = new Date(datePublished);
+                        formattedDate = date.toLocaleDateString('en-US', {
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric'
+                        });
+                    }
+                    
+                    // Update modal with current values
+                    document.getElementById('previewTitle').textContent = title;
+                    document.getElementById('previewAuthor').textContent = author;
+                    document.getElementById('previewDate').textContent = formattedDate;
+                    document.getElementById('previewDescription').textContent = description;
+                    
+                    // Handle content with HTML
+                    const contentDiv = document.getElementById('previewContent');
+                    contentDiv.innerHTML = content;
+                    
+                    // Handle image preview
+                    const imageInput = document.getElementById('image');
+                    const previewImage = document.getElementById('previewImage');
+                    const noImagePlaceholder = document.getElementById('noImagePlaceholder');
+                    
+                    // Check if there's a new image selected
+                    if (imageInput.files && imageInput.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewImage.src = e.target.result;
+                            previewImage.style.display = 'block';
+                            noImagePlaceholder.style.display = 'none';
+                        }
+                        reader.readAsDataURL(imageInput.files[0]);
+                    } 
+                    // Check if there's an existing image (for edit mode)
+                    else if (document.querySelector('.image-preview')) {
+                        const currentImageUrl = document.querySelector('.image-preview').getAttribute('src');
+                        previewImage.src = currentImageUrl;
+                        previewImage.style.display = 'block';
+                        noImagePlaceholder.style.display = 'none';
+                    }
+                    // No image case
+                    else {
+                        previewImage.style.display = 'none';
+                        noImagePlaceholder.style.display = 'block';
+                    }
+                    
+                    // Show the modal
+                    const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+                    previewModal.show();
+                });
+            }
         });
     </script>
 </body>

@@ -24,9 +24,10 @@
 </head>
 <body>
 
+{% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <a class="navbar-brand" href="{% url 'index'%}">
-        {% block navbar_img %}<img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">{% endblock navbar_img %}
+        <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">
     </a>
     <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,12 +46,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'team' %}">Team RAC</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    News & Updates
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'info_announcements' %}" style="color: #356d98;">Announcements</a>
+                    <a class="dropdown-item" href="{% url 'blog_post' %}" style="color: #356d98;">Blogs</a>
+                </div>
             </li>
         </ul>
     </div>
 </nav>
+{% endblock navbar %}
 
 <div class="main-content">
     {% block content %}
