@@ -51,9 +51,7 @@ def team(request):
 def blogs(request):
     return render(request, "blog-post.html")
 
-#SERVICES 
-def payroll_management(request):
-    return render(request, "payroll-management.html")
+
 def info_announcements(request):
     announcements = Announcement.objects.all().order_by('-date_published')
     return render(request, 'info-announcements.html', {'announcements': announcements})
