@@ -11,6 +11,37 @@ def about_us(request):
 def services(request):
     return render(request, "services.html")
 
+#services get started button
+def payroll_management(request):
+    return render(request, 'payroll_management.html')
+
+def business_registration(request):
+    return render(request, 'business_registration.html')
+
+def auditing_services(request):
+    return render(request, 'auditing_services.html')
+
+def tax_compliance(request):
+    return render(request, 'tax_compliance.html')
+
+def business_formation_registration(request):
+    return render(request, 'business_formation_registration.html')
+
+def contract_review_preparation(request):
+    return render(request, 'contract_review_preparation.html')
+
+def corporate_governance_compliance(request):
+    return render(request, 'corporate_governance_compliance.html')
+
+def employment_labor_law_support(request):
+    return render(request, 'employment_labor_law_support.html')
+
+def mergers_acquisition_restructuring(request):
+    return render(request, 'mergers_acquisition_restructuring.html')
+
+def ip_assistance(request):
+    return render(request, 'ip_assistance.html'
+    )
 def testimonials(request):
     return render(request, "testimonials.html")
 
