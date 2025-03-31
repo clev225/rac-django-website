@@ -257,6 +257,19 @@
                     // Handle content with HTML
                     const contentDiv = document.getElementById('previewContent');
                     contentDiv.innerHTML = content;
+
+                    // Apply fixed image styling to all images in the preview content
+                    const contentImages = contentDiv.querySelectorAll('img');
+                    contentImages.forEach(img => {
+                        img.style.width = '100%';
+                        img.style.maxWidth = '700px';
+                        img.style.height = 'auto';
+                        img.style.maxHeight = '500px';
+                        img.style.objectFit = 'contain';
+                        img.style.borderRadius = '8px';
+                        img.style.margin = '15px auto';
+                        img.style.display = 'block';
+                    });
                     
                     // Handle image preview
                     const imageInput = document.getElementById('image');
