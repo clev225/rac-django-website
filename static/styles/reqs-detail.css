@@ -1,0 +1,317 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.lead {
+    font-size: 18px;
+}
+
+/* Back Button */
+.back-button .btn-link {
+    color: #2d5f86;
+    font-weight: 500;
+    padding-left: 0;
+}
+
+.back-button .btn-link:hover {
+    color: #1a4a6e;
+}
+
+/* Section Title */
+.section-title {
+    color: #fff;
+    background-color: #2d5f86;
+    padding: 15px 25px;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 25px;
+    border-radius: 0px;
+    display: inline-block;
+    width: 50%;
+    max-width: 400px;
+}
+
+.section-info {
+    color: #fff;
+    background-color: #2d5f86;
+    padding: 15px 25px;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 25px;
+    border-radius: 0px;
+    display: inline-block;
+    width: 60%;
+    max-width: 500px; 
+    margin-top: 30px;
+    margin-left: 12px;
+}
+
+/* Requirements Container */
+.requirements-container {
+    border-radius: 8px;
+    max-height: 500px;  /* Set a fixed height */
+    overflow-y: auto;   /* Enable vertical scrolling */
+}
+
+/* Add custom scrollbar styling */
+.requirements-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.requirements-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.requirements-container::-webkit-scrollbar-thumb {
+    background: #2d5f86;
+    border-radius: 4px;
+}
+.requirements-container::-webkit-scrollbar-thumb:hover {
+    background: #1a4a6e;
+}
+
+/* Requirement Items */
+.requirement-item {
+    padding: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0; /* Remove space between containers */
+}
+.requirement-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d5f86;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.number {
+    background-color: #2d5f86;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+/* List Items */
+.requirements-list ul li {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    position: relative;
+    padding-left: 20px;  /* Add padding for bullet points */
+    line-height: 1.5;
+    font-size: 18px;
+}
+.requirements-list ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d5f86;
+    margin-right: 10px;  /* Add space between bullet and text */
+}
+.requirements-list ul {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.requirements-list ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d5f86;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+        padding: 12px 20px;
+    }
+
+    .requirement-title {
+        font-size: 1.1rem;
+    }
+
+    .requirements-list ul {
+        padding-left: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.25rem;
+        padding: 10px 15px;
+    }
+
+    .requirement-title {
+        font-size: 1rem;
+    }
+
+    .requirements-list ul {
+        padding-left: 1rem;
+    }
+
+    .requirement-item {
+        padding: 15px;
+    }
+}
+
+/* Business Cards Container */
+.business-cards-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.business-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.business-card {
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #2d5f86;
+    border-radius: 4px;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Add smooth transition */
+    position: relative;
+    top: 0;
+}
+
+/* Add hover effect */
+.business-card:hover {
+    top: -10px; /* Move card up slightly */
+    box-shadow: 0 15px 30px rgba(45, 95, 134, 0.31); /* Add shadow */
+    transform: scale(1.02); /* Slightly increase size */
+    border-color: #1a4a6e; /* Darken border color */
+}
+
+/* Profile Section adjustments */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .business-cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .business-card {
+        padding: 20px;
+    }
+}
+.profile-info {
+    flex: 1;
+    min-width: 250px;
+}
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    .contact-details {
+        align-items: center;
+    }
+    .business-card {
+        padding: 15px;
+    }
+}
+/* Remove slide arrows styles as they're no longer needed */
+.slide-arrow {
+    display: none;
+}
+.profile-name {
+    color: #2d5f86;
+    font-size: 24px; /* Keep original text size */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.profile-title {
+    color: #2d5f86;
+    font-size: 16px; /* Keep original text size */
+    margin-bottom: 20px;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Keep original gap */
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Keep original gap */
+    color: #2d5f86;
+}
+.contact-item i {
+    width: 20px; /* Keep original icon size */
+    height: 20px; /* Keep original icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d5f86;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px; /* Keep original icon size */
+}
+/* Slide Arrows */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2d5f86;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+}
+.prev-arrow {
+    left: 10px;
+}
+.next-arrow {
+    right: 10px;
+}
+.slide-arrow:hover {
+    background: #1a4a6e;
+}
