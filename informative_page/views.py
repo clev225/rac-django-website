@@ -11,6 +11,9 @@ def about_us(request):
 def services(request):
     return render(request, "services.html")
 
+def FAQs(request):
+    return render(request, "FAQs.html")
+
 #services get started button
 def payroll_management(request):
     return render(request, 'payroll_management.html')
