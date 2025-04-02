@@ -4,8 +4,13 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import BlogPost, Announcement, Service
 from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.models import User
+from typing import Any
 
-def is_superadmin(user):
+
+
+# Then in your functions, you can add type hints
+def is_superadmin(user: User) -> bool:
     return user.is_superuser
 
 # Update the user_passes_test decorator to redirect to custom login
@@ -55,9 +60,9 @@ def custom_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None and user.is_superuser:
+        # In specific places where you get warnings
+        user = authenticate(request, username=username, password=password)  # type: ignore
+        if user is not None and user.is_superuser:  # type: ignore
             login(request, user)
             messages.add_message(request, messages.SUCCESS, "Successfully logged in as RAC Admin", extra_tags='login_success')
             return redirect('blog_list')  # Changed from blog_form to blog_list
@@ -408,33 +413,33 @@ def update_service(request, service_id):
                         subcat = request.POST.get(f'subcategory_{i}_{j}')
                         if subcat:
                             subcategories.append(subcat)
+                            
+                            requirements.append({
+                                'category': category,
+                                'subcategories': subcategories
+                            })
+                            
+                            # Update service fields
+                            service.title = title
+                            service.descriptions = descriptions
+                            service.requirements = requirements
+                            
+                            # Handle image upload
+                            if 'image' in request.FILES:
+                                # If a new image is uploaded, replace the old one
+                                service.image = request.FILES['image']
+                            elif 'keep_image' not in request.POST:
+                                # If the checkbox is unchecked and no new image, remove the current image
+                                service.image = None
+                            
+                            # Save the updated service
+                            service.save()
+                            
+                            messages.success(request, "Service updated successfully!")
+                            return redirect('service_detail', service_id=service.id)
+                            
+                            return render(request, 'service-form.html', {'service': service})
                         
-                        requirements.append({
-                            'category': category,
-                            'subcategories': subcategories
-                        })
-                        
-                        # Update service fields
-                        service.title = title
-                        service.descriptions = descriptions
-                        service.requirements = requirements
-                        
-                        # Handle image upload
-                        if 'image' in request.FILES:
-                            # If a new image is uploaded, replace the old one
-                            service.image = request.FILES['image']
-                        elif 'keep_image' not in request.POST:
-                            # If the checkbox is unchecked and no new image, remove the current image
-                            service.image = None
-                        
-                        # Save the updated service
-                        service.save()
-                        
-                        messages.success(request, "Service updated successfully!")
-                        return redirect('service_detail', service_id=service.id)
-                        
-                        return render(request, 'service-form.html', {'service': service})
-                    
     except Service.DoesNotExist:
         messages.error(request, "Service not found.")
         return redirect('add_services')
