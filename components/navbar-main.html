@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="{% url 'index'%}">
         <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">
     </a>
-    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbarNav">
@@ -21,7 +21,7 @@
                 <a class="nav-link" href="{% url 'team' %}">Team RAC</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     News & Updates
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,5 +45,15 @@
                 this.querySelector('.dropdown-menu').style.display = 'none';
             });
         });
+        
+        // Add toggle functionality for navbar
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        if (navbarToggler) {
+            navbarToggler.addEventListener('click', function() {
+                navbarCollapse.classList.toggle('show');
+            });
+        }
     });
 </script>

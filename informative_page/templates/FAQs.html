@@ -1,15 +1,57 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Section</title>
+    <title>RAC Consultancy - Frequently Asked Questions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/static/styles/faqs-style.css">
+
+    <!-- Added CSS for components -->
+    <link rel="stylesheet" href="/static/styles/faq.css">
+    <link rel="stylesheet" href="/static/styles/navbar-main.css">
+    <link rel="stylesheet" href="/static/styles/navbar-popover.css">
+
+    <style>
+        body {
+                opacity: 0;
+                transition: opacity 0.5s;
+                padding-top: 100px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            body.loaded {
+                opacity: 1;
+            }
+            
+            body, html {
+                font-family: 'Poppins', sans-serif !important;
+            }
+            
+            * {
+                font-family: 'Poppins', sans-serif;
+            }
+        
+            .content-wrapper {
+                flex: 1 0 auto;
+            }
+
+            footer {
+                flex-shrink: 0;
+                margin-top: auto;
+            }
+    </style>
+
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
+    {% include 'navbar-main.html' %}
+
     <!-- Search Bar -->
     <div class="search-container">
         <input type="text" class="search-input" placeholder="Search...">
@@ -100,5 +142,27 @@
         </div>
 
     </div>
+
+    <div class="w-100">
+        {% include 'footer.html' %}
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <!-- Component JavaScript files -->
+        <script src="/static/scripts/scripts.js"></script>
+        <script src="/static/scripts/navbar-main.js"></script>
+        <script src="/static/scripts/footer.js"></script>
+        <script src="{% static '/scripts/popover.js' %}"></script>
+        <script src="/static/scripts/faq-script.js"></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('loaded');
+            });
+        </script>
+
 </body>
 </html>

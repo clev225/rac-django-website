@@ -125,7 +125,7 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <div class="team-quote">"If there's a will, there's a way."</div>
-                                <h3 class="team-name">Mr. Alexis A. Velasco, 26</h3>
+                                <h3 class="team-name">Mr. Ryan B. Endrinal</h3>
                                 <div class="team-position">Chief Accountant, RAC Consultancy</div>
                                 <p class="team-bio">
                                     Mr. Alexis A. Velasco is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation. With a strong foundation in business and strategic management, he has successfully led numerous projects, helping clients achieve sustainable growth and efficiency.
@@ -181,6 +181,28 @@
                     </div>
                 </div>
             </div>
+            <!-- Team Member 4 -->
+            <div class="carousel-item active">
+                <div class="card team-card">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <div class="team-img-wrapper">
+                                <img src="{% static 'images/alexis1.png' %}" class="team-img" alt="Alexis A. Velasco">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="team-quote">"If there's a will, there's a way."</div>
+                                <h3 class="team-name">Mr. Alexis A. Velasco, 26</h3>
+                                <div class="team-position">Chief Accountant, RAC Consultancy</div>
+                                <p class="team-bio">
+                                    Mr. Alexis A. Velasco is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation. With a strong foundation in business and strategic management, he has successfully led numerous projects, helping clients achieve sustainable growth and efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Carousel Controls -->
@@ -197,7 +219,9 @@
 
 <!-- FAQ icon -->
 <div class="faq-icon" id="faqIcon">
-    <i class="fas fa-question-circle"></i>
+    <a href="{% url 'FAQs'%}">
+        <i class="fas fa-question-circle"></i>
+    </a>
 </div>
 {% endblock content %}
 
