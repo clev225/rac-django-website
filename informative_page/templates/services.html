@@ -33,6 +33,32 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
+        /* Service Button */
+        .service-button {
+            align-self: flex-end;
+            margin-top: 20px; /* Increased from 10px to 25px to add more space */
+        }
+
+        /* Get Started Button */
+        .get-started {
+            background: #356d98;
+            color: white;
+            padding: 8px 16px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .get-started:hover {
+            background: #28587b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 88, 123, 0.2);
+            color: white;
+            text-decoration: none !important; 
+        }
     </style>
 </head>
 
@@ -54,16 +80,16 @@
             <div class="service-box">
                 <div class="service-title">Payroll Management</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'payroll_management'%}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Accurate and timely salary processing.</li>
                 <li>Benefits administration.</li>
                 <li>Tax deductions and compliance with labor regulations.</li>
             </ul>
-            
+            <div class="service-button">
+                <a href="{% url 'payroll_management'%}" class="get-started">Get Started</a>
+            </div>
         </div>
 
     
@@ -71,15 +97,15 @@
             <div class="service-box">
                 <div class="service-title">Business Registration</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'business_registration'%}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Navigating legal requirements and documentation.</li>
                 <li>Ensuring compliance with government regulations.</li>
             </ul>
-
+            <div class="service-button">
+                <a href="{% url 'business_registration'%}" class="get-started">Get Started</a>
+            </div>
         </div>
     
     
@@ -87,9 +113,7 @@
             <div class="service-box">
                 <div class="service-title">Auditing Services</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'auditing_services'%}" class="get-started">Get Started</a>
-            </div>
+          
 
             <ul class="service-text">
                 <li>Assessment of financial statements and internal controls.</li>
@@ -98,7 +122,9 @@
                 <li>Mitigate financial risks.</li>
                 <li>Enhance financial transparency.</li>
             </ul>
-
+            <div class="service-button">
+                <a href="{% url 'auditing_services'%}" class="get-started">Get Started</a>
+            </div>
         </div>
     
 
@@ -106,9 +132,7 @@
             <div class="service-box">
                 <div class="service-title">Tax Compliance and Advisory</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'tax_compliance' %}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Tax planning strategies.</li>
@@ -118,6 +142,9 @@
                 <li>Keeping up with changing tax laws and regulations.</li>
                 <li>Tax filing and compliance.</li>
             </ul>
+            <div class="service-button">
+                <a href="{% url 'tax_compliance' %}" class="get-started">Get Started</a>
+            </div>
         </div>
     
 
@@ -125,16 +152,16 @@
             <div class="service-box">
                 <div class="service-title">Business Formation and Registration</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'business_formation_registration' %}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Assistance in setting up corporations, partnerships, or sole proprietorships.</li>
                 <li>Securing business permits and licenses.</li>
                 <li>Drafting articles of incorporation and by-laws.</li>
             </ul>
-
+            <div class="service-button">
+                <a href="{% url 'business_formation_registration' %}" class="get-started">Get Started</a>
+            </div>
         </div>
 
 
@@ -142,29 +169,30 @@
             <div class="service-box">
                 <div class="service-title">Contract Review and Preparation</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'contract_review_preparation' %}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Drafting, reviewing, and negotiating contracts such as supplier agreements, lease contracts, etc.</li>
                 <li>Ensuring compliance with local regulations and tax laws.</li>
             </ul>
-
+            <div class="service-button">
+                <a href="{% url 'contract_review_preparation' %}" class="get-started">Get Started</a>
+            </div>
         </div>
 
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Corporate Governance and Compliance</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'corporate_governance_compliance'%}" class="get-started">Get Started</a>
-            </div>
+           
 
             <ul class="service-text">
                 <li>Ensuring compliance with SEC, BIR, and other regulatory bodies.</li>
                 <li>Assistance with annual report filing, board resolutions, and shareholder agreements.</li>
             </ul>
+            <div class="service-button">
+                <a href="{% url 'corporate_governance_compliance'%}" class="get-started">Get Started</a>
+            </div>
         </div>
 
 
@@ -172,45 +200,44 @@
             <div class="service-box">
                 <div class="service-title">Employment and Labor Law Support</div>
             </div>
-            <div class="service-button">
-                <a href= "{% url 'employment_labor_law_support'%}" class="get-started">Get Started</a>
-            </div>
-
             
         <ul class="service-text">
             <li>Preparing employee contracts.</li>
             <li>Advising on wage regulations, benefits, and compliance with labor laws.</li>
         </ul>
-
+        <div class="service-button">
+            <a href= "{% url 'employment_labor_law_support'%}" class="get-started">Get Started</a>
+        </div>
         </div>
 
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Mergers, Acquisitions, and Restructuring</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'mergers_acquisition_restructuring'%}" class="get-started">Get Started</a>
-            </div>
+            
 
             <ul class="service-text">
                 <li>Due diligence services</li>
                 <li>Structuring deals to optimize tax outcomes.</li>
                 <li>Assisting with legal documentation for acquisitions and mergers.</li>
             </ul>
-
+            <div class="service-button">
+                <a href="{% url 'mergers_acquisition_restructuring'%}" class="get-started">Get Started</a>
+            </div>
         </div>
 
         <div class="service-row">
             <div class="service-box">
                 <div class="service-title">Intellectual Property (IP) Assistance</div>
             </div>
-            <div class="service-button">
-                <a href="{% url 'ip_assistance'%}" class="get-started">Get Started</a>
-            </div>
+           
             <ul class="service-text">
                 <li>Helping with trademark registration and protection.</li>
                 <li>Advising on intellectual property rights.</li>
             </ul>
+            <div class="service-button">
+                <a href="{% url 'ip_assistance'%}" class="get-started">Get Started</a>
+            </div>
         </div>
 
     </div>
