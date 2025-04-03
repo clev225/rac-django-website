@@ -164,6 +164,52 @@
                                     {% endfor %}
                                 {% endif %}
                             </div>
+
+                            <!-- Contact Information Section -->
+                        <div class="mb-4">
+                            <label class="form-label">Contact Information</label>
+                            <button type="button" class="btn btn-outline-primary mb-3" id="addContactBtn">
+                                <i class="fas fa-user-plus me-1"></i> Add Contact Information
+                            </button>
+                            
+                            <div id="contactList" class="row g-3">
+                                {% if service.contacts %}
+                                    {% for contact in service.contacts %}
+                                    <div class="col-md-6 col-lg-4 contact-item" data-contact-id="{{ forloop.counter0 }}">
+                                        <div class="card">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0">Contact</h5>
+                                                <button type="button" class="btn-close remove-contact" aria-label="Close"></button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="text-center mb-3">
+                                                    {% if contact.image %}
+                                                        <img src="{{ contact.image }}" class="contact-image rounded-circle" alt="{{ contact.name }}" style="width: 100px; height: 100px; object-fit: cover;">
+                                                    {% else %}
+                                                        <div class="contact-image-placeholder rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; margin: 0 auto;">
+                                                            <i class="fas fa-user fa-3x text-secondary"></i>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="mb-2">
+                                                    <i class="fas fa-user text-primary me-2"></i>
+                                                    <span>{{ contact.name }}</span>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <i class="fas fa-phone text-primary me-2"></i>
+                                                    <span>{{ contact.phone }}</span>
+                                                </div>
+                                                <div>
+                                                    <i class="fas fa-envelope text-primary me-2"></i>
+                                                    <span>{{ contact.email }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
                             <div class="hidden-inputs" id="requirementInputs">
                                 <!-- Hidden inputs will be added here dynamically -->
                             </div>
@@ -177,6 +223,46 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Add Contact Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <div class="contact-image-preview rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; margin: 0 auto;">
+                            <i class="fas fa-user fa-3x text-secondary"></i>
+                        </div>
+                        <div class="mt-2">
+                            <label for="contactImage" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-upload me-1"></i> Upload Image
+                            </label>
+                            <input type="file" id="contactImage" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactName" class="form-label"><i class="fas fa-user text-primary me-2"></i>Name</label>
+                        <input type="text" class="form-control" id="contactName" placeholder="Enter name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactPhone" class="form-label"><i class="fas fa-phone text-primary me-2"></i>Contact Number</label>
+                        <input type="text" class="form-control" id="contactPhone" placeholder="Enter contact number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label"><i class="fas fa-envelope text-primary me-2"></i>Email Address</label>
+                        <input type="email" class="form-control" id="contactEmail" placeholder="Enter email address">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveContactBtn">Add Contact</button>
                 </div>
             </div>
         </div>
@@ -335,6 +421,8 @@
                     this.parentElement.remove();
                 });
             });
+
+            
             
             // Add event listeners to existing add subcategory buttons
             document.querySelectorAll('.add-subcategory').forEach(button => {
@@ -406,6 +494,161 @@
                     subcatCountInput.name = `subcategory_count_${index}`;
                     subcatCountInput.value = subcatCount;
                     requirementInputs.appendChild(subcatCountInput);
+                });
+                
+                // Add contact count
+                const contactCountInput = document.createElement('input');
+                contactCountInput.type = 'hidden';
+                contactCountInput.name = 'contact_count';
+                contactCountInput.value = document.querySelectorAll('.contact-item').length;
+                document.getElementById('contactInputs').appendChild(contactCountInput);
+            });
+            
+            // Contact Information functionality
+            const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+            const addContactBtn = document.getElementById('addContactBtn');
+            const saveContactBtn = document.getElementById('saveContactBtn');
+            const contactList = document.getElementById('contactList');
+            const contactInputs = document.getElementById('contactInputs');
+            let contactCount = document.querySelectorAll('.contact-item').length;
+            let currentContactImage = null;
+            
+            // Handle image preview
+            const contactImage = document.getElementById('contactImage');
+            const imagePreview = document.querySelector('.contact-image-preview');
+            
+            contactImage.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                        currentContactImage = e.target.result;
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Open modal
+            addContactBtn.addEventListener('click', function() {
+                // Reset form
+                document.getElementById('contactName').value = '';
+                document.getElementById('contactPhone').value = '';
+                document.getElementById('contactEmail').value = '';
+                document.getElementById('contactImage').value = '';
+                imagePreview.innerHTML = '<i class="fas fa-user fa-3x text-secondary"></i>';
+                currentContactImage = null;
+                
+                // Show modal
+                contactModal.show();
+            });
+            
+            // Save contact
+            saveContactBtn.addEventListener('click', function() {
+                const name = document.getElementById('contactName').value.trim();
+                const phone = document.getElementById('contactPhone').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                
+                if (!name) {
+                    alert('Please enter a name for the contact.');
+                    return;
+                }
+                
+                // Create contact card
+                const contactCard = document.createElement('div');
+                contactCard.className = 'col-md-6 col-lg-4 contact-item';
+                contactCard.dataset.contactId = contactCount;
+                
+                let imageHtml = `
+                    <div class="contact-image-placeholder rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; margin: 0 auto;">
+                        <i class="fas fa-user fa-3x text-secondary"></i>
+                    </div>`;
+                
+                if (currentContactImage) {
+                    imageHtml = `<img src="${currentContactImage}" class="contact-image rounded-circle" alt="${name}" style="width: 100px; height: 100px; object-fit: cover;">`;
+                }
+                
+                contactCard.innerHTML = `
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Contact</h5>
+                            <button type="button" class="btn-close remove-contact" aria-label="Close"></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                ${imageHtml}
+                            </div>
+                            <div class="mb-2">
+                                <i class="fas fa-user text-primary me-2"></i>
+                                <span>${name}</span>
+                            </div>
+                            <div class="mb-2">
+                                <i class="fas fa-phone text-primary me-2"></i>
+                                <span>${phone}</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-envelope text-primary me-2"></i>
+                                <span>${email}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                contactList.appendChild(contactCard);
+                
+                // Create hidden inputs
+                const nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = `contact_name_${contactCount}`;
+                nameInput.value = name;
+                contactInputs.appendChild(nameInput);
+                
+                const phoneInput = document.createElement('input');
+                phoneInput.type = 'hidden';
+                phoneInput.name = `contact_phone_${contactCount}`;
+                phoneInput.value = phone;
+                contactInputs.appendChild(phoneInput);
+                
+                const emailInput = document.createElement('input');
+                emailInput.type = 'hidden';
+                emailInput.name = `contact_email_${contactCount}`;
+                emailInput.value = email;
+                contactInputs.appendChild(emailInput);
+                
+                if (currentContactImage) {
+                    const imageInput = document.createElement('input');
+                    imageInput.type = 'hidden';
+                    imageInput.name = `contact_image_${contactCount}`;
+                    imageInput.value = currentContactImage;
+                    contactInputs.appendChild(imageInput);
+                }
+                
+                // Add remove event listener
+                contactCard.querySelector('.remove-contact').addEventListener('click', function() {
+                    contactCard.remove();
+                    // Remove hidden inputs
+                    document.querySelector(`input[name="contact_name_${contactCount}"]`).remove();
+                    document.querySelector(`input[name="contact_phone_${contactCount}"]`).remove();
+                    document.querySelector(`input[name="contact_email_${contactCount}"]`).remove();
+                    if (currentContactImage) {
+                        document.querySelector(`input[name="contact_image_${contactCount}"]`).remove();
+                    }
+                });
+                
+                contactCount++;
+                contactModal.hide();
+            });
+            
+            // Add event listeners to existing remove buttons for contacts
+            document.querySelectorAll('.remove-contact').forEach(button => {
+                button.addEventListener('click', function() {
+                    const contactItem = this.closest('.contact-item');
+                    const contactId = contactItem.dataset.contactId;
+                    contactItem.remove();
+                    // Remove hidden inputs
+                    document.querySelector(`input[name="contact_name_${contactId}"]`)?.remove();
+                    document.querySelector(`input[name="contact_phone_${contactId}"]`)?.remove();
+                    document.querySelector(`input[name="contact_email_${contactId}"]`)?.remove();
+                    document.querySelector(`input[name="contact_image_${contactId}"]`)?.remove();
                 });
             });
         });

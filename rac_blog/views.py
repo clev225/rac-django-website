@@ -352,9 +352,27 @@ def create_service(request):
                     'subcategories': subcategories
                 })
         
+        # Process contact information
+        contacts = []
+        contact_count = int(request.POST.get('contact_count', 0))
+        for i in range(contact_count):
+            name = request.POST.get(f'contact_name_{i}')
+            phone = request.POST.get(f'contact_phone_{i}')
+            email = request.POST.get(f'contact_email_{i}')
+            image = request.POST.get(f'contact_image_{i}')
+            
+            if name:
+                contacts.append({
+                    'name': name,
+                    'phone': phone or '',
+                    'email': email or '',
+                    'image': image or ''
+                })
+        
         # Save the service with JSON fields
         service.descriptions = descriptions
         service.requirements = requirements
+        service.contacts = contacts
         service.save()
         
         # Get the redirect URL from the form or default to add_services
@@ -368,16 +386,6 @@ def create_service(request):
     
     # If not POST, redirect to service form
     return redirect('service_form')
-
-@login_required(login_url='rac_blog_login')
-@superadmin_required
-def edit_service(request, service_id):
-    try:
-        service = Service.objects.get(id=service_id)
-        return render(request, 'service-form.html', {'service': service})
-    except Service.DoesNotExist:
-        messages.error(request, "Service not found.")
-        return redirect('add_services')
 
 @login_required(login_url='rac_blog_login')
 @superadmin_required
