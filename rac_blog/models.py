@@ -37,6 +37,7 @@ class Service(models.Model):
     image = models.ImageField(upload_to='services/', null=True, blank=True)
     descriptions_json = models.TextField(default='[]')  # Store descriptions as JSON
     requirements_json = models.TextField(default='[]')  # Store requirements as JSON
+    contacts_json = models.TextField(default='[]')  # Store contacts as JSON
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -61,6 +62,17 @@ class Service(models.Model):
     @requirements.setter
     def requirements(self, value):
         self.requirements_json = json.dumps(value)
+
+    @property
+    def contacts(self):
+        try:
+            return json.loads(self.contacts_json)
+        except:
+            return []
+    
+    @contacts.setter
+    def contacts(self, value):
+        self.contacts_json = json.dumps(value)
     
     def __str__(self):
         return self.title

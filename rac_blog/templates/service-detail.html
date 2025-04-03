@@ -111,6 +111,50 @@
                         <p>No specific requirements for this service.</p>
                         {% endfor %}
                     </div>
+
+                    <!-- Contact Information Section --><!-- Contact Information Section -->
+                    {% if service.contacts %}
+                    <div class="mt-5">
+                        <h3 class="service-section-title mb-4">Contact Information</h3>
+                        <div class="row g-4">
+                            {% for contact in service.contacts %}
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card contact-card h-100 border-primary border-start border-4" style="border-color: #356d98 !important;">
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            {% if contact.image %}
+                                                <img src="{{ contact.image }}" class="rounded-circle" alt="{{ contact.name }}" style="width: 100px; height: 100px; object-fit: cover;">
+                                            {% else %}
+                                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; margin: 0 auto;">
+                                                    <i class="fas fa-user fa-3x text-secondary"></i>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <h5 class="card-title text-center" style="color: #356d98;">{{ contact.name }}</h5>
+                                        <div class="mt-3">
+                                            <p class="mb-2">
+                                                <i class="fas fa-phone text-primary me-2" style="color: #356d98 !important;"></i>
+                                                {{ contact.phone }}
+                                            </p>
+                                            <p class="mb-0">
+                                                <i class="fas fa-envelope text-primary me-2" style="color: #356d98 !important;"></i>
+                                                <a href="mailto:{{ contact.email }}" style="color: #356d98; text-decoration: none;">{{ contact.email }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Debug Information -->
+                    <div class="alert alert-info mt-4">
+                        <h5>Debug Info:</h5>
+                        <p>Has contacts: {% if service.contacts %}Yes{% else %}No{% endif %}</p>
+                        <p>Contacts data: {{ service.contacts }}</p>
+                    </div>
                     
                     <!-- Action Buttons -->
                     <div class="d-flex justify-content-between mt-4">
@@ -119,7 +163,7 @@
                         </a>
                         {% if user.is_superuser %}
                         <div>
-                            <a href="{% url 'edit_service' service.id %}" class="btn btn-primary me-2">
+                            <a href="{% url 'update_service' service.id %}" class="btn btn-primary me-2">
                                 <i class="fas fa-edit me-1"></i> Edit
                             </a>
                             <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal">
