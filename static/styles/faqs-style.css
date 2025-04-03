@@ -2,36 +2,69 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    flex: 1 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    margin-top: 50px;
 }
 
 /* Search Bar */
 .search-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 70%;
-    max-width: 1500px;
-    margin-bottom: 20px;
-    position: relative; /* Needed for positioning the icon inside */
+    position: fixed;  /* Change to fixed */
+    top: 110px;
+    right: 160px;
+    width: 300px;
+    z-index: 1030;  /* Increased z-index to appear above navbar */
+}
+
+/* Media Queries */
+@media (min-width: 1024px) {
+    .search-container {
+        position: fixed;  /* Change to fixed */
+        top: 120px;
+        right: 120px;
+        width: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .search-container {
+        position: fixed;  /* Change to fixed */
+        top: 120px;
+        right: 40px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 90%;
+        margin: 20px auto;
+    }
 }
 
 .search-input {
-    width: 250px;
-    padding: 10px 40px 10px 15px; /* Extra padding to the right for the icon */
+    width: 100%;
+    padding: 10px 40px 10px 15px;
     border: 2px solid #356d98;
-    border-radius: 0px;
+    border-radius: 5px;
     outline: none;
     font-size: 16px;
 }
 
-/* Search Button (Icon Inside Input) */
 .search-button {
     position: absolute;
-    right: 10px; /* Position it inside the input */
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -41,15 +74,14 @@ body {
     font-size: 18px;
 }
 
-.search-button i {
-    color: #356d98;
-}
 
 /* FAQ Container */
 .faq-container {
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
 }
 
 /* FAQ Title */
@@ -80,9 +112,27 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .faq-container {
+        max-width: 900px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .faq-container {
+        max-width: 700px;
+    }
+    
+    .faq-title {
+        font-size: 26px;
+    }
+}
+
 @media (max-width: 768px) {
     .faq-container {
         width: 90%;
+        margin-bottom: 1.5rem;
     }
 
     .faq-title {
@@ -95,5 +145,99 @@ body {
 
     .faq-answer {
         font-size: 14px;
+    }
+
+    .search-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .faq-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        font-size: 13px;
+    }
+
+    .search-input {
+        padding: 8px 35px 8px 12px;
+        font-size: 14px;
+    }
+
+    .search-button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+
+
+    .faq-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-left: 5rem;
+    }
+
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        font-size: 13px;
+    }
+
+    .search-input {
+        padding: 8px 35px 8px 12px;
+        font-size: 14px;
+    }
+
+    .search-button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .faq-container {
+        width: 90%;
+        padding: 10px;
+        margin: 0 auto;
+    }
+
+    .faq-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .search-container {
+        width: 85%;
+        margin: 15px auto;
+    }
+
+    .search-input {
+        padding: 8px 35px 8px 12px;
+        font-size: 14px;
+    }
+
+    .search-button {
+        font-size: 16px;
+        right: 12px;
     }
 }
