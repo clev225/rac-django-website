@@ -26,11 +26,4 @@ urlpatterns = [
     path('announcement_detail/<int:announcement_id>/', views.announcement_detail, name='announcement_detail'),
     path('announcements/', views.public_announcements, name='public_announcements'),
 
-    # Service URLs
-    path('add-services/', views.add_services, name='add_services'),
-    path('service-form/', views.service_form, name='service_form'),
-    path('create-service/', views.create_service, name='create_service'),
-    path('update-service/<int:service_id>/', views.update_service, name='update_service'),
-    path('delete-service/<int:service_id>/', views.delete_service, name='delete_service'),
-    path('service-detail/<int:service_id>/', views.service_detail, name='service_detail'),
 ]
