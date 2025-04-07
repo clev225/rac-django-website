@@ -10,54 +10,46 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/static/styles/faqs-style.css">
-
-    <!-- Added CSS for components -->
-    <link rel="stylesheet" href="/static/styles/faq.css">
     <link rel="stylesheet" href="/static/styles/navbar-main.css">
     <link rel="stylesheet" href="/static/styles/navbar-popover.css">
 
     <style>
         body {
-                opacity: 0;
-                transition: opacity 0.5s;
-                padding-top: 100px;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-            body.loaded {
-                opacity: 1;
-            }
-            
-            body, html {
-                font-family: 'Poppins', sans-serif !important;
-            }
-            
-            * {
-                font-family: 'Poppins', sans-serif;
-            }
+            opacity: 0;
+            transition: opacity 0.5s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        *{
+            font-family: 'Poppins', sans-serif;  
+        }
         
-            .content-wrapper {
-                flex: 1 0 auto;
-            }
-
+        body.loaded {
+            opacity: 1;
+        }
+        
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
     </style>
-
 </head>
 <body class="d-flex flex-column min-vh-100">
     {% include 'navbar-main.html' %}
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="search-button"><i class="fas fa-search"></i></button>
-    </div>
-
     <!-- Main content wrapper -->
     <div class="content-wrapper">
-        <!-- FAQ Section -->
-        <div class="faq-container">
-            <h2 class="faq-title">Frequently Asked Questions (FAQ)</h2>
+        <div class="search-and-faq-container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-container">
+                <h2 class="faq-title">Frequently Asked Questions (FAQ)</h2>
 
             <div class="faq-item">
                 <p class="faq-question">1. What services does your accounting firm provide?</p>
@@ -142,26 +134,23 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-auto">
+    <footer class="w-100">
         {% include 'footer.html' %}
     </footer>
-</body>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
-        <!-- Component JavaScript files -->
-        <script src="/static/scripts/scripts.js"></script>
-        <script src="/static/scripts/navbar-main.js"></script>
-        <script src="/static/scripts/footer.js"></script>
-        <script src="{% static '/scripts/popover.js' %}"></script>
-        <script src="/static/scripts/faq-script.js"></script>
     
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.body.classList.add('loaded');
-            });
-        </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/scripts/scripts.js"></script>
+    <script src="/static/scripts/navbar-main.js"></script>
+    <script src="/static/scripts/footer.js"></script>
+    <script src="{% static '/scripts/popover.js' %}"></script>
+    <script src="/static/scripts/faq-script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>
