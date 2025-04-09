@@ -42,9 +42,13 @@
     <div class="content-wrapper">
         <div class="search-and-faq-container">
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search...">
+                <input type="text" class="search-input" id="faqSearch" placeholder="Search...">
                 <button class="search-button"><i class="fas fa-search"></i></button>
             </div>
+        </div>
+
+        <div id="noFAQResults" style="display: none; text-align: center; padding: 20px; color: #666;">
+            No FAQs found matching your search.
         </div>
 
             <!-- FAQ Section -->
@@ -146,6 +150,7 @@
     <script src="/static/scripts/footer.js"></script>
     <script src="{% static '/scripts/popover.js' %}"></script>
     <script src="/static/scripts/faq-script.js"></script>
+    <script src="/static/scripts/faq-search.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
