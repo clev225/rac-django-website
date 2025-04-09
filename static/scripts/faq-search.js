@@ -5,6 +5,18 @@ function searchFAQs() {
     const noResultsDiv = document.getElementById('noFAQResults');
     let hasVisibleFAQs = false;
 
+    // If search is empty, show all items
+    if (searchText === '') {
+        faqItems.forEach((item, index) => {
+            item.style.transition = 'all 0.3s ease-out';
+            item.style.transform = 'scale(1)';
+            item.style.opacity = '1';
+            item.style.display = 'block';
+        });
+        noResultsDiv.style.display = 'none';
+        return;
+    }
+
     faqItems.forEach((item, index) => {
         const question = item.querySelector('.faq-question').textContent.toLowerCase();
         const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
@@ -21,7 +33,7 @@ function searchFAQs() {
             setTimeout(() => {
                 item.style.transform = 'scale(1)';
                 item.style.opacity = '1';
-            }, index * 100); // Staggered delay based on index
+            }, index * 100);
         } else {
             // Hide with fade out
             item.style.transform = 'scale(0.95)';
@@ -33,7 +45,7 @@ function searchFAQs() {
     });
 
     // Show/hide no results message with animation
-    if (!hasVisibleFAQs && searchText !== '') {
+    if (!hasVisibleFAQs) {
         noResultsDiv.style.display = 'block';
         noResultsDiv.style.transform = 'scale(0.95)';
         noResultsDiv.style.opacity = '0';
