@@ -1,66 +1,62 @@
 function searchFAQs() {
     const searchInput = document.getElementById('faqSearch');
-    const searchText = searchInput.value.toLowerCase();
+    const searchText = searchInput.value.trim().toLowerCase(); // Add trim() to handle whitespace
     const faqItems = document.querySelectorAll('.faq-item');
     const noResultsDiv = document.getElementById('noFAQResults');
     let hasVisibleFAQs = false;
 
-    // If search is empty, show all items
-    if (searchText === '') {
-        faqItems.forEach((item, index) => {
-            item.style.transition = 'all 0.3s ease-out';
-            item.style.transform = 'scale(1)';
-            item.style.opacity = '1';
+    // If search is empty, show all items without highlights
+    if (!searchText) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            // Reset to original text if stored
+            if (question.dataset.originalText) {
+                question.innerHTML = question.dataset.originalText;
+                answer.innerHTML = answer.dataset.originalText;
+            }
+            
             item.style.display = 'block';
+            item.style.opacity = '1';
         });
         noResultsDiv.style.display = 'none';
         return;
     }
 
+    // Rest of the search logic for non-empty search
     faqItems.forEach((item, index) => {
-        const question = item.querySelector('.faq-question').textContent.toLowerCase();
-        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-        const isVisible = question.includes(searchText) || answer.includes(searchText);
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
         
+        // Store original text if not already stored
+        if (!question.dataset.originalText) {
+            question.dataset.originalText = question.innerHTML;
+            answer.dataset.originalText = answer.innerHTML;
+        }
+
+        // Reset to original text
+        question.innerHTML = question.dataset.originalText;
+        answer.innerHTML = answer.dataset.originalText;
+
+        const questionText = question.textContent.toLowerCase();
+        const answerText = answer.textContent.toLowerCase();
+        const isVisible = questionText.includes(searchText) || answerText.includes(searchText);
+
         if (isVisible) {
             hasVisibleFAQs = true;
-            // Show with popup animation
-            item.style.transition = 'all 0.3s ease-out';
-            item.style.transform = 'scale(0.95)';
-            item.style.opacity = '0';
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            question.innerHTML = question.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+            answer.innerHTML = answer.innerHTML.replace(regex, '<span class="highlight">$1</span>');
             item.style.display = 'block';
-            
-            setTimeout(() => {
-                item.style.transform = 'scale(1)';
-                item.style.opacity = '1';
-            }, index * 100);
+            item.style.opacity = '1';
         } else {
-            // Hide with fade out
-            item.style.transform = 'scale(0.95)';
+            item.style.display = 'none';
             item.style.opacity = '0';
-            setTimeout(() => {
-                item.style.display = 'none';
-            }, 300);
         }
     });
 
-    // Show/hide no results message with animation
-    if (!hasVisibleFAQs) {
-        noResultsDiv.style.display = 'block';
-        noResultsDiv.style.transform = 'scale(0.95)';
-        noResultsDiv.style.opacity = '0';
-        
-        setTimeout(() => {
-            noResultsDiv.style.transform = 'scale(1)';
-            noResultsDiv.style.opacity = '1';
-        }, 10);
-    } else {
-        noResultsDiv.style.transform = 'scale(0.95)';
-        noResultsDiv.style.opacity = '0';
-        setTimeout(() => {
-            noResultsDiv.style.display = 'none';
-        }, 300);
-    }
+    noResultsDiv.style.display = hasVisibleFAQs ? 'none' : 'block';
 }
 
 // Add event listeners when DOM is loaded
