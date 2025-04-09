@@ -378,3 +378,10 @@ body {
 .service-text:nth-child(16) { animation-delay: 0.85s; }
 .service-text:nth-child(18) { animation-delay: 0.95s; }
 .service-text:nth-child(20) { animation-delay: 1.05s; }
+
+.highlight {
+    background-color: #ffeb3b;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
+}
