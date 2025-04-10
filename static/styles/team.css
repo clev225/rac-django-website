@@ -96,12 +96,39 @@ body {
 
 .company-details a {
     color: #356d98;
+    text-decoration: none;  /* Add this line to remove underline */
+}
+
+.company-details a:hover {
+    color: #3985c0;  /* Optional: change color on hover */
+    text-decoration: none;  /* Ensure no underline on hover */
 }
 
 .company-details i {
     margin-right: 10px;
     color: #356d98;
     font-size: 1.2rem;
+}
+
+.section-head-text {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: center;  /* Add this line */
+    margin-left: auto;   /* Add this line */
+    margin-right: auto;  /* Add this line */
+}
+
+.section-subhead-text {
+    color: #484848;
+    font-size: 20px;
+    line-height: 27px;
+    max-width: 670px;
+    margin-bottom: 80px;
+    text-align: center;  /* Add this line */
+    margin-left: auto;   /* Add this line */
+    margin-right: auto;  /* Add this line */
 }
 
 @media (max-width: 1024px) {
