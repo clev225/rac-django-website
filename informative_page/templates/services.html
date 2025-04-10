@@ -35,8 +35,9 @@
         }
         /* Service Button */
         .service-button {
-            align-self: flex-end;
-            margin-top: 20px; /* Increased from 10px to 25px to add more space */
+            align-self: flex-start;
+            margin-left: 20px; 
+            margin-top: 0px; 
         }
 
         /* Get Started Button */
@@ -59,6 +60,33 @@
             color: white;
             text-decoration: none !important; 
         }
+        
+        /* Check icon styling */
+        .service-title:before {
+            content: "\f00c"; /* Font Awesome check icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #356d98;
+            margin-right: 10px;
+        }
+        
+        /* Custom bullet color */
+        .service-text {
+            list-style: none;
+        }
+        
+        .service-text li {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .service-text li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2d5f86; /* Changed bullet color */
+            font-size: 1.25rem;
+        }
     </style>
 </head>
 
@@ -71,18 +99,18 @@
         <input type="text" class="search-input" id="serviceSearch" placeholder="Search...">
         <button class="search-button" onclick="searchServices()"><i class="fas fa-search" style="padding-top: 15px;"></i></button>
     </div>
-    <div id="noResults" style="display: none; text-align: center; padding: 20px; color: #666;">
+    <div id="noResults" style="display: none; text-align: center; padding: 20px; color: #333333;">
         No services found matching your search.
     </div>
 
     <div class="services-container" id="servicesContainer">
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Payroll Management</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Payroll Management</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Accurate and timely salary processing.</li>
                 <li>Benefits administration.</li>
                 <li>Tax deductions and compliance with labor regulations.</li>
@@ -95,11 +123,11 @@
     
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Business Registration</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Business Registration</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Navigating legal requirements and documentation.</li>
                 <li>Ensuring compliance with government regulations.</li>
             </ul>
@@ -111,11 +139,11 @@
     
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Auditing Services</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Auditing Services</div>
             </div>
           
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Assessment of financial statements and internal controls.</li>
                 <li>Ensuring accuracy and compliance.</li>
                 <li>Identify areas for improvement.</li>
@@ -129,12 +157,12 @@
     
 
         <div class="service-row">
-            <div class="service-box">
-                <div class="service-title">Tax Compliance and Advisory</div>
+            <div class="service-box" style = "font-size: 1.25rem; color: #3333333;">
+                <div class="service-title" style = "font-size: 1.25rem;">Tax Compliance and Advisory</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Tax planning strategies.</li>
                 <li>Assistance with tax audits and investigations.</li>
                 <li>Representation before tax authorities.</li>
@@ -150,11 +178,11 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Business Formation and Registration</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Business Formation and Registration</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Assistance in setting up corporations, partnerships, or sole proprietorships.</li>
                 <li>Securing business permits and licenses.</li>
                 <li>Drafting articles of incorporation and by-laws.</li>
@@ -167,11 +195,11 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Contract Review and Preparation</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Contract Review and Preparation</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Drafting, reviewing, and negotiating contracts such as supplier agreements, lease contracts, etc.</li>
                 <li>Ensuring compliance with local regulations and tax laws.</li>
             </ul>
@@ -182,11 +210,11 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Corporate Governance and Compliance</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Corporate Governance and Compliance</div>
             </div>
            
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Ensuring compliance with SEC, BIR, and other regulatory bodies.</li>
                 <li>Assistance with annual report filing, board resolutions, and shareholder agreements.</li>
             </ul>
@@ -198,10 +226,10 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Employment and Labor Law Support</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Employment and Labor Law Support</div>
             </div>
             
-        <ul class="service-text">
+        <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
             <li>Preparing employee contracts.</li>
             <li>Advising on wage regulations, benefits, and compliance with labor laws.</li>
         </ul>
@@ -212,11 +240,11 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Mergers, Acquisitions, and Restructuring</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Mergers, Acquisitions, and Restructuring</div>
             </div>
             
 
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Due diligence services</li>
                 <li>Structuring deals to optimize tax outcomes.</li>
                 <li>Assisting with legal documentation for acquisitions and mergers.</li>
@@ -228,10 +256,10 @@
 
         <div class="service-row">
             <div class="service-box">
-                <div class="service-title">Intellectual Property (IP) Assistance</div>
+                <div class="service-title" style = "font-size: 1.25rem;">Intellectual Property (IP) Assistance</div>
             </div>
            
-            <ul class="service-text">
+            <ul class="service-text" style = "font-size: 1.25rem; color: #3333333;">
                 <li>Helping with trademark registration and protection.</li>
                 <li>Advising on intellectual property rights.</li>
             </ul>
@@ -256,12 +284,8 @@
     {% include 'footer.html' %}
     </div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <!-- Component JavaScript files -->
     <script src="/static/scripts/scripts.js"></script>
     <script src="/static/scripts/navbar-main.js"></script>
     <script src="/static/scripts/footer.js"></script>
@@ -272,8 +296,56 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('loaded');
+            
+            // Scroll animation for service containers
+            const serviceRows = document.querySelectorAll('.service-row');
+            let animatingRows = new Set(); // Track rows that are currently animating
+            
+            // Check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                // Element is in center of viewport when its middle point is in the middle third of the screen
+                const elementMiddle = rect.top + rect.height / 2;
+                const viewportMiddleStart = windowHeight * 0.3;
+                const viewportMiddleEnd = windowHeight * 0.7;
+                
+                return elementMiddle >= viewportMiddleStart && elementMiddle <= viewportMiddleEnd;
+            }
+            
+            // Check all service rows on scroll
+            function checkServiceRows() {
+                serviceRows.forEach(row => {
+                    if (isInViewport(row)) {
+                        // Only animate if not already animating
+                        if (!animatingRows.has(row)) {
+                            animatingRows.add(row);
+                            row.classList.add('in-view');
+                            
+                            // Remove from animating set after animation completes
+                            setTimeout(() => {
+                                animatingRows.delete(row);
+                            }, 800);
+                        }
+                    }
+                    // Removed the else clause that was removing the in-view class
+                });
+            }
+            
+            // Initial check
+            checkServiceRows();
+            
+            // Check on scroll with throttling to improve performance
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (!scrollTimeout) {
+                    scrollTimeout = setTimeout(function() {
+                        checkServiceRows();
+                        scrollTimeout = null;
+                    }, 50);
+                }
+            });
         });
-    </script>
-    
+    </script>    
 </body>
 </html>

@@ -329,6 +329,27 @@ body {
     transform: translateY(20px);
 }
 
+/* Scroll Animation for Service Containers */
+@keyframes popUp {
+    0% {
+        transform: scale(0.95);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.service-row {
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.service-row.in-view {
+    animation: popUp 0.8s forwards;
+}
 
 @keyframes slideUp {
     from {
