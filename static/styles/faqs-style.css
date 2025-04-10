@@ -2,36 +2,50 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #f8f9fa;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    flex: 1 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    padding-top: 10px;
+    padding-bottom: 20px;  /* Added to control bottom spacing */
+}
+
+.search-and-faq-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;          /* Added */
+    flex-direction: column; /* Added */
 }
 
 /* Search Bar */
 .search-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 70%;
-    max-width: 1500px;
-    margin-bottom: 20px;
-    position: relative; /* Needed for positioning the icon inside */
+    position: relative;
+    width: 50%;          /* Changed from 300px to 50% */
+    max-width: 500px;    /* Added max-width */
+    margin: 1rem auto;   /* Changed margins */
+    align-self: center;  /* Center the container */
 }
 
+
 .search-input {
-    width: 250px;
-    padding: 10px 40px 10px 15px; /* Extra padding to the right for the icon */
+    width: 100%;
+    padding: 10px 40px 10px 15px;
     border: 2px solid #356d98;
-    border-radius: 0px;
+    border-radius: 5px;
     outline: none;
     font-size: 16px;
 }
 
-/* Search Button (Icon Inside Input) */
 .search-button {
     position: absolute;
-    right: 10px; /* Position it inside the input */
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -41,18 +55,15 @@ body {
     font-size: 18px;
 }
 
-.search-button i {
-    color: #356d98;
-}
-
-/* FAQ Container */
+/* FAQ Styles */
 .faq-container {
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 0;
 }
 
-/* FAQ Title */
 .faq-title {
     font-size: 30px;
     font-weight: bold;
@@ -61,39 +72,129 @@ body {
     margin-bottom: 20px;
 }
 
-/* FAQ Item */
 .faq-item {
     margin-bottom: 15px;
 }
 
-/* FAQ Question */
 .faq-question {
     font-size: 18px;
     font-weight: bold;
     color: #356d98;
 }
 
-/* FAQ Answer */
 .faq-answer {
     font-size: 16px;
     color: #356d98;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
+    .search-container {
+        width: 40%;
+        max-width: 450px;
+        margin: 1rem 2rem 2rem auto;  /* Adjusted margins */
+        align-self: flex-end;    
+    }
+
     .faq-container {
         width: 90%;
     }
-
+    
     .faq-title {
         font-size: 22px;
     }
-
+    
     .faq-question {
         font-size: 16px;
     }
-
+    
     .faq-answer {
         font-size: 14px;
     }
+}
+
+@media (max-width: 1023px) {
+    .search-container {
+        width: 50%;
+        max-width: 400px;
+        margin: 1rem auto 2rem auto;
+    }
+
+    .faq-container {
+        width: 90%;
+    }
+    
+    .faq-title {
+        font-size: 22px;
+    }
+    
+    .faq-question {
+        font-size: 16px;
+    }
+    
+    .faq-answer {
+        font-size: 14px;
+    }
+} /* Added missing closing brace here */
+
+@media (min-width: 768px) {
+    .search-container {
+        margin-right: 40px !important; 
+        width: 92% !important;         
+        align-self: center !important;
+    }
+    
+    .faq-container {
+        width: 90%;
+    }
+    
+    .faq-title {
+        font-size: 22px;
+    }
+    
+    .faq-question {
+        font-size: 16px;
+    }
+    
+    .faq-answer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-container {
+        width: 83%;
+        max-width: 350px;
+        margin: 1rem auto 2rem auto;
+    }
+
+    .search-and-faq-container {
+        align-items: center;  /* Center alignment for mobile */
+        margin-bottom: 10px;
+    }
+    
+    .faq-container {
+        width: 90%;
+    }
+    
+    .faq-title {
+        font-size: 26px;
+    }
+    
+    .faq-question {
+        font-size: 16px;
+    }
+    
+    .faq-answer {
+        font-size: 14px;
+    }
+}
+
+
+/* Add highlight style for search matches */
+.highlight {
+    background-color: #ffeb3b;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
 }
