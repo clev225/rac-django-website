@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="static/styles/footer-styles.css">
     <link rel="stylesheet" href="/static/styles/navbar-main.css">
     <link rel="stylesheet" href="/static/styles/faq.css">
-    <link rel="stylesheet" href="/static/styles/testimonials-style.css">
+    <link rel="stylesheet" href="{% static '/styles/testimonials-style.css' %}">
     <link rel="stylesheet" href="static/styles/navbar-popover.css">
 </head>
 
@@ -25,6 +25,7 @@
     
     * {
         font-family: 'Poppins', sans-serif;
+        
     }
     
 </style>
@@ -38,18 +39,15 @@
                 <h1 class="testimonial-header">What Our Clients Say</h1>
                 <p class="testimonial-subheader">Discover how RAC Business Consultancy has helped businesses achieve their goals</p>
                 <div class="row justify-content-center">
-                    <!-- First testimonial -->
-                                    <!-- First testimonial -->
-                                <!-- First testimonial -->
+                    
                                 <div class="col-md-10 mb-5">
-                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm">
-                                        <div class="d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
+                                    <div class="testimonial-container bg-white rounded shadow-sm" style ="padding: 0px; height: auto; min-height: fit-content;">
+                                        <div class="d-flex align-items-center flex-row testimonial-item slide-in-bck-top" style = "margin-bottom: 0px;">
                                             <div class="testimonial-image-container mr-4">
                                                 <img src="{% static '/images/testimonials/ryan2.png'%}" alt="Vice Ganda" class="testimonial-image">
                                             </div>
-                                            <div class="testimonial-content text-left">
-                                                <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
-                                                <cite>-Ganda Parki, CEO, ShowTech</cite>
+                                            <div class="testimonial-content text-right">
+                                                <blockquote style = "margin-bottom: 0px;">"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations." <br><b> -Ganda Parki, CEO, ShowTech</b></blockquote>
                                             </div>
                                         </div>
                                     </div>
@@ -57,14 +55,13 @@
                                     
                                 <!-- Second testimonial -->
                                 <div class="col-md-10 mb-5">
-                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm">
-                                        <div class="d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
+                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm" style ="padding: 15px; height: auto; min-height: fit-content;">
+                                        <div class="d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top" style = "margin-bottom: 0px;">
                                             <div class="testimonial-image-container ml-4">
                                                 <img src="{% static 'images/testimonials/alexis1.png' %}" alt="Tony Stark" class="testimonial-image">
                                             </div>
                                             <div class="testimonial-content text-right">
-                                                <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
-                                                <cite>- Tony Stark, CEO, Avengers</cite>
+                                                <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."<br><b> -Ganda Parki, CEO, ShowTech</b></blockquote>
                                             </div>
                                         </div>
                                     </div>
@@ -72,14 +69,14 @@
                 
                                 <!-- Third testimonial -->
                                 <div class="col-md-10 mb-5">
-                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm">
-                                        <div class="d-flex align-items-center flex-row testimonial-item slide-in-bck-top">
+                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm" style ="padding: 15px; height: auto; min-height: fit-content;">
+                                        <div class="d-flex align-items-center flex-row testimonial-item slide-in-bck-top" style = "margin-bottom: 0px;">
                                             <div class="testimonial-image-container mr-4">
                                                 <img src="{% static '/images/testimonials/ryan2.png' %}" alt="Vice Ganda" class="testimonial-image">
                                             </div>
                                             <div class="testimonial-content text-left">
-                                                <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."</blockquote>
-                                                <cite>- Vice Ganda, CEO, ShowTech</cite>
+                                                <blockquote>"RAC Business Consultancy transformed our business! Their strategic planning helped us identify new opportunities and streamline our operations."<br><b> -Ganda Parki, CEO, ShowTech</b></blockquote>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -87,14 +84,13 @@
                                     
                                 <!-- Fourth testimonial -->
                                 <div class="col-md-10 mb-5">
-                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm">
-                                        <div class="d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top">
+                                    <div class="testimonial-container bg-white p-4 rounded shadow-sm" style ="padding: 15px; height: auto; min-height: fit-content;">
+                                        <div class="d-flex align-items-center flex-row-reverse testimonial-item slide-in-bck-top" style = "margin-bottom: 0px;">
                                             <div class="testimonial-image-container ml-4">
                                                 <img src="{% static 'images/testimonials/alexis1.png' %}" alt="Tony Stark" class="testimonial-image">
                                             </div>
                                             <div class="testimonial-content text-right">
-                                                <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."</blockquote>
-                                                <cite>- Tony Stark, CEO, Avengers</cite>
+                                                <blockquote>"Professional, insightful, and results-driven! RAC provided us with a clear business strategy that helped us secure funding and grow our startup."<br><b> -Ganda Parki, CEO, ShowTech</b></blockquote>
                                             </div>
                                         </div>
                                     </div>
