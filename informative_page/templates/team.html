@@ -8,29 +8,35 @@
 {% block styles %}
 <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 <link rel="stylesheet" href="{% static 'styles/team.css' %}">
-<!-- Use navbar-css.css instead of navbar-main.css -->
-<link rel="stylesheet" href="{% static 'styles/navbar-css.css' %}">
+<link rel="stylesheet" href="{% static 'styles/navbar-main.css' %}">
 <style>
-    /* Reset all navbar styling to match other pages */
     .navbar-nav .nav-item {
-        margin: 0;
+        margin: 0 !important;
     }
     
     .navbar .navbar-nav .nav-link {
-        padding: 0 15px;  /* Match the padding in navbar-css.css */
-        font-size: 1rem;  /* Match the font size in other pages */
+        padding: 8px 15px !important;
+        font-size: 1.1rem !important;  /* Changed to 1rem to match services page */
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 400 !important;
     }
     
-    /* Remove any extra spacing */
+    /* Remove gap between nav items */
     .navbar-nav {
-        gap: 0;
+        gap: 0 !important;
+        margin-left: auto !important;
     }
     
-    /* Override Bootstrap's default spacing */
-    @media (min-width: 992px) {
-        .navbar-expand-lg .navbar-nav .nav-link {
-            padding: 0 15px;
-        }
+    /* Ensure consistent spacing in dropdown */
+    .dropdown-menu {
+        padding: 0.5rem 0;
+        margin: 0;
+    }
+    
+    .dropdown-item {
+        padding: 0.25rem 1.5rem;
+        font-size: 1rem !important;  /* Added to match dropdown items */
+        font-family: 'Poppins', sans-serif !important;
     }
 </style>
 {% endblock styles %}
