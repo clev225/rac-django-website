@@ -49,8 +49,8 @@
 }
 
 .testimonial-image-container {
-    width: 180px;
-    height: 180px;
+    width: 120px !important;
+    height: 120px !important;
     border-radius: 50%;
     background-color: #356d98;
     display: flex;
