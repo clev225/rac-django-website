@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1$%z$td3dj19j36k1)oe!c7pg(4m^l)@gd_6p629_-28z9xats'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = False  # Set to False to test error pages
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web', '*']  # Add appropriate hosts
 
@@ -156,3 +156,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if not DEBUG:
     STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+# Add this section at the end of the file for custom error handlers
+HANDLER404 = 'config.views.handler404'
+HANDLER500 = 'config.views.handler500'
+HANDLER403 = 'config.views.handler403'
+HANDLER400 = 'config.views.handler400'

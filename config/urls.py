@@ -23,6 +23,8 @@ from rac_blog import views  # Import your blog app views
 from django.conf import settings  # Add this import
 from django.conf.urls.static import static
 
+from .views import handler404, handler500, handler403, handler400
+
 urlpatterns = [
     path("", include("informative_page.urls")),  # Make informative_page the default app
     path("", include("rac_blog.urls")),  # ✅ Ensure rac_blog URLs are loaded
@@ -42,3 +44,11 @@ urlpatterns = [
 # Add this to serve media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Register error handlers
+# At the end of your urls.py file, add these lines:
+
+handler404 = 'config.views.handler404'
+handler500 = 'config.views.handler500'
+handler403 = 'config.views.handler403'
+handler400 = 'config.views.handler400'

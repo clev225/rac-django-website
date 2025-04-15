@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>{{ error_code }} - {{ error_title }}</title>
     
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
     
     .error-heading {
         font-size: 7rem;
-        font-weight: 5000px;
+        font-weight: 700;
         color: #356d98;
         margin-bottom: 20px;
     }
@@ -96,9 +96,9 @@
 
 <body>
     <div class="error-container">
-        <h1 class="error-heading"><b>Ooops!</b></h1>
-        <p class="error-message">Something went wrong.</p>
-        <a href="{% url 'home' %}" class="back-button">
+        <h1 class="error-heading"><b>{{ error_code }}</b></h1>
+        <p class="error-message">{{ error_message }}</p>
+        <a href="{% url 'index' %}" class="back-button">
             Back to Homepage
         </a>
     </div>
