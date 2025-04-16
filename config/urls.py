@@ -23,22 +23,23 @@ from rac_blog import views  # Import your blog app views
 from django.conf import settings  # Add this import
 from django.conf.urls.static import static
 
-from .views import handler404, handler500, handler403, handler400
+from .views import handler404, handler403, handler400
 
 urlpatterns = [
     path("", include("informative_page.urls")),  # Make informative_page the default app
     path("", include("rac_blog.urls")),  # ✅ Ensure rac_blog URLs are loaded
 
-    # Redirect ANY URL that ends with `/admin` to your custom login page
-    re_path(r'^.*admin$', lambda request: redirect('/rac_blog/login/'), name='custom_admin_redirect'),
+    # Redirect /admin to custom login
+    path('admin/', lambda request: redirect('rac_blog_login'), name='admin_redirect'),
 
     # Custom login page
     path('rac_blog/login/', views.custom_login, name='custom_login'),
 
+    path('rac_blog/', include('rac_blog.urls')),
+
     # (Optional) Keep the original Django admin panel, but at a different URL
     path('secure-admin/', admin.site.urls),  
 
-    path('rac_blog/', include('rac_blog.urls')),
 ]
 
 # Add this to serve media files during development
@@ -49,6 +50,5 @@ if settings.DEBUG:
 # At the end of your urls.py file, add these lines:
 
 handler404 = 'config.views.handler404'
-handler500 = 'config.views.handler500'
 handler403 = 'config.views.handler403'
 handler400 = 'config.views.handler400'
