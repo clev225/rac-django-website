@@ -11,7 +11,23 @@
     background-color: white;
     z-index: 1051;
 }
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
 
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonials-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 /* Update testimonials section spacing */
 .testimonials-section {
     padding: 100px 0 60px;
@@ -33,8 +49,8 @@
 }
 
 .testimonial-image-container {
-    width: 180px;
-    height: 180px;
+    width: 120px !important;
+    height: 120px !important;
     border-radius: 50%;
     background-color: #356d98;
     display: flex;

@@ -51,7 +51,7 @@ body {
     padding-bottom: 80px;
 }
 
-.right-section {
+/*.right-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,12 +65,12 @@ body {
     margin-top: 50px;
     width: 200px;
     margin-bottom: 20px;
-}
+}*/
 
 .company-details {
     margin-top: 50px;
     font-size: 18px;
-    color: #356d98;
+    color: black;
 }
 
 .company-details h1 {

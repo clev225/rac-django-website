@@ -39,6 +39,46 @@
         font-size: 1rem !important;  /* Added to match dropdown items */
         font-family: 'Poppins', sans-serif !important;
     }
+    .right-section {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: 0px;
+    }
+    
+    .right-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    
+    
+    /* Add responsive adjustments */
+    @media (max-width: 992px) {
+        .right-section {
+            width: 50%;
+        }
+        .right-section img {
+            padding: 10px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .team-container {
+            flex-direction: column;
+        }
+        .right-section {
+            width: 100%;
+            min-height: 300px;
+        }
+    }
 </style>
 {% endblock styles %}
 
@@ -89,29 +129,11 @@
         <div class="text-overlay">Meet our</div>
         <div class="text-overlay">team!</div>
     </div>
-    <!-- Right Section (Company Details) -->
     <div class="right-section">
-        <img src="{% static 'images/logonobg.png' %}" alt="RAC Logo">
-        <div class="company-details">
-            <h1>RAC Consultancy</h1>
-            <h5>Business Consultation Company</h5>
-            <p>
-                <a href="https://www.facebook.com/RACbusinessconsultancy" target="_blank">
-                    <i class="fab fa-facebook info-icon"></i> RAC Consultancy
-                </a>
-            </p>
-            <p>
-                <a href="tel:09121231234">
-                    <i class="fas fa-phone info-icon"></i> 0912-123-1234
-                </a>
-            </p>
-            <p>
-                <a href="mailto:racconsultancy@gmail.com">
-                    <i class="fas fa-envelope info-icon"></i> racconsultancy@gmail.com
-                </a>
-            </p>
-        </div>
-    </div>
+        <img src="{% static '/images/orgc.png'%}" alt="Your Image">
+        
+    </div><!-- Right Section (Company Details) -->
+   
 </div>
 
 <!-- Team Members Carousel Section -->
@@ -120,9 +142,9 @@
 <div class="responsive-container-block inner-container">
 
     <p class="text-blk section-head-text" style="color: #356d98;">
-            Our Team
+            Team RAC
     </p>
-    <p class="text-blk section-subhead-text" style="color: #356d98;">
+    <p class="text-blk section-subhead-text" style="color: black;">
         Meet the talented individuals driving RAC Consultancy's success.
     </p>
     
@@ -141,8 +163,8 @@
                             <div class="card-body">
                                 <div class="team-quote">"With great power comes great responsibility."</div>
                                 <h3 class="team-name">Mr. Ryan B. Endrinal</h3>
-                                <div class="team-position">CEO/Owner, RAC Consultancy</div>
-                                <p class="team-bio">
+                                <div class="team-position" style = "color: #356d98;">CEO/Owner, RAC Consultancy</div>
+                                <p class="team-bio" style = "color: black;">
                                     Mr. Ryan B. Endrinal is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation.
                                 </p>
                             </div>
@@ -164,8 +186,8 @@
                             <div class="card-body">
                                 <div class="team-quote">"Excellence is not a skill, it's an attitude."</div>
                                 <h3 class="team-name">Mr. Alexis A. Velasco</h3>
-                                <div class="team-position">Chief Accountant, RAC Consultancy</div>
-                                <p class="team-bio">
+                                <div class="team-position" style = "color: #356d98;">Chief Accountant, RAC Consultancy</div>
+                                <p class="team-bio"style = "color: black;">
                                     Mr. Alexis A. Velasco is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation. With a strong foundation in business and strategic management, he has successfully led numerous projects, helping clients achieve sustainable growth and efficiency.
                                 </p>
                             </div>
@@ -187,8 +209,8 @@
                             <div class="card-body">
                                 <div class="team-quote">"Success is where preparation meets opportunity."</div>
                                 <h3 class="team-name">Ms. Allen Joy P. Samonte</h3>
-                                <div class="team-position">  Junior Administrative Accountant, RAC Consultancy</div>
-                                <p class="team-bio">
+                                <div class="team-position" style = "color: #356d98;">  Junior Administrative Accountant, RAC Consultancy</div>
+                                <p class="team-bio" style = "color: black;">
                                     Ms. Allen Joy Samonte is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation.
                                 </p>
                             </div>
@@ -208,9 +230,9 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <div class="team-quote">"If there's a will, there's a way."</div>
-                                <h3 class="team-name">Mrs. Michel E. Nudo</h3>
-                                <div class="team-position">Administrative Staff, RAC Consultancy</div>
-                                <p class="team-bio">
+                                <h3 class="team-name">Mrs. Michelle E. Nudo</h3>
+                                <div class="team-position" style = "color: #356d98;">Administrative Staff, RAC Consultancy</div>
+                                <p class="team-bio" style = "color: black;">
                                     Mrs. Michel E. Nudo is a distinguished leader in the consultancy industry, guiding RAC Consultancy with a commitment to excellence and innovation.
                                 </p>
                             </div>

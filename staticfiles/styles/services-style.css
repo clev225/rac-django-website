@@ -55,9 +55,10 @@ body {
 
 /* Service Row */
 .service-row {
-    display:row;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -105,6 +106,12 @@ body {
     margin-bottom: 8px;
 }
 
+/* Service Button */
+.service-button {
+    align-self: flex-end;
+    margin-top: 25px; /* Increased from 10px to 25px to add more space */
+}
+
 /* Get Started Button */
 .get-started {
     background: #356d98;
@@ -114,12 +121,16 @@ body {
     font-weight: 600;
     border-radius: 5px;
     transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .get-started:hover {
     background: #28587b;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(40, 88, 123, 0.2);
+    color: white;
+    text-decoration: none;
 }
 
 /* Responsive Styles */
@@ -140,9 +151,9 @@ body {
 
 @media (max-width: 768px) {
     .service-row {
-        flex-direction: row;
-        margin-bottom: 5px;
-        align-items: center;
+        flex-direction: column;
+        margin-bottom: 15px;
+        align-items: flex-start;
 
     }
     
@@ -165,6 +176,7 @@ body {
     /* Service Button */
     .service-button {
         margin-left: 20px;
+        margin-top: 25px; /* Added to maintain consistent spacing in mobile view */
     }
     
     .get-started {
@@ -217,37 +229,20 @@ body {
     }
 
     .service-row {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .service-box {
-        flex-grow: 1;
-        text-align: left;
-        padding: 10px;
-    }
-
-    .service-title{
-        font-size: 14px;  /* Restored to original size */
-    }
-
-    .service-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+    .service-button {
+        align-self: center;
+        margin-top: 25px; /* Increased from 15px to 25px for consistency */
     }
 
     .get-started {
-        font-size: 10px;  /* Restored to original size */
-        padding: 13px 10px;
+        font-size: 12px;
+        padding: 8px 12px;
         white-space: nowrap;
-        margin-left: auto; /* Pushes the button to the right */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-block;
     }
 
     .service-text {
@@ -334,6 +329,22 @@ body {
     transform: translateY(20px);
 }
 
+/* Scroll Animation for Service Containers */
+.service-row {
+    transform: scale(1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-row.pop {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+}
+
+/* Removing the in-view class animation */
+.service-row.in-view {
+    /* Removed animation property */
+}
 
 @keyframes slideUp {
     from {
@@ -351,35 +362,22 @@ body {
 }
 
 .service-row {
-    opacity: 0;
-    animation: slideUp 0.8s ease-out forwards;
+    opacity: 1; /* Changed from 0 to 1 to remove fade-in effect */
+    /* Removed animation property */
 }
 
-/* Add staggered animation delay for each service row */
-.service-row:nth-child(1) { animation-delay: 0.1s; }
-.service-row:nth-child(3) { animation-delay: 0.2s; }
-.service-row:nth-child(5) { animation-delay: 0.3s; }
-.service-row:nth-child(7) { animation-delay: 0.4s; }
-.service-row:nth-child(9) { animation-delay: 0.5s; }
-.service-row:nth-child(11) { animation-delay: 0.6s; }
-.service-row:nth-child(13) { animation-delay: 0.7s; }
-.service-row:nth-child(15) { animation-delay: 0.8s; }
-.service-row:nth-child(17) { animation-delay: 0.9s; }
-.service-row:nth-child(19) { animation-delay: 1s; }
+/* Removed staggered animation delays for service rows */
 
 .service-text {
-    opacity: 0;
-    animation: slideUp 0.8s ease-out forwards;
+    opacity: 1; /* Changed from 0 to 1 to remove fade-in effect */
+    /* Removed animation property */
 }
 
-/* Add staggered animation delay for each service text */
-.service-text:nth-child(2) { animation-delay: 0.15s; }
-.service-text:nth-child(4) { animation-delay: 0.25s; }
-.service-text:nth-child(6) { animation-delay: 0.35s; }
-.service-text:nth-child(8) { animation-delay: 0.45s; }
-.service-text:nth-child(10) { animation-delay: 0.55s; }
-.service-text:nth-child(12) { animation-delay: 0.65s; }
-.service-text:nth-child(14) { animation-delay: 0.75s; }
-.service-text:nth-child(16) { animation-delay: 0.85s; }
-.service-text:nth-child(18) { animation-delay: 0.95s; }
-.service-text:nth-child(20) { animation-delay: 1.05s; }
+/* Removed staggered animation delays for service texts */
+
+.highlight {
+    background-color: #ffeb3b;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
+}

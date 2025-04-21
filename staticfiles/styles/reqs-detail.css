@@ -94,7 +94,8 @@ body {
 .requirement-item {
     padding: 30px;
     padding-bottom: 0px;
-    margin-bottom: 0; /* Remove space between containers */
+    margin-bottom: 25px; /* Increased from 0 to add space between containers */
+    border-bottom: 1px solid rgba(45, 95, 134, 0.1); /* Optional: adds a subtle separator */
 }
 .requirement-title {
     font-size: 1.25rem;
@@ -123,7 +124,7 @@ body {
     position: relative;
     padding-left: 20px;  /* Add padding for bullet points */
     line-height: 1.5;
-    font-size: 18px;
+    font-size: 1.25rem;
 }
 .requirements-list ul li::before {
     content: "•";
@@ -182,13 +183,13 @@ body {
 .business-cards-container {
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 50px auto; /* Increased from 30px to add more space */
 }
 
 .business-cards-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px; /* Increased from 30px to add more space between cards */
     padding: 0 15px;
 }
 
@@ -199,9 +200,10 @@ body {
     border-radius: 4px;
     padding: 25px;
     box-sizing: border-box;
-    transition: all 0.3s ease; /* Add smooth transition */
+    transition: all 0.3s ease;
     position: relative;
     top: 0;
+    margin-bottom: 20px; /* Added to ensure space between stacked cards */
 }
 
 /* Add hover effect */

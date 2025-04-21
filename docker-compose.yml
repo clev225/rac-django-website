@@ -36,8 +36,9 @@ services:
       
   nginx:
     image: nginx:latest
+    # Change this line in your docker-compose.yml
     ports:
-      - "80:80"
+      - "8080:80"  # Map host port 8080 to container port 80
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./static:/static

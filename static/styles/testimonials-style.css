@@ -12,11 +12,12 @@
     z-index: 1051;
 }
 .testimonial-card {
-    background-color: #fff;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s ease;
+    margin: 0 auto;
 }
 
 .testimonial-card:hover {
@@ -43,9 +44,9 @@
 
 .testimonials-container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
 }
 
 .testimonial-image-container {
@@ -69,7 +70,7 @@
 
 .testimonial-content {
     text-align: left;
-    max-width: 70%;
+    max-width: 75%;
     flex: 1;
 }
 
