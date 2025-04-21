@@ -246,11 +246,30 @@ cite {
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        transform-origin: center;
+        will-change: transform;
     }
     
     .testimonial-border:hover {
-        transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+            background-color: rgba(53, 109, 152, 0.1);
+            z-index: 10;
+            position: relative;
+    }
+    
+    /* Add a smooth transition for the content inside as well */
+    .testimonial-content, .testimonial-image-container {
+        transition: all 0.3s ease;
+    }
+    
+    .testimonial-border:hover .testimonial-content {
+        transform: scale(1.01);
+    }
+    
+    .testimonial-border:hover .testimonial-image-container {
+        transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 </style>
