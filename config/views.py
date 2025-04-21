@@ -8,14 +8,6 @@ def handler404(request, exception):
     }
     return render(request, 'error_page.html', context, status=404)
 
-def handler500(request):
-    context = {
-        'error_code': '500',
-        'error_title': 'Server Error',
-        'error_message': 'Something went wrong on our end. Please try again later.'
-    }
-    return render(request, 'error_page.html', context, status=500)
-
 def handler403(request, exception):
     context = {
         'error_code': '403',

@@ -29,29 +29,19 @@ def rac_blog_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
-        print(f"DEBUG: Login Attempt - Username: {username}, Password: {password}")
-
+        
         user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            print(f"DEBUG: Authentication successful for {user.username}")
-
-            if user.is_superuser:
-                login(request, user)
-                print(f"DEBUG: Redirecting to blog_list")
-                messages.add_message(request, messages.SUCCESS, "Successfully logged in as RAC Admin", extra_tags='login_success')
-                return redirect('blog_list')  # Changed from blog_form to blog_list
-            else:
-                print("DEBUG: User is not a superadmin!")
-                return render(request, 'login.html', {'error': 'You must be a superadmin to log in.'})
+        
+        if user is not None and user.is_superuser:
+            login(request, user)
+            messages.success(request, "Successfully logged in as RAC Admin")
+            return redirect('blog_list')
         else:
-            print("DEBUG: Authentication failed!")
-            return render(request, 'login.html', {'error': 'Invalid username or password'})
-
-    print("DEBUG: Rendering login page")
+            return render(request, 'login.html', {'error': 'Invalid credentials or insufficient permissions'})
+    
     return render(request, 'login.html')
 
+# You can remove the custom_login view since we're not using it anymore
 def custom_login(request):
     # Check if user is already logged in
     if request.user.is_authenticated and request.user.is_superuser:

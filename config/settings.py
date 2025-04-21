@@ -159,6 +159,5 @@ if not DEBUG:
 
 # Add this section at the end of the file for custom error handlers
 HANDLER404 = 'config.views.handler404'
-HANDLER500 = 'config.views.handler500'
 HANDLER403 = 'config.views.handler403'
 HANDLER400 = 'config.views.handler400'
