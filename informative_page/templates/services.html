@@ -88,12 +88,58 @@
             color: #2d5f86; /* Changed bullet color */
             font-size: 1.25rem;
         }
+
+        
+        /* Update navbar styles */
+        .navbar {
+            position: fixed !important; /* Change from sticky to fixed */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            z-index: 1050 !important; /* Increased z-index */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 30px;
+            width: 100%;
+        }
+
+        /* Add body padding to prevent content from hiding under navbar */
+        body {
+            padding-top: 76px !important; /* Height of your navbar */
+        }
+
+        /* Adjust search container position */
+        .search-container {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            margin-right: 50px;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-item {
+            margin: 0 10px;
+        }
+
+        /* Adjust content spacing */
+        .search-container {
+            margin-top: 20px;
+            padding-top: 0;
+        }
+        
     </style>
 </head>
 
 <body>
     <!-- Include Navbar -->
-     {% include 'navbar-main.html' %}
+    {% include 'navbar-main.html' %}
+    {% include 'modal.html' %}
 
     <!-- Search Bar -->
     <div class="search-container" style="padding-top: 15px;">
