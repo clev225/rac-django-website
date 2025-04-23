@@ -190,7 +190,9 @@
 
     
     <!-- Footer Placeholder -->
-    {% include 'footer.html' %}
+    <div id="footer">
+        {% include 'footer.html' %}
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -200,8 +202,8 @@
     <script src="{% static '/scripts/faq-script.js' %}"></script>
     
     <script>
-        // Fade in animation
         document.addEventListener('DOMContentLoaded', function() {
+            // Fade in animation
             const fadeElements = document.querySelectorAll('.fade-in');
             
             const observer = new IntersectionObserver((entries) => {
@@ -214,6 +216,20 @@
 
             fadeElements.forEach(element => {
                 observer.observe(element);
+            });
+
+            // Add smooth scrolling for footer/contact section
+            document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const footer = document.getElementById('footer');
+                    if (footer) {
+                        footer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
     </script>
