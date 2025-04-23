@@ -161,3 +161,7 @@ if not DEBUG:
 HANDLER404 = 'config.views.handler404'
 HANDLER403 = 'config.views.handler403'
 HANDLER400 = 'config.views.handler400'
+
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20971520  # 20MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520  # 20MB
