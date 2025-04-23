@@ -133,7 +133,9 @@
         </a>
     </div>
 
+    <div id="footer">
     {% include 'footer.html' %}
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/static/scripts/scripts.js"></script>
@@ -145,6 +147,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('loaded');
+        });
+
+         // Add smooth scrolling for footer/contact section
+         document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const footer = document.getElementById('footer');
+                if (footer) {
+                    footer.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>

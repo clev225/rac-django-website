@@ -110,7 +110,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#footer">Contacts</a>
                 </li>
-                
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         News & Updates
@@ -280,5 +280,20 @@
             keyboard: true   // Enable keyboard control
         });
     });
+
+     // Add smooth scrolling for footer/contact section
+     document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const footer = document.getElementById('footer');
+            if (footer) {
+                footer.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
 </script>
 {% endblock scripts %}
