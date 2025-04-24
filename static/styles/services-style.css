@@ -6,7 +6,17 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    padding-top: 76px; /* Add padding for navbar */
+    margin: 0;
+}
+
+/* Services Container */
+.services-container {
     padding: 20px;
+    width: 70%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Search Bar */
@@ -17,7 +27,7 @@ body {
     max-width: 1500px;
     margin-bottom: 20px;
     position: relative;
-    margin-top: 80px;
+    margin-top: 20px;  /* Changed from 80px */
 }
 
 .search-input {

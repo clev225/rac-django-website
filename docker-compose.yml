@@ -36,6 +36,7 @@ services:
       
   nginx:
     image: nginx:latest
+    command: /bin/bash -c "echo 'client_max_body_size 20M;' > /etc/nginx/conf.d/client_max_body_size.conf && nginx -g 'daemon off;'"
     # Change this line in your docker-compose.yml
     ports:
       - "8080:80"  # Map host port 8080 to container port 80

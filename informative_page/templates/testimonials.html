@@ -345,7 +345,7 @@ cite {
         </div>
     </main>
     
-    <div class="w-100">
+    <div class="w-100" id="footer">
         {% include 'footer.html' %}
     </div>
     
@@ -358,5 +358,20 @@ cite {
     <script src="/static/scripts/popover.js"></script>
     <script src="/static/scripts/footer.js"></script>
     <script src="/static/scripts/faq-script.js"></script>
+    <script>
+        // Add smooth scrolling for footer/contact section // Add smooth scrolling for footer/contact section
+            document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const footer = document.getElementById('footer');
+                    if (footer) {
+                        footer.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        </script>
     </body>
     </html>

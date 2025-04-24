@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f8f9fa;
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: 0;  /* Changed from padding-top: 100px */
 }
 
 /* Content Wrapper */
@@ -13,8 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 20px;  /* Added to control bottom spacing */
+    padding-top: 20px;  /* Changed from 10px */
+    padding-bottom: 20px;
 }
 
 .search-and-faq-container {
