@@ -82,7 +82,7 @@ body {
 }
 
 .blog-title {
-    color: #2B5EC1;
+    color: #356d98;
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -100,7 +100,7 @@ body {
 }
 
 .author-name {
-    color: #2B5EC1;
+    color: #356d98;
     font-weight: 500;
 }
 
@@ -162,7 +162,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #2B5EC1;
+    background-color: #356d98;
     border: none;
     padding: 0.5rem 2rem;
     font-weight: 500;
@@ -170,7 +170,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #234da3;
+    background-color: #356d98;
     transform: translateY(-2px);
 }
 

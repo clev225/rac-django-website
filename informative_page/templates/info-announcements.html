@@ -24,13 +24,13 @@
         }
     
         .announcement-card {
-            border-left: 4px solid #dc3545;
+            border-left: 4px solid #356d98;
         }
         .announcement-title {
-            color: #dc3545;
+            color: #356d98;
         }
         .announcement-badge {
-            background-color: #dc3545;
+            background-color: #356d98;
             color: white;
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
@@ -38,13 +38,14 @@
             margin-bottom: 10px;
             display: inline-block;
         }
+      
         .read-more {
-            background-color: #dc3545;
-            border-color: #dc3545;
+            background-color: #356d98;
+            border-color: #356d98;
         }
         .read-more:hover {
-            background-color: #bb2d3b;
-            border-color: #bb2d3b;
+            background-color: #356d98;
+            border-color: #356d98;
         }
         /* Fixed image size styles */
         .blog-main-image {
@@ -84,10 +85,10 @@
                                         <span class="announcement-badge"><i class="fas fa-bullhorn me-1"></i> Announcement</span>
                                         <h1 class="blog-title announcement-title">{{ announcement.title }}</h1>
                                         <div class="author-info">
-                                            <span class="by-text">by</span>
-                                            <span class="author-name">{{ announcement.author }}</span>
+                                            <span class="by-text" style="color: black !important;">by</span>
+                                            <span class="author-name"style="color: #356d98 !important;">{{ announcement.author }}</span>
                                             <span class="mx-2">|</span>
-                                            <span class="date"><i class="far fa-calendar-alt me-1"></i>{{ announcement.date_published }}</span>
+                                            <span class="date" style="color: #356d98 !important;"><i class="far fa-calendar-alt me-1" style="color: #356d98 !important;"></i>{{ announcement.date_published }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +101,7 @@
                                     {% endif %}
                                 </div>
 
-                                <div class="blog-description">
+                                <div class="blog-description" style="color: black !important;">
                                     {% if announcement.description %}
                                         {{ announcement.description }}
                                     {% else %}
@@ -109,7 +110,7 @@
                                 </div>
 
                                 <div class="blog-footer">
-                                    <a href="{% url 'announcement_read_more' announcement.id %}" class="btn btn-primary read-more">Read More</a>
+                                    <a href="{% url 'announcement_read_more' announcement.id %}" class="btn btn-primary read-more" style="background-color: #356d98 !important;">Read More</a>
                                 </div>
                             </div>
                         </div>

@@ -97,7 +97,7 @@
         .user-icon {
             width: 40px;
             height: 40px;
-            background-color: #3985c0;
+            background-color: #356d98;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -108,7 +108,7 @@
         }
         
         .user-icon:hover {
-            background-color: #2d6da3;
+            background-color: #356d98;
         }
         
         .dropdown-menu {
@@ -142,16 +142,16 @@
         
         .dropdown-item i {
             margin-right: 8px;
-            color: #3985c0;
+            color: #356d98;
         }
         
         /* Announcement-specific styles */
         .announcement-card {
-            border-left: 4px solid #276695;
+            border-left: 4px solid #356d98;
         }
         
         .announcement-badge {
-            background-color: #276695;
+            background-color: #356d98;
             color: white;
             padding: 3px 8px;
             border-radius: 4px;
@@ -161,12 +161,12 @@
         }
         
         .announcement-title {
-            color: #276695;
+            color: #356d98;
         }
         
         .announcement-btn {
-            background-color: #276695;
-            border-color: #276695;
+            background-color: #356d98;
+            border-color: #356d98;
         }
         
         .announcement-btn:hover {
@@ -205,7 +205,7 @@
                         {% elif message.tags == 'info' %} bg-info
                         {% elif 'login_success' in message.tags %} text-white
                         {% endif %}"
-                        {% if 'login_success' in message.tags %} style="background-color: #3985c0;"{% endif %}>
+                        {% if 'login_success' in message.tags %} style="background-color: #356d98;"{% endif %}>
                         <strong class="me-auto">
                             {% if message.tags == 'success' %}Success
                             {% elif message.tags == 'error' %}Error
@@ -260,7 +260,7 @@
                                 </div>
                                 <div class="blog-footer d-flex justify-content-end mt-auto">
                                     <div class="button-container">
-                                        <a href="{% url 'announcement_detail' blog.id %}" class="btn btn-sm btn-info announcement-btn me-2 text-white">Read More</a>
+                                        <<a href="{% url 'announcement_detail' blog.id %}" class="btn btn-sm announcement-btn me-2 text-white" style="color: #356d98 !important;">Read More</a>
                                         {% if user.is_superuser %}
                                         <button class="btn btn-sm btn-outline-danger delete-blog" 
                                                 data-bs-toggle="modal" 

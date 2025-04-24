@@ -9,7 +9,7 @@ body {
 }
 
 .back-button {
-    color: #2d5a8b;
+    color: #356d98;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -17,13 +17,13 @@ body {
 }
 
 .blog-title {
-    color: #2d5a8b;
+    color: #356d98;
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .blog-meta {
-    color: #2d5a8b;
+    color: #356d98;
     margin-bottom: 2rem;
 }
 
