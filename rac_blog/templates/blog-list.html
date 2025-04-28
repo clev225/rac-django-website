@@ -23,8 +23,8 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
             max-width: 100%;
-            margin-bottom: 20px;
-            border-left: 4px solid #276695;
+            margin-bottom: 10px;  /* Changed from 20px to 10px */
+            border-left: 4px solid #356d98;
         }
         .blog-card:hover {
             transform: translateY(-5px);
@@ -37,10 +37,16 @@
             border-radius: 8px;
         }
         .blog-title {
-            color: #276695;
+            color: #356d98;
             font-weight: 600;
             font-size: 1.4rem;
             line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .blog-description {
             color: #555;
@@ -77,6 +83,7 @@
             display: flex;
             justify-content: flex-end;
             width: 100%;
+            margin-bottom: -10px;
         }
         @media (max-width: 768px) {
             .blog-card {
@@ -102,7 +109,7 @@
         .user-icon {
             width: 40px;
             height: 40px;
-            background-color: #3985c0;
+            background-color: #356d98;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -113,7 +120,9 @@
         }
         
         .user-icon:hover {
-            background-color: #2d6da3;
+            background-color:rgb(25, 73, 110);
+            border-color:rgb(25, 73, 110);
+            color: white;
         }
         
         .dropdown-menu {
@@ -151,8 +160,7 @@
         }
 
         .blog-badge {
-            background-color: #276695;
-            color: white;
+            color: #356d98;
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -161,8 +169,8 @@
         }
 
         .announcement-btn {
-            background-color: #276695;
-            border-color: #276695;
+            background-color: #356d98;
+            border-color: #356d98;
             color: white;
         }
         
@@ -203,7 +211,7 @@
                         {% elif message.tags == 'info' %} bg-info
                         {% elif 'login_success' in message.tags %} text-white
                         {% endif %}"
-                        {% if 'login_success' in message.tags %} style="background-color: #3985c0;"{% endif %}>
+                        {% if 'login_success' in message.tags %} style="background-color: #356d98;"{% endif %}>
                         <strong class="me-auto">
                             {% if message.tags == 'success' %}Success
                             {% elif message.tags == 'error' %}Error
@@ -225,7 +233,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col d-flex justify-content-between align-items-center flex-wrap">
-                <h1 class="text-black mb-2 mb-md-0">Blog Posts</h1>
+                <h1 class="text-center" style="color: #356d98; font-weight: bold;"><i class="fas fa-file-alt me-2"></i>Blogs</h1>
                 {% if user.is_superuser %}
                 <a href="{% url 'create_blog' %}" class="btn announcement-btn">
                     <i class="fas fa-pen-to-square me-1"></i> <span class="d-none d-sm-inline">Add New Blog</span><span class="d-inline d-sm-none">Add New</span>
@@ -237,7 +245,7 @@
         
         <div class="row g-4">
             {% for blog in blogs %}
-                <div class="col-lg-12">
+                <div class="col-lg-6">  <!-- Changed from col-lg-12 to col-lg-6 -->
                     <div class="blog-card h-100 p-3">
                         <div class="blog-grid">
                             <div class="blog-image-container">
@@ -250,12 +258,13 @@
                                 {% endif %}
                             </div>
                             <div class="blog-text-container">
-                                <span class="blog-badge"><i class="fas fa-newspaper me-1"></i> Blog Post</span>
-                                <h4 class="blog-title mb-2">{{ blog.title }}</h4>
-                                <p class="text-muted mb-1">By: {{ blog.author }}</p>
-                                <p class="text-muted mb-2"><small>Published on: {{ blog.date_published }}</small></p>
+                                <h4 class="blog-title mb-2" style="color: #356d98; font-size: 1.5rem; font-style: bold;" title="{{ blog.title }}">
+                                    {{ blog.title|truncatewords:3 }}
+                                </h4>
+                                <p class="text-muted mb-1"><i class="fas fa-file-alt me-1"></i> {{ blog.author }}</p>
+                                <p class="text-muted mb-2"><i class="fas fa-calendar-alt me-1"></i> {{ blog.date_published }}</small></p>
                                 <div class="blog-description mb-3">
-                                    <p>{{ blog.description|truncatechars:100 }}</p>
+                                    <p>{{ blog.description|truncatechars:34 }}</p>
                                 </div>
                                 <div class="blog-footer d-flex justify-content-end mt-auto">
                                     <div class="button-container">

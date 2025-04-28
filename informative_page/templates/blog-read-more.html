@@ -66,15 +66,7 @@
             margin: 15px auto;
             display: block;
         }
-        .blog-badge {
-            background-color: #276695;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
+    
     </style>
 </head>
 <body>
@@ -84,16 +76,16 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <a href="{% url 'blog_post' %}" class="btn btn-outline-secondary">
+                    <a href="{% url 'blog_post' %}" class="btn btn-outline-secondary" style = "background-color: #356d98; color: white;">
                         <i class="fas fa-arrow-left me-1"></i> Back to Blogs
                     </a>
                 </div>
                 
                 <div class="blog-container">
-                    <span class="blog-badge"><i class="fas fa-newspaper me-1"></i> Blog Post</span>
+                    <span class="blog-badge" style= "color: #356d98;"><i class="fas fa-file-alt me-1" style= "color: #356d98;"></i> Blog Post</span>
                     <h1 class="blog-title">{{ blog.title }}</h1>
                     <div class="blog-meta">
-                        <span><i class="fas fa-user me-1"></i> {{ blog.author.username }}</span>
+                        <span><i class="fas fa-user me-1"></i> {{ blog.author }}</span>
                         <span class="mx-2">|</span>
                         <span><i class="fas fa-calendar-alt me-1"></i> {{ blog.date_published }}</span>
                     </div>
@@ -103,8 +95,11 @@
                     {% endif %}
 
                     <div class="mb-4 p-3 bg-light rounded">
-                        <h5 class="text-secondary mb-2"><i class="fas fa-info-circle me-2"></i>Description</h5>
-                        <p class="mb-0">{{ blog.description }}</p>
+                        <h5 class="mb-2" style="font-size: 1rem; color: #356d98;">
+                            <i class="fas fa-info-circle me-2" style="color: #356d98; font-size: 1.25rem;"></i>
+                            Description
+                          </h5>
+                          <p class="mb-0">{{ blog.description }}</p>
                     </div>
                     
                     <div class="blog-content">

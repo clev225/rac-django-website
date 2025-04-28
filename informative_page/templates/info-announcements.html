@@ -28,6 +28,10 @@
         }
         .announcement-title {
             color: #356d98;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .announcement-badge {
             background-color: #356d98;
@@ -66,12 +70,12 @@
 </head>
 <body>
     {% include 'navbar-main.html' %}
-    <div class="blog-post-container mt-5 pt-5">
+    <div class="blog-post-container mt-2 pt-2">
         <div class="container py-4">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h1 class="text-center">Announcements</h1>
-                    <p class="text-center text-muted">Stay updated with the latest announcements from RAC</p>
+                    <h1 class="text-center" style ="color: #356d98; font-weight: bold;">Announcements</h1>
+                    <p class="text-center" style ="color: black;">Stay updated with the latest announcements from RAC</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -83,12 +87,12 @@
                                 <div class="blog-header d-flex align-items-center">
                                     <div class="blog-meta">
                                         <span class="announcement-badge"><i class="fas fa-bullhorn me-1"></i> Announcement</span>
-                                        <h1 class="blog-title announcement-title">{{ announcement.title }}</h1>
+                                        <h1 class="blog-title announcement-title" title="{{ announcement.title }}">{{ announcement.title|truncatechars:20 }}</h1>
                                         <div class="author-info">
-                                            <span class="by-text" style="color: black !important;">by</span>
-                                            <span class="author-name"style="color: #356d98 !important;">{{ announcement.author }}</span>
+                                            <span class="fas fa-user me-1" style="color: #6c757d !important;"></span>
+                                            <span class="author-name"style="color: #6c757d !important;">{{ announcement.author }}</span>
                                             <span class="mx-2">|</span>
-                                            <span class="date" style="color: #356d98 !important;"><i class="far fa-calendar-alt me-1" style="color: #356d98 !important;"></i>{{ announcement.date_published }}</span>
+                                            <span class="date" style="color: #6c757d !important;"><i class="far fa-calendar-alt me-1" style="color: #6c757d !important;"></i>{{ announcement.date_published }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -101,11 +105,11 @@
                                     {% endif %}
                                 </div>
 
-                                <div class="blog-description" style="color: black !important;">
+                                <div class="blog-description" style="color: black !important;" title="{% if announcement.description %}{{ announcement.description }}{% else %}{{ announcement.content }}{% endif %}">
                                     {% if announcement.description %}
-                                        {{ announcement.description }}
+                                        {{ announcement.description|truncatewords:7 }}
                                     {% else %}
-                                        {{ announcement.content|truncatewords:30 }}
+                                        {{ announcement.content|truncatechars:50 }}
                                     {% endif %}
                                 </div>
 
