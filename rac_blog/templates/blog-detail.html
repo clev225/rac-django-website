@@ -132,7 +132,6 @@
 
     {% include 'blog-navbar.html' %}
 
-    <!-- Toast container for messages -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         {% if messages %}
             {% for message in messages %}
@@ -268,6 +267,18 @@
                     closeBtn.addEventListener('click', function() {
                         bsToast.hide();
                     });
+                }
+            });
+            
+            // Make "Blog List" link bold on blog detail page
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                // Remove active class from all links first
+                link.classList.remove('active');
+                
+                // If the link text is "Blog List", make it active
+                if (link.textContent.trim() === 'Blog List') {
+                    link.classList.add('active');
                 }
             });
         });
