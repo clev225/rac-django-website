@@ -165,3 +165,5 @@ HANDLER400 = 'config.views.handler400'
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 20971520  # 20MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520  # 20MB
+
+APPEND_SLASH = True  # Default is True, ensures /faq redirects to /faq/
