@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{% static 'styles/team.css' %}">
 <link rel="stylesheet" href="{% static 'styles/navbar-main.css' %}">
 <style>
+    
     .navbar-nav .nav-item {
         margin: 0 !important;
     }
@@ -39,6 +40,25 @@
         font-size: 1rem !important;  /* Added to match dropdown items */
         font-family: 'Poppins', sans-serif !important;
     }
+    
+    /* Remove underline hover effect */
+    .navbar .navbar-nav .nav-link::after {
+        display: none !important;
+    }
+    
+    .navbar .navbar-nav .nav-link:hover::after,
+    .navbar .navbar-nav .nav-link.active::after {
+        display: none !important;
+    }
+    
+    /* Bold effect on hover and active state */
+    .navbar .navbar-nav .nav-link:hover,
+    .navbar .navbar-nav .nav-link.active {
+        color: #0056b3;
+        transform: scale(1.05);
+        font-weight: 700 !important;
+    }
+    
     .right-section {
         width: 50%;
         position: relative;

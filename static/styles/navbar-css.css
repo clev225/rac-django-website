@@ -24,6 +24,7 @@
     padding: 0 15px;
     transition: all 0.3s ease;
     transform: scale(1);
+    font-weight: normal; /* Default font weight */
 }
 
 /* Optional: Set hover and active states for nav-links */
@@ -31,15 +32,22 @@
 .navbar .navbar-nav .nav-link.active {
     color: #002d5e;
     transform: scale(1.05);
+    font-weight: 700; /* Bold font weight on hover and active */
 }
 
 .navbar-popover .modal-content ul li a {
     color: #356d98;
     position: relative;
     display: inline-block;
+    font-weight: normal; /* Default font weight */
 }
 
-/* Underline animation */
+.navbar-popover .modal-content ul li a:hover {
+    font-weight: 700; /* Bold font weight on hover */
+}
+
+/* 
+Underline animation
 .navbar .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
@@ -57,7 +65,7 @@
 .navbar .navbar-nav .nav-link.active::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
+} */
 
 /* Show navbar-nav on larger screens */
 @media (min-width: 992px) {

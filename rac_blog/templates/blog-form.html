@@ -52,6 +52,140 @@
         .note-editor {
             border-radius: 0.25rem;
         }
+        .navbar {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        position: fixed; /* Changed back to fixed */
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+    }
+    
+    /* Add this spacer to prevent content from being hidden under the navbar */
+    .navbar-spacer {
+        height: 70px; /* Adjust this value to match your navbar height */
+    }
+
+    .navbar-logo {
+        height: 40px;
+    }
+    
+    .navbar-nav {
+        align-items: center;
+    }
+    
+    .nav-link {
+        color: #333;
+        font-weight: 100;
+        margin: 0 10px;
+        transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+        color: #356d98;
+    }
+    
+    .nav-link.active {
+        font-weight: 700;
+        color: #356d98 !important;
+    }
+    
+    .user-profile {
+        position: relative;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    
+    .user-icon {
+        width: 35px;
+        height: 35px;
+        background-color: #356d98;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    .user-icon:hover {
+        background-color:rgb(25, 73, 110);
+            border-color:rgb(25, 73, 110);
+            color: white;
+    }
+    
+    .add-blog-btn {
+        background-color: #3985c0;
+        border-color: #3985c0;
+        color: white;
+        font-weight: 500;
+        padding: 0.375rem 0.75rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+    }
+    
+    .add-blog-btn:hover {
+        background-color: #2d6da3;
+        border-color: #2d6da3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        min-width: 150px;
+        display: none;
+        z-index: 1000;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+    }
+    
+    .dropdown-item {
+        padding: 8px 15px;
+        color: #333;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.2s;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .dropdown-item i {
+        margin-right: 8px;
+        color: #356d98;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-nav {
+            align-items: flex-start;
+        }
+        
+        .user-profile {
+            margin: 10px 0 0 10px;
+        }
+    }
 
         /* Responsive button styles */
         @media (max-width: 576px) {
@@ -81,12 +215,183 @@
                 margin-right: 0.2rem !important;
             }
         }
+
+        
+
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            position: fixed; /* Changed back to fixed */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+        
+        /* Add this spacer to prevent content from being hidden under the navbar */
+        .navbar-spacer {
+            height: 70px; /* Adjust this value to match your navbar height */
+        }
+    
+        .navbar-logo {
+            height: 40px;
+        }
+        
+        .navbar-nav {
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #333;
+            font-weight: 100;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #356d98;
+        }
+        
+        .nav-link.active {
+            font-weight: 700;
+            color: #356d98 !important;
+        }
+        
+        .user-profile {
+            position: relative;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .user-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #356d98;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .user-icon:hover {
+            background-color:rgb(25, 73, 110);
+                border-color:rgb(25, 73, 110);
+                color: white;
+        }
+        
+        .add-blog-btn {
+            background-color: #3985c0;
+            border-color: #3985c0;
+            color: white;
+            font-weight: 500;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .add-blog-btn:hover {
+            background-color: #2d6da3;
+            border-color: #2d6da3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 10px 0;
+            min-width: 150px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .dropdown-menu.show {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .dropdown-item i {
+            margin-right: 8px;
+            color: #356d98;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(255, 255, 255, 0.95);
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .navbar-nav {
+                align-items: flex-start;
+            }
+            
+            .user-profile {
+                margin: 10px 0 0 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    {% include 'blog-navbar.html' %}
-
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}" title="Go back to informative page">
+                <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo" title="Go back to informative page">
+            </a>        
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_list' %}" style="font-weight: 700; color: #356d98">Blog List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'announcement_list' %}">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="user-profile">
+                            <div class="user-icon" id="userProfileIcon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="dropdown-menu" id="userDropdown">
+                                <a href="{% url 'logout' %}" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="navbar-spacer"></div>
+    
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -305,6 +610,92 @@
                     previewModal.show();
                 });
             }
+        });
+    </script>
+    <!--navbar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // User profile dropdown functionality
+            const userIcon = document.getElementById('userProfileIcon');
+            const dropdown = document.getElementById('userDropdown');
+            
+            userIcon.addEventListener('click', function() {
+                dropdown.classList.toggle('show');
+            });
+            
+            // Close dropdown when clicking outside
+            window.addEventListener('click', function(event) {
+                if (!event.target.closest('.user-profile')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+            
+            // Navbar toggler functionality
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.getElementById('navbarNav');
+            
+            navbarToggler.addEventListener('click', function() {
+                navbarCollapse.classList.toggle('show');
+            });
+            
+            // Active menu item highlighting based on page type
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname;
+            
+            // Remove active class from all links first
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Define which paths should highlight which nav links
+            const blogPaths = ['blog-list', 'blog-form', 'blog-details', 'blog_list', 'blog_form', 'blog_detail'];
+            const announcementPaths = ['announcement', 'announcements', 'announcement-form', 'announcement-detail', 'announcement_list', 'announcement_form', 'announcement_detail'];
+            
+            // Check current path and set active class accordingly
+            let activeLinkSet = false;
+            
+            // Check if current path is a blog-related page
+            for (const pathPart of blogPaths) {
+                if (currentPath.includes(pathPart)) {
+                    // Find and activate the Blog List link
+                    navLinks.forEach(link => {
+                        if (link.textContent.trim() === 'Blog List') {
+                            link.classList.add('active');
+                            activeLinkSet = true;
+                        }
+                    });
+                    break;
+                }
+            }
+            
+            // If not a blog page, check if it's an announcement page
+            if (!activeLinkSet) {
+                for (const pathPart of announcementPaths) {
+                    if (currentPath.includes(pathPart)) {
+                        // Find and activate the Announcements link
+                        navLinks.forEach(link => {
+                            if (link.textContent.trim() === 'Announcements') {
+                                link.classList.add('active');
+                                activeLinkSet = true;
+                            }
+                        });
+                        break;
+                    }
+                }
+            }
+            
+            // Add click event to each nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Remove active class from all links
+                    navLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
         });
     </script>
 </body>

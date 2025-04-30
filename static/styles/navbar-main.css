@@ -43,6 +43,7 @@ body {
     font-size: 1.1rem;
     transition: all 0.3s ease;
     transform: scale(1);
+    font-weight: normal;
 }
 
 .navbar-popover .modal-content ul li a {
@@ -53,20 +54,24 @@ body {
     font-size: 1.1rem;
     transition: all 0.3s ease;
     transform: scale(1);
+    font-weight: normal;
 }
 
 /* Optional: Set hover and active states for nav-links */
-.navbar .navbar-nav .nav-link:hover,
+/* .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
     color: #0056b3;
     transform: scale(1.05);
+    font-weight: 700;
 }
 
 .navbar-popover .modal-content ul li a:hover {
     transform: scale(1.05);
-}
+    font-weight: 700;
+} */
 
-/* Underline animation */
+/* Remove underline animation */
+/* 
 .navbar .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
@@ -85,6 +90,7 @@ body {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+*/
 
 /* Prevent underline animation for dropdown toggle */
 .navbar .navbar-nav .dropdown .nav-link.dropdown-toggle::after {
