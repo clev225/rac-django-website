@@ -5,7 +5,7 @@ urlpatterns = [
     path("", views.index, name="index"),  # Homepage
     path("about-us/", views.about_us, name="about_us"),
     path("services/", views.services, name="services"),
-    path("FAQs/", views.FAQs, name="FAQs"),
+    path("faq/", views.faqs, name="faqs"),
     #services get started button
     path('services/payroll-management/', views.payroll_management, name='payroll_management'),
     path('services/business-registration/', views.business_registration, name='business_registration'),

@@ -68,6 +68,23 @@
         color: white;
         text-decoration: none;
     }
+
+    .button-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    @media (max-width: 480px) {
+        // ... existing code ...
+        
+        .button-group {
+            flex-direction: column;
+            width: 100%;
+            max-width: 250px;
+        }
+    }
     
     /* Media Queries */
     @media (max-width: 768px) {
@@ -99,9 +116,14 @@
     <div class="error-container">
         <h1 class="error-heading"><b>{{ error_code }}</b></h1>
         <p class="error-message">{{ error_message }}</p>
-        <a href="{% url 'index' %}" class="back-button">
-            Back to Homepage
-        </a>
+        <div class="button-group">
+            <a href="javascript:history.back()" class="back-button mr-2">
+                Go Back to Previous Page
+            </a>
+            <a href="{% url 'index' %}" class="back-button">
+                Back to Homepage
+            </a>
+        </div>
     </div>
     
     <!-- JavaScript -->
