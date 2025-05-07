@@ -16,7 +16,7 @@ body {
 .navbar {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid #3985c0;
+    border-bottom: 2px solid #356d98;
 }
 
 .navbar-brand img.navbar-logo {
@@ -31,9 +31,9 @@ body {
 }
 
 /* Set the color of the nav-links with increased specificity */
-.navbar .navbar-nav .nav-item {
-    margin: 0 10px;  /* Added new class for spacing */
-}
+/* .navbar .navbar-nav .nav-item {
+    margin: 0 10px; 
+} */
 
 .navbar .navbar-nav .nav-link {
     color: #356d98 !important;
@@ -121,7 +121,7 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     border: none;
     padding: 0.5rem 0;
-    border-top: 2px solid #3985c0;
+    border-top: 2px solid #356d98;
     animation: fadeIn 0.2s ease-in-out;
 }
 
@@ -134,13 +134,13 @@ body {
     padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    color: #3985c0 !important;
+    color: #356d98 !important;
     text-decoration: none !important;
 }
 
 .dropdown-item:hover {
     background-color: rgba(57, 133, 192, 0.1);
-    color: #0056b3 !important;
+    color: #356d98 !important;
     transform: scale(1.02);
 }
 

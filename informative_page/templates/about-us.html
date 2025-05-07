@@ -1,237 +1,246 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - RAC Consultancy</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'images/rac-logo.png' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - RAC Consultancy</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/rac-logo.png' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/styles/about-us.css">
-    <link rel="stylesheet" href="/static/styles/faq.css">
-    <link rel="stylesheet" href="/static/styles/navbar-main.css">
-    <link rel="stylesheet" href="/static/styles/navbar-popover.css">
-    <link rel="stylesheet" href="/static/styles/footer-styles.css">
+        <link rel="stylesheet" href="/static/styles/about-us.css">
+        <link rel="stylesheet" href="/static/styles/faq.css">
+        <link rel="stylesheet" href="/static/styles/navbar-main.css">
+        <link rel="stylesheet" href="/static/styles/navbar-popover.css">
+        <link rel="stylesheet" href="/static/styles/footer-styles.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <style>
+        body, html {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar .navbar-nav .nav-link {
+            padding: 0px 8.7px !important;
+            font-size: 1.1rem !important;  /* Changed to 1rem to match services page */
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 400 !important;
+        }
+        
+    </style>
+    <body>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+        {% block navbar %}
+        {% include 'navbar-main.html' with about_us_active=True %}
+        {% endblock navbar %}
+        {% include 'modal.html' %}    
+        
 
-<style>
-    body, html {
-        font-family: 'Poppins', sans-serif !important;
-    }
-    
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-</style>
-<body>
-
-    <!-- Navbar will be loaded here -->
-    {% include 'navbar-main.html' %}
-    {% include 'modal.html' %}
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container-fluid p-0">
-            <img src="/static/images/about-hero.jpg" alt="Hero Image" class="img-fluid">
-        </div>
-    </section>
-
-    <!-- About Us Content -->
-    <section class="about-us-section">
-        <div class="container fade-in">
-            <div class="row justify-content-center">
-                <div class="col-md-10 text-center">
-                    <h2>RAC Consultancy</h2>
-                    <p class="about-text">
-                        <span class="company-name" style = "font-size: 20px;">RAC Consultancy</span> <span style= "color: #333333; font-size: 20px;">is a strategic advisory firm dedicated to helping businesses achieve sustainable growth and operational excellence. With expertise in business development, financial planning, market analysis, and process optimization, RAC empowers startups, SMEs, and large enterprises to navigate challenges and seize opportunities. </span>
-                    </p>
-                </div>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container-fluid p-0">
+                <img src="/static/images/about-hero.jpg" alt="Hero Image" class="img-fluid">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Overview Section -->
-    <section class="about-overview">
-        <div class="container fade-in">
-            <div class="row align-items-center">
-                <div class="col-lg-6 content-col">
-                    <div class="content-wrapper">
-                        <h2>Our Expertise</h2>
-                        <p class="lead" style = "color: #333333; font-size: 20px;">Our team of seasoned consultants provides <span class="highlighted-text">solutions, data-driven insights, and innovative strategies to enhance efficiency, profitability, and competitiveness.</span></p>
-                        <p><span style = "color: #333333; font-size: 20px;">Whether you're launching a new venture, scaling operations, or refining your business model, RAC is your trusted partner in success. </span></p>
-                    </div>
-                </div>
-                <div class="col-lg-6 image-col">
-                    <div class="image-wrapper">
-                        <img src="/static/images/about2.jpg" alt="Team Meeting" class="img-fluid rounded shadow">
+        <!-- About Us Content -->
+        <section class="about-us-section">
+            <div class="container fade-in">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 text-center">
+                        <h2>RAC Consultancy</h2>
+                        <p class="about-text">
+                            <span class="company-name" style = "font-size: 20px;">RAC Consultancy</span> <span style= "color: #333333; font-size: 20px;">is a strategic advisory firm dedicated to helping businesses achieve sustainable growth and operational excellence. With expertise in business development, financial planning, market analysis, and process optimization, RAC empowers startups, SMEs, and large enterprises to navigate challenges and seize opportunities. </span>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Full Width Image Section -->
-    <section class="full-width-section">
-        <div class="container-fluid px-0">
-            <div class="banner-image-container" style="border: 2px solid #356d98">
-                <img src="/static/images/about3.jpg" alt="RAC Team" class="w-100">
-            </div>
-        </div>
-    </section>
-
-    <!-- About Statement Section -->
-    <section class="about-statement py-5">
-        <div class="container fade-in">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="text-center about-statement-text">
-                        <p class="lead">
-                            <span style = "color: #333333; font-size: 20px;">At</span> <b> RAC Consultancy </b>,<span style = "color: #333333; font-size: 20px;"> we turn vision into reality, guiding businesses toward long-term
-                            prosperity through expert consultancy and actionable solutions.
-                            </span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values, Mission, and Vision Section -->
-    <section class="values-section py-5">
-        <div class="container fade-in">
-            <div class="row">
-                <!-- Core Values on the Left -->
-                <div class="col-lg-7">
-                    <div class="values-card p-4">
-                        <h3 class="section-title text-center mb-4">Core Values</h3>
-                        <div class="value-item">
-                            <h4 class="value-title">1. Integrity</h4>
-                            <p class="value-text"><span style = "color: #333333; font-size: 20px;">We uphold the highest standards of integrity in all our interactions. We are committed to being honest, transparent, and ethical in all aspects of our business.</span></p>
+        <!-- About Overview Section -->
+        <section class="about-overview">
+            <div class="container fade-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 content-col">
+                        <div class="content-wrapper">
+                            <h2>Our Expertise</h2>
+                            <p class="lead" style = "color: #333333; font-size: 20px;">Our team of seasoned consultants provides <span class="highlighted-text">solutions, data-driven insights, and innovative strategies to enhance efficiency, profitability, and competitiveness.</span></p>
+                            <p><span style = "color: #333333; font-size: 20px;">Whether you're launching a new venture, scaling operations, or refining your business model, RAC is your trusted partner in success. </span></p>
                         </div>
-                        <div class="value-item">
-                            <h4 class="value-title">2. Collaboration</h4>
-                            <p class="value-text"><span style = "color: #333333; font-size: 20px;">We believe in the power of collaboration and teamwork. We work closely with our clients to understand their unique needs and goals, and we collaborate with them to develop customized financial solutions.</span></p>
-                        </div>
-                        <div class="value-item">
-                            <h4 class="value-title">3. Client-Centric Approach</h4>
-                            <p class="value-text"><span style = "color: #333333; font-size: 20px;">We prioritize the interests and success of our clients above all else. We strive to build strong, long-term relationships with our clients by understanding their needs and providing personalized services to help them achieve their financial goals.</span></p>
+                    </div>
+                    <div class="col-lg-6 image-col">
+                        <div class="image-wrapper">
+                            <img src="/static/images/about2.jpg" alt="Team Meeting" class="img-fluid rounded shadow">
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Mission and Vision on the Right -->
-                <div class="col-lg-5">
-                    <div class="mission-card p-4 mb-4">
-                        <h3 class="section-title text-center">Mission</h3>
-                        <p class="mission-text"><span style = "color: #333333; font-size: 20px;"> RAC CONSULTANCY is dedicated to delivering effective and efficient services to partners and clients in line with the company's aim to maintain integrity and confidentiality at all times.</p>
-                    </span></div>
-                    <div class="vision-card p-4">
-                        <h3 class="section-title text-center">Vision</h3>
-                        <p class="vision-text"><span style = "color: #333333; font-size: 20px;">To be one of the most trusted one-stop business consultancy firm to address every business needs.</p>
+        <!-- Full Width Image Section -->
+        <section class="full-width-section">
+            <div class="container-fluid px-0">
+                <div class="banner-image-container" style="border: 2px solid #356d98">
+                    <img src="/static/images/about3.jpg" alt="RAC Team" class="w-100">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Statement Section -->
+        <section class="about-statement py-5">
+            <div class="container fade-in">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="text-center about-statement-text">
+                            <p class="lead">
+                                <span style = "color: #333333; font-size: 20px;">At</span> <b> RAC Consultancy </b>,<span style = "color: #333333; font-size: 20px;"> we turn vision into reality, guiding businesses toward long-term
+                                prosperity through expert consultancy and actionable solutions.
+                                </span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values, Mission, and Vision Section -->
+        <section class="values-section py-5">
+            <div class="container fade-in">
+                <div class="row">
+                    <!-- Core Values on the Left -->
+                    <div class="col-lg-7">
+                        <div class="values-card p-4">
+                            <h3 class="section-title text-center mb-4">Core Values</h3>
+                            <div class="value-item">
+                                <h4 class="value-title">1. Integrity</h4>
+                                <p class="value-text"><span style = "color: #333333; font-size: 20px;">We uphold the highest standards of integrity in all our interactions. We are committed to being honest, transparent, and ethical in all aspects of our business.</span></p>
+                            </div>
+                            <div class="value-item">
+                                <h4 class="value-title">2. Collaboration</h4>
+                                <p class="value-text"><span style = "color: #333333; font-size: 20px;">We believe in the power of collaboration and teamwork. We work closely with our clients to understand their unique needs and goals, and we collaborate with them to develop customized financial solutions.</span></p>
+                            </div>
+                            <div class="value-item">
+                                <h4 class="value-title">3. Client-Centric Approach</h4>
+                                <p class="value-text"><span style = "color: #333333; font-size: 20px;">We prioritize the interests and success of our clients above all else. We strive to build strong, long-term relationships with our clients by understanding their needs and providing personalized services to help them achieve their financial goals.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mission and Vision on the Right -->
+                    <div class="col-lg-5">
+                        <div class="mission-card p-4 mb-4">
+                            <h3 class="section-title text-center">Mission</h3>
+                            <p class="mission-text"><span style = "color: #333333; font-size: 20px;"> RAC CONSULTANCY is dedicated to delivering effective and efficient services to partners and clients in line with the company's aim to maintain integrity and confidentiality at all times.</p>
                         </span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founders Section -->
-    <section class="founders-section">
-        <div class="container fade-in">
-            <div class="section-title-container" style="padding-bottom: 25px">
-                <h2 class="section-title">Founders of RAC Consultancy</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="founder-card d-flex flex-column">
-                        <div class="d-flex align-items-start">
-                            <div class="founder-image">
-                                <img src="{% static '/images/ryan1.png' %}" alt="Mr. Ryan B. Endrinal" style="margin-top: 8px;">
-                            </div>
-                            <div class="founder-info ms-4">
-                                <h3 class="founder-name">Mr. Ryan B. Endrinal</h3>
-                                <p class="founder-title">CEO, RAC Consultancy</p>
-                            </div>
-                        </div>
-                        <p class="founder-description">
-                            <span style = "color: #333333;">With a deep passion for financial consulting, Mr. Ryan Endrinal brings a wealth of experience and expertise to R.A.C Consultancy. He has a proven track record of assisting businesses in streamlining the financial processes and achieving their financial goals. His leadership and commitment to client satisfaction are instrumental in driving the company's success.
-                            </span></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="founder-card d-flex flex-column">
-                        <div class="d-flex align-items-start">
-                            <div class="founder-image">
-                                <img src="{% static 'images/alexis1.png' %}" alt="Mr. Alexis A. Velasco">
-                            </div>
-                            <div class="founder-info ms-4">
-                                <h3 class="founder-name">Mr. Alexis A. Velasco</h3>
-                                <p class="founder-title">CFO, RAC Consultancy</p>
-                            </div>
-                        </div>
-                        <p class="founder-description">
-                            <span style = "color: #333333;">As the Chief Financial Officer, Mr. Alexis Velasco brings his extensive knowledge and expertise in financial management to R.A.C Consultancy. With a strong background in accounting and financial analysis, he ensures the company's financial operations are efficient, compliant, and aligned with the needs of our clients.
-                            </span></p>
+                        <div class="vision-card p-4">
+                            <h3 class="section-title text-center">Vision</h3>
+                            <p class="vision-text"><span style = "color: #333333; font-size: 20px;">To be one of the most trusted one-stop business consultancy firm to address every business needs.</p>
+                            </span></div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Founders Section -->
+        <section class="founders-section">
+            <div class="container fade-in">
+                <div class="section-title-container" style="padding-bottom: 25px">
+                    <h2 class="section-title">Founders of RAC Consultancy</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="founder-card d-flex flex-column">
+                            <div class="d-flex align-items-start">
+                                <div class="founder-image">
+                                    <img src="{% static '/images/ryan1.png' %}" alt="Mr. Ryan B. Endrinal" style="margin-top: 8px;">
+                                </div>
+                                <div class="founder-info ms-4">
+                                    <h3 class="founder-name">Mr. Ryan B. Endrinal</h3>
+                                    <p class="founder-title">CEO, RAC Consultancy</p>
+                                </div>
+                            </div>
+                            <p class="founder-description">
+                                <span style = "color: #333333;">With a deep passion for financial consulting, Mr. Ryan Endrinal brings a wealth of experience and expertise to R.A.C Consultancy. He has a proven track record of assisting businesses in streamlining the financial processes and achieving their financial goals. His leadership and commitment to client satisfaction are instrumental in driving the company's success.
+                                </span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="founder-card d-flex flex-column">
+                            <div class="d-flex align-items-start">
+                                <div class="founder-image">
+                                    <img src="{% static 'images/alexis1.png' %}" alt="Mr. Alexis A. Velasco">
+                                </div>
+                                <div class="founder-info ms-4">
+                                    <h3 class="founder-name">Mr. Alexis A. Velasco</h3>
+                                    <p class="founder-title">CFO, RAC Consultancy</p>
+                                </div>
+                            </div>
+                            <p class="founder-description">
+                                <span style = "color: #333333;">As the Chief Financial Officer, Mr. Alexis Velasco brings his extensive knowledge and expertise in financial management to R.A.C Consultancy. With a strong background in accounting and financial analysis, he ensures the company's financial operations are efficient, compliant, and aligned with the needs of our clients.
+                                </span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Icon -->
+        <div class="faq-icon" id="faqIcon">
+            <a href="{% url 'FAQs'%}">
+                <i class="fas fa-question-circle"></i>
+            </a>
         </div>
-    </section>
 
-    <!-- FAQ Icon -->
-    <div class="faq-icon" id="faqIcon">
-        <a href="{% url 'FAQs'%}">
-            <i class="fas fa-question-circle"></i>
-        </a>
-    </div>
+        
+        <!-- Footer Placeholder -->
+        <div id="footer">
+            {% include 'footer.html' %}
+        </div>
 
-    
-    <!-- Footer Placeholder -->
-    <div id="footer">
-        {% include 'footer.html' %}
-    </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{% static '/scripts/scripts.js' %}"></script>
+        <script src="{% static '/scripts/popover.js' %}"></script>
+        <script src="{% static '/scripts/faq-script.js' %}"></script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Fade in animation
+                const fadeElements = document.querySelectorAll('.fade-in');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{% static '/scripts/scripts.js' %}"></script>
-    <script src="{% static '/scripts/popover.js' %}"></script>
-    <script src="{% static '/scripts/faq-script.js' %}"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fade in animation
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
+                fadeElements.forEach(element => {
+                    observer.observe(element);
                 });
-            }, { threshold: 0.1 });
 
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Add smooth scrolling for footer/contact section
-            document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const footer = document.getElementById('footer');
-                    if (footer) {
-                        footer.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                // Add smooth scrolling for footer/contact section
+                document.querySelectorAll('a[href="#footer"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const footer = document.getElementById('footer');
+                        if (footer) {
+                            footer.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
                 });
             });
-        });
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>
