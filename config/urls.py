@@ -27,7 +27,7 @@ from .views import handler404, handler403, handler400
 
 urlpatterns = [
     path("", include("informative_page.urls")),  # Make informative_page the default app
-    path("", include("rac_blog.urls")),  # ✅ Ensure rac_blog URLs are loaded
+    path("blog", include("rac_blog.urls")),  # ✅ Ensure rac_blog URLs are loaded
 
     # Redirect /admin to custom login
     path('admin/', lambda request: redirect('rac_blog_login'), name='admin_redirect'),
