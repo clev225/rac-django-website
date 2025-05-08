@@ -34,14 +34,12 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
-        /* Service Button */
         .service-button {
             align-self: flex-start;
             margin-left: 20px; 
             margin-top: 0px; 
         }
 
-        /* Get Started Button */
         .get-started {
             background: #356d98;
             color: white;
@@ -61,8 +59,12 @@
             color: white;
             text-decoration: none !important; 
         }
-        
-        /* Check icon styling */
+        .service-row:hover {
+            background-color: rgba(53, 109, 152, 0.1);
+           
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            
+        }
         .service-title:before {
             content: "\f00c"; /* Font Awesome check icon */
             font-family: "Font Awesome 5 Free";
@@ -71,7 +73,6 @@
             margin-right: 10px;
         }
         
-        /* Custom bullet color */
         .service-text {
             list-style: none;
         }
@@ -88,8 +89,21 @@
             color: #2d5f86; /* Changed bullet color */
             font-size: 1.25rem;
         }
-
-        /* Update navbar styles */
+        .navbar .navbar-nav .nav-link {
+            padding: 0px 8.7px !important;
+            font-size: 1.1rem !important;  /* Changed to 1rem to match services page */
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 400 !important;
+        }
+ 
+        /* Bold effect on hover and active state */
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link.active {
+            color: #0056b3;
+            transform: scale(1.05);
+            font-weight: 700 !important;
+        }
+        
         .navbar {
             position: fixed !important; /* Change from sticky to fixed */
             top: 0;
@@ -102,12 +116,10 @@
             width: 100%;
         }
 
-        /* Add body padding to prevent content from hiding under navbar */
         body {
             padding-top: 76px !important; /* Height of your navbar */
         }
 
-        /* Adjust search container position */
         .search-container {
             margin-top: 20px;
             position: relative;
@@ -133,11 +145,14 @@
         }
         
     </style>
+
+
 </head>
 
 <body>
     <!-- Include Navbar -->
-    {% include 'navbar-main.html' %}
+    {% include 'navbar-main.html' with services_active=True %}
+   
     {% include 'modal.html' %}
 
     <!-- Search Bar -->
@@ -148,6 +163,7 @@
     <div id="noResults" style="display: none; text-align: center; padding: 20px; color: #333333;">
         No services found matching your search.
     </div>
+
 
     <div class="services-container" id="servicesContainer">
         <div class="service-row">

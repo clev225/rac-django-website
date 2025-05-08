@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="{% static 'styles/navbar-main.css' %}">
 <style>
     
-    .navbar-nav .nav-item {
+    {% comment %} .navbar-nav .nav-item {
         margin: 0 !important;
-    }
+    } {% endcomment %}
     
     .navbar .navbar-nav .nav-link {
-        padding: 8px 15px !important;
+        padding: 0px 11px !important;
         font-size: 1.1rem !important;  /* Changed to 1rem to match services page */
         font-family: 'Poppins', sans-serif !important;
         font-weight: 400 !important;
@@ -29,19 +29,21 @@
         margin-left: auto !important;
     }
     
-    /* Ensure consistent spacing in dropdown */
     .dropdown-menu {
-        padding: 0.5rem 0;
-        margin: 0;
+        border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: none;
+    padding: 0.5rem 0;
+    border-top: 2px solid #356d98;
+    animation: fadeIn 0.2s ease-in-out;
     }
     
     .dropdown-item {
-        padding: 0.25rem 1.5rem;
+        padding: 0.05rem 1.5rem;
         font-size: 1rem !important;  /* Added to match dropdown items */
         font-family: 'Poppins', sans-serif !important;
     }
     
-    /* Remove underline hover effect */
     .navbar .navbar-nav .nav-link::after {
         display: none !important;
     }
@@ -103,48 +105,9 @@
 {% endblock styles %}
 
 {% block navbar %}
-<!-- Use the exact same navbar from base.html -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index'%}">
-            <img src="/static/images/rac-landing-new.png" alt="Logo" class="navbar-logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'services' %}">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'team' %}">Team RAC</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#footer">Contacts</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        News & Updates
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'info_announcements' %}" style="color: #356d98;">Announcements</a></li>
-                        <li><a class="dropdown-item" href="{% url 'blog_post' %}" style="color: #356d98;">Blogs</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% include 'navbar-main.html' with about_us_active=True %}
 {% endblock navbar %}
+{% include 'modal.html' %} 
 
 {% block content %}
 <div class="team-container">

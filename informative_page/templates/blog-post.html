@@ -84,7 +84,8 @@
 </style>
 
 <body>
-    {% include 'navbar-main.html' %}
+    {% include 'navbar-main.html' with news_updates_active=True %}
+
     <div class="blog-post-container mt-2 pt-2">
         <div class="container py-4">
             <div class="row mb-4">
