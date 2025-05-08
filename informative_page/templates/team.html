@@ -31,18 +31,23 @@
     
     .dropdown-menu {
         border-radius: 0.25rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    border: none;
-    padding: 0.5rem 0;
-    border-top: 2px solid #356d98;
-    animation: fadeIn 0.2s ease-in-out;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: none;
+        padding: 0.15rem 0;  /* Further reduced from 0.25rem to 0.15rem */
+        border-top: 2px solid #356d98;
+        animation: fadeIn 0.2s ease-in-out;
+        font-size: 0.875rem;
+        width: auto;  /* Let it size to content */
+        min-width: 8rem;  /* Reduced from standard 10rem to 8rem */
     }
     
     .dropdown-item {
-        padding: 0.05rem 1.5rem;
-        font-size: 1rem !important;  /* Added to match dropdown items */
+        padding: 0.15rem 0.75rem;  /* Further reduced padding */
+        font-size: 0.875rem !important;
         font-family: 'Poppins', sans-serif !important;
-    }
+        white-space: nowrap;
+        line-height: 1.2;  /* Reduced line height */
+    }   
     
     .navbar .navbar-nav .nav-link::after {
         display: none !important;
@@ -105,7 +110,7 @@
 {% endblock styles %}
 
 {% block navbar %}
-{% include 'navbar-main.html' with about_us_active=True %}
+{% include 'navbar-main.html' with team_active=True %}
 {% endblock navbar %}
 {% include 'modal.html' %} 
 
