@@ -21,4 +21,4 @@ jobs:
           script: |
             cd /var/www/rac-django-website
             git pull origin main
-            docker compose up --detach --build
+            docker compose up -d --build
