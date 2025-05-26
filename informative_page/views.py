@@ -11,7 +11,7 @@ def about_us(request):
 def services(request):
     return render(request, "services.html")
 
-def faqs(request):
+def faq(request):
     return render(request, "faqs.html")
 
 #services get started button
